@@ -12,6 +12,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 ### Procedure:
 
 #### Task1: Compile and verify using GCC Compiler:
+
 1. **Code Snippet for finding sum of first n numbers:**
 
     ```c
@@ -40,6 +41,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 
 #### Task2: Compile and verify using RISC-V GNU Compiler:
+
 1. **Command for compiling the code using  RISC-V GCC compiler:**
    ```c
    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sumton.o sumton.c
@@ -53,3 +55,6 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 ### Resources:
 - [GCC Documentation](https://gcc.gnu.org/onlinedocs/)
 - [RISC-V GNU Compiler Toolchain Documentation](https://riscv.org/software-tools/risc-v-gnu-compiler-toolchain/)
+
+---
+## Lab Session 2
