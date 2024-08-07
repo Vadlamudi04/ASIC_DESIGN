@@ -56,7 +56,8 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```
    **Result:** This creates an object file "1tonsum.o"
    
-   ![PHOTO-2024-08-07-16-04-09](https://github.com/user-attachments/assets/3b1bdf64-c5fb-46e7-aed3-27a6f184d8c9)
+   ![2](https://github.com/user-attachments/assets/49269d01-46a2-45b1-8d36-12da7b295106)
+
 
 3. **Command for getting the assembly language code:**
    ```c
