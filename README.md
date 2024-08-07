@@ -41,13 +41,13 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 #### Task2: Compile and verify using RISC-V GNU Compiler:
 1. **Command for compiling the code using  RISC-V GCC compiler:**
-  ```c
-  riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sumton.o sumton.c
-  ```
+   ```c
+   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sumton.o sumton.c
+   ```
 2. **Command for getting the assembly language code:**
-  ```c
-  riscv64-unknown-elf-objdump -d sumton.o | less
-  ```
+   ```c
+   riscv64-unknown-elf-objdump -d sumton.o | less
+   ```
 3. **Output:**
 
 ### Resources:
