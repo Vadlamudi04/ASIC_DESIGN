@@ -140,21 +140,27 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```c
    spike pk 1tonsum.o
    ```
-   **Observation**
+
+   ![PHOTO-2024-08-07-19-20-10](https://github.com/user-attachments/assets/77847277-bdd6-44db-9add-70082692af55)
+
+   **Observation:**
    
-   We have verified that output is same using the gcc and the riscv compiler.
+   We can see that output is same using the gcc and the riscv compiler.
 
 <strong>Objective 2 (debuging the assembly code):</strong>
 
-   ![5](https://github.com/user-attachments/assets/78398fde-df3c-47f9-b480-670a4eb3e707)
 
 1. **Use the following code to open debuging mode:**
    ```c
    spike -d pk 1tonsum.o
    ```
    
-   After this we will be entering debuging mode.Now we will let the Spike debugger's program counter run until it reaches the 100b0 instruction which is the starting of main function by typing the below code.
+   ![PHOTO-2024-08-07-19-36-07](https://github.com/user-attachments/assets/f251a5c9-5dfe-484c-b059-bb07adeb22c2)
 
+   After this we will be entering debuging mode.Now we will let the Spike debugger's program counter run until it reaches the 100b0 instruction which is the starting of main function by typing the below code.
+   
+   ![5](https://github.com/user-attachments/assets/78398fde-df3c-47f9-b480-670a4eb3e707)
+   
 3. **Use the following code to move pc to main function location:**
       ```c
       until pc 0 100b0
@@ -168,9 +174,14 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```
    **Observation:**
    
+   ![PHOTO-2024-08-07-19-37-40](https://github.com/user-attachments/assets/bae0a282-e88f-4aa9-8d3c-cbfb6ba3cd30)
+
    The lui a2, 0x1 instruction updates the a2 register's value from ```0x0000000000000000``` to ```0x0000000000001000```. This indicates that the lui instruction performs basic addition to the upper 20 bits of the register with the specified value (in this case, 0x1), while the lower 12 bits remain unchanged.
 
    Next, we will debug the next instruction addi sp, sp, -16, which reduces the stack pointer (sp) by 16. To do this run all the instructions till 100b8.
+   
+   ![5](https://github.com/user-attachments/assets/78398fde-df3c-47f9-b480-670a4eb3e707)
+   
 1. **Use the following code to move pc to location 100b8:**
    ```
    until pc 0 100b8
@@ -183,6 +194,8 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    To check what "addi" instruction does we will be checking the value of sp before and after execution of instruction.Inorder to move on to the next instruction press ```Enter```.
    
    **Observation:**
+
+   ![PHOTO-2024-08-07-19-38-59](https://github.com/user-attachments/assets/e4407027-a6a9-47fc-8599-b53f06f0babb)
 
    The addi sp,sp,-16 instruction updates the sp register's value from ```0x0000003ffffffb50``` to ```0x0000003ffffffb50```.Which makes it evident that the addition of (-16) took place and the value 10 ( 16 in decimal base and 10 in hexadecimal base ) has been deducted.
 </details>
