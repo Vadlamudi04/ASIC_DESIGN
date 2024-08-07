@@ -165,16 +165,17 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       ```
       until pc 0 100b0
       ```
-   Since a2 is the register present at the location od 100b0 we will be checking the a2 register before and after execution of instruction.Inorder to move on to the next instruction press ```Enter```.
+   Since a2 is the register present at the location of 100b0 we will be checking the a2 register before and after execution of instruction.Inorder to move on to the next instruction press ```Enter```.
    
 4. **Execute the following command in order to check the contents of registor 'a2':**
 
    ```
    reg 0 a2
    ```
-   **Observation:**
    
    ![PHOTO-2024-08-07-19-37-40](https://github.com/user-attachments/assets/bae0a282-e88f-4aa9-8d3c-cbfb6ba3cd30)
+   
+   **Observation:**
 
    The lui a2, 0x1 instruction updates the a2 register's value from ```0x0000000000000000``` to ```0x0000000000001000```. This indicates that the lui instruction performs basic addition to the upper 20 bits of the register with the specified value (in this case, 0x1), while the lower 12 bits remain unchanged.
 
@@ -192,10 +193,10 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    reg 0 sp
    ```
    To check what "addi" instruction does we will be checking the value of sp before and after execution of instruction.Inorder to move on to the next instruction press ```Enter```.
-   
-   **Observation:**
 
    ![PHOTO-2024-08-07-19-38-59](https://github.com/user-attachments/assets/e4407027-a6a9-47fc-8599-b53f06f0babb)
+   
+   **Observation:**
 
    The addi sp,sp,-16 instruction updates the sp register's value from ```0x0000003ffffffb50``` to ```0x0000003ffffffb50```.Which makes it evident that the addition of (-16) took place and the value 10 ( 16 in decimal base and 10 in hexadecimal base ) has been deducted.
 </details>
