@@ -44,11 +44,11 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 1. **Command for compiling the code using  RISC-V GCC compiler:**
    ```c
-   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sumton.o sumton.c
+   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o 1tonsum.o 1tonsum.c
    ```
 2. **Command for getting the assembly language code:**
    ```c
-   riscv64-unknown-elf-objdump -d sumton.o | less
+   riscv64-unknown-elf-objdump -d 1tonsum.o | less
    ```
 3. **Output:**
 
