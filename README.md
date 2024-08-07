@@ -22,11 +22,11 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
     ```c
     #include <stdio.h>
     int main() {
-        int i=0;int sum=0;int n=14;
-        for(int i=1;i<=n;i+=1){
+        int i;int sum=0;int n=100;
+        for(int i=1;i<=n;i++){
           sum+=i;
         }
-        printf("The sum of numbers from 1 to %d is %d\n",n,sum);
+        printf("Sum to numbers from 1 to %d is %d\n",n,sum);
         return 0;
     }
     ```
@@ -40,7 +40,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```
 5. **Output:**
    ```c
-   The sum of numbers from 1 to 100 is 5050
+   Sum to numbers from 1 to 100 is 5050
    ```
 
    ![PHOTO-2024-08-07-16-04-09](https://github.com/user-attachments/assets/015736d9-882d-441b-b2b1-8a47916fd7e7)
