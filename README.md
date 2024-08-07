@@ -12,11 +12,14 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 <ol>
   <li><b>Code Snippet:</b></li>
   
-    ```c
     #include <stdio.h>
     
     int main() {
-        printf("Hello, World!\n");
+        int i=0;int sum=0;int n=8;
+        for(int i=1;i<=n;i+=1){
+          sum+=i;
+        }
+        printf("The sum of numbers from 1 to %d is %d",n,sum);
         return 0;
     }
   
