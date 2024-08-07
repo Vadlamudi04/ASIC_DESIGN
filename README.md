@@ -46,7 +46,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 #### Task2: Compile and verify using RISC-V GNU Compiler and optimize the compilation using O1 and Ofast.:
 
-##### using O1 optimization
+#### Using O1 optimization
 
 1. **Command for compiling the code using  RISC-V GCC compiler using O1 optimization:**
    ```c
@@ -58,12 +58,13 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```c
    riscv64-unknown-elf-objdump -d 1tonsum.o | less
    ```
-   Result: From the assembly lanuage code search "/main" 
+   Result:  As soon as you enter the above command, a huge list of opcode is shown in the terminal.
+   But we are interested in main section of the program so type : /main 
 3. **Obseravtion:**
    
    There are x lines of opcode in the main section.
 
-##### using Ofast optimization
+#### Using Ofast optimization
 
 1. **Command for compiling the code using  RISC-V GCC compiler using -O1 optimization:**
    ```c
@@ -75,10 +76,20 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```c
    riscv64-unknown-elf-objdump -d 1tonsum.o | less
    ```
-   Result: From the assembly lanuage code search "/main" 
+   Result:  As soon as you enter the above command, a huge list of opcode is shown in the terminal.
+   But we are interested in main section of the program so type : /main 
 3. **Obseravtion:**
    
    There are x lines of opcode in the main section.
+   
+### Results:
+
+1. There are x lines of opcode in the main section for O1.
+2. There are x lines of opcode in the main section for Ofast.
+3. There are x lines of opcode in the main section for O2.
+4. There are x lines of opcode in the main section for O3.
+
+**Hence The compilation in the Ox procedure is optimised**
 
 
 ### Resources:
