@@ -127,11 +127,59 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 ### Procedure:
 
+<strong>Objective 1</strong>
+
    **Step1** Use the below command for compiling 1tonsum.c using RISCV Compiler.
    
    ```c
    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o 1tonsum.o 1tonsum.c
    ```
-   **Step2**
+   **Step2** After compiling our program with the RISC-V compiler, we need to run it to obtain the output, similar to how we use ./a.out with the GCC compiler. To achieve this, use 
+   the Spike Simulator and enter the following command:
+   
+   ```c
+   spike pk 1tonsum.o
+   ```
+   **Observation**
+   
+   We have verified that output is same using the gcc and the riscv compiler.
 
+<strong>Objective 2 (debuging the assembly code)</strong>
+
+1. **Use the following code to open debuging mode**
+   ```c
+   spike -d pk 1tonsum.o
+   ```
+   
+   After this we will be entering debuging mode.Now we will let the Spike debugger's program counter run until it reaches the 100b0 instruction which is the starting of main function by typing the below code.
+2. **Use the following code to move pc to main function location**
+      ```c
+      until pc 0 100b0
+      ```
+   Since a2 is the register present at the location od 100b0 we will be checking the a2 register before and after execution of instruction.Inorder to move on to the next instruction press ```Enter```.
+   
+4. **Execute the following command in order to check the contents of registor 'a2'**
+
+   ```
+   reg 0 a2
+   ```
+   **Observation**
+   
+   The lui a2, 0x1 instruction updates the a2 register's value from ```0x0000000000000000``` to ```0x0000000000001000```. This indicates that the lui instruction performs basic addition to the upper 20 bits of the register with the specified value (in this case, 0x1), while the lower 12 bits remain unchanged.
+
+   Next, we will debug the next instruction addi sp, sp, -16, which reduces the stack pointer (sp) by 16. To do this run all the instructions till 100b8.
+1. **Use the following code to move pc to location 100b8**
+   ```
+   until pc 0 100b8
+   ```
+2. **Execute the following command in order to check the contents of 'sp'**
+
+   ```
+   reg 0 sp
+   ```
+   To check what "addi" instruction does we will be checking the value of sp before and after execution of instruction.Inorder to move on to the next instruction press ```Enter```.
+   
+   **Observation**
+
+   The addi sp,sp,-16 instruction updates the sp register's value from ```0x0000003ffffffb50``` to ```0x0000003ffffffb50```.Which makes it evident that the addition of (-16) took place and the value 10 ( 16 in decimal base and 10 in hexadecimal base ) has been deducted.
 </details>
