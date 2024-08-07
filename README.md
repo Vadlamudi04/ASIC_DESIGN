@@ -46,7 +46,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ![PHOTO-2024-08-07-16-04-09](https://github.com/user-attachments/assets/015736d9-882d-441b-b2b1-8a47916fd7e7)
 
 
-### Task2: Compile and verify using RISC-V GNU Compiler and optimize the compilation using O1 and Ofast:
+### Task2: Compile and verify using RISC-V GNU Compiler and optimize the compilation using O1,Ofast,O2 and O3:
 
 #### Using O1 optimization:
 
