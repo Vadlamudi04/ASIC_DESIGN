@@ -51,7 +51,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 #### Additional Resources
 
-- For more information, you can visit the following links:
+ For more information, you can visit the following links:
 
 - [GCC Documentation](https://gcc.gnu.org/onlinedocs/)
 - [RISC-V GNU Compiler Toolchain Documentation](https://riscv.org/software-tools/risc-v-gnu-compiler-toolchain/)
