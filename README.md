@@ -1,8 +1,6 @@
 # ASIC_DESIGN
 
-## [Lab Session 1](lab_session_1.md)
-
-# Lab Session 1
+## Lab Session 1
 
 ### Objective:
 We need to compile and verify a basic C code of sum to numbers from 1 to n using GCC and by using RISC-V GNU compiler toolchain on Ubuntu, then compare the outputs.
