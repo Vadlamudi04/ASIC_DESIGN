@@ -1,6 +1,6 @@
 # ASIC_DESIGN
-
-## Lab Session 1
+<details>
+<summary><strong>Lab Session 1</strong></summary>
 
 ### Objective:
 We need to compile and verify a basic C code of sum to numbers from 1 to n using GCC and by using RISC-V GNU compiler toolchain on Ubuntu, then compare the outputs.
@@ -108,10 +108,13 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 ### Resources:
 - [GCC Documentation](https://gcc.gnu.org/onlinedocs/)
 - [RISC-V GNU Compiler Toolchain Documentation](https://riscv.org/software-tools/risc-v-gnu-compiler-toolchain/)
-
+  
+<details>
 ---
-## Lab Session 2
-
+   
+<details>
+<summary><strong>Lab Session 2</strong></summary>
+   
 ### Objective:
 
 1. **To compile the Object dump file and verify the output with the GCC output from Lab Session 1.**
@@ -125,3 +128,4 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 ### Procedure:
 
+<details>
