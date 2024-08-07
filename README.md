@@ -26,7 +26,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
     }
     ```
 2. **Command for compiling the above code in terminal**
-   ```c
+   ```
    gcc 1tonsum.c
    ```
 3. **Command for getting output**
@@ -34,7 +34,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ./a.out
    ```
 4. **Output**
-   ```
+   ```c
    The sum of numbers from 1 to 8 is 36
    ```
 
