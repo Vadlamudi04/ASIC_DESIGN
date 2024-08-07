@@ -17,7 +17,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
     ```c
     #include <stdio.h>
     int main() {
-        int i=0;int sum=0;int n=8;
+        int i=0;int sum=0;int n=4;
         for(int i=1;i<=n;i+=1){
           sum+=i;
         }
@@ -25,7 +25,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
         return 0;
     }
     ```
-2. **Command for compiling the above code in terminal**
+2. **Command for compiling the above code in terminal using GCC compiler**
    ```
    gcc 1tonsum.c
    ```
@@ -35,7 +35,15 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```
 4. **Output**
    ```c
-   The sum of numbers from 1 to 8 is 36
+   The sum of numbers from 1 to 4 is 10
    ```
 
 #### Compile and verify using RISC-V GNU Compiler:
+1.**Command for compiling the code using  RISC-V GCC compiler**
+  ```c
+  riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sumton.o sumton.c
+  ```
+2.**Command for getting the assembly code**
+  ```c
+  riscv64-unknown-elf-objdump -d sumton.o | less
+  ```
