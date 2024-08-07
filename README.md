@@ -12,7 +12,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 ### Procedure:
 
 #### Compile and verify using GCC Compiler:
-1. **Code Snippet:**
+1. **Code Snippet for finding sum of first n numbers:**
 
     ```c
     #include <stdio.h>
@@ -25,5 +25,15 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
         return 0;
     }
     ```
+2. **Command for compiling the above code in terminal**
+   ```c
+   gcc 1tonsum.c
+   ```
+3. **Command for getting output**
+   ```c
+   ./a.out
+   ```
+4. **Output**
+
 
 #### Compile and verify using RISC-V GNU Compiler:
