@@ -116,8 +116,8 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    
 ### Objective:
 
-1. **To compile the Object dump file and verify the output with the GCC output from Lab Session 1.**
-2. **To debug the main section of the previous program and observe register values after each step of compilation.**
+1. To compile the Object dump file and verify the output with the GCC output from Lab Session 1.
+2. To debug the main section of the previous program and observe register values after each step of compilation.
 
 ### Tools required:
 
@@ -129,19 +129,19 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 <strong>Objective 1:</strong>
 
-   **Step1** Use the below command for compiling 1tonsum.c using RISCV Compiler.
+   1. **Use the below command for compiling 1tonsum.c using RISCV Compiler.**
    
    ```c
    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o 1tonsum.o 1tonsum.c
    ```
-   **Step2** After compiling our program with the RISC-V compiler, we need to run it to obtain the output, similar to how we use ./a.out with the GCC compiler. To achieve this, use 
-   the Spike Simulator and enter the following command:
+   2. **After compiling our program with the RISC-V compiler, we need to run it to obtain the output, similar to how we use ./a.out with the GCC compiler. To achieve this, use 
+   the Spike Simulator and enter the following command:**
    
    ```
    spike pk 1tonsum.o
    ```
-   
-    ![PHOTO-2024-08-07-19-20-10](https://github.com/user-attachments/assets/77847277-bdd6-44db-9add-70082692af55)
+
+   ![PHOTO-2024-08-07-19-20-10](https://github.com/user-attachments/assets/77847277-bdd6-44db-9add-70082692af55)
 
 
    **Observation:**
