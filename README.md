@@ -35,11 +35,11 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    gcc 1tonsum.c
    ```
 4. **Command for getting output:**
-   ```c
+   ```
    ./a.out
    ```
 5. **Output:**
-   ```c
+   ```
    Sum to numbers from 1 to 100 is 5050
    ```
 
@@ -137,7 +137,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    **Step2** After compiling our program with the RISC-V compiler, we need to run it to obtain the output, similar to how we use ./a.out with the GCC compiler. To achieve this, use 
    the Spike Simulator and enter the following command:
    
-   ```c
+   ```
    spike pk 1tonsum.o
    ```
 
@@ -151,7 +151,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 
 1. **Use the following code to open debuging mode:**
-   ```c
+   ```
    spike -d pk 1tonsum.o
    ```
    
@@ -162,7 +162,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ![5](https://github.com/user-attachments/assets/78398fde-df3c-47f9-b480-670a4eb3e707)
    
 3. **Use the following code to move pc to main function location:**
-      ```c
+      ```
       until pc 0 100b0
       ```
    Since a2 is the register present at the location od 100b0 we will be checking the a2 register before and after execution of instruction.Inorder to move on to the next instruction press ```Enter```.
