@@ -44,17 +44,42 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```
 
 
-#### Task2: Compile and verify using RISC-V GNU Compiler:
+#### Task2: Compile and verify using RISC-V GNU Compiler and optimize the compilation using O1 and Ofast.:
 
-1. **Command for compiling the code using  RISC-V GCC compiler:**
+##### using O1 optimization
+
+1. **Command for compiling the code using  RISC-V GCC compiler using O1 optimization:**
    ```c
    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o 1tonsum.o 1tonsum.c
    ```
+   Result: This creates an object file "1tonsum.o"
+   
 2. **Command for getting the assembly language code:**
    ```c
    riscv64-unknown-elf-objdump -d 1tonsum.o | less
    ```
-3. **Output:**
+   Result: From the assembly lanuage code search "/main" 
+3. **Obseravtion:**
+   
+   There are x lines of opcode in the main section.
+
+##### using Ofast optimization
+
+1. **Command for compiling the code using  RISC-V GCC compiler using -O1 optimization:**
+   ```c
+   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o 1tonsum.o 1tonsum.c
+   ```
+   Result: This creates an object file "1tonsum.o"
+   
+2. **Command for getting the assembly language code:**
+   ```c
+   riscv64-unknown-elf-objdump -d 1tonsum.o | less
+   ```
+   Result: From the assembly lanuage code search "/main" 
+3. **Obseravtion:**
+   
+   There are x lines of opcode in the main section.
+
 
 ### Resources:
 - [GCC Documentation](https://gcc.gnu.org/onlinedocs/)
@@ -62,3 +87,8 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 ---
 ## Lab Session 2
+
+### Objective:
+1. **To compile the Object dump file and verify the output with the GCC output from Lab 1.**
+2. **To debug the main function and observe register values.**
+
