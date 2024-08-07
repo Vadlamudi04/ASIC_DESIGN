@@ -11,7 +11,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 ### Procedure:
 
-#### Task1: Compile and verify using GCC Compiler:
+### Task1: Compile and verify using GCC Compiler:
 1. **Code to create a texteditor**
    ```
    leafpad 1tonsum.c
@@ -44,7 +44,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```
 
 
-#### Task2: Compile and verify using RISC-V GNU Compiler and optimize the compilation using O1 and Ofast.:
+### Task2: Compile and verify using RISC-V GNU Compiler and optimize the compilation using O1 and Ofast.:
 
 #### Using O1 optimization
 
