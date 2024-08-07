@@ -11,8 +11,8 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 <h4>Compile and verify using GCC Compiler:</h4>
 <ol>
   <li><b>Code Snippet:</b></li>
+  
     #include <stdio.h>
-    
     int main() {
         int i=0;int sum=0;int n=8;
         for(int i=1;i<=n;i+=1){
