@@ -10,7 +10,15 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 <h3>Procedure:</h3>
 <h4>Compile and verify using GCC Compiler:</h4>
 <ol>
-  <li><b>Code Snippet</b></li>
+  <li><b>Code Snippet:</b></li>
+  
+    ```c
+    #include <stdio.h>
+    
+    int main() {
+        printf("Hello, World!\n");
+        return 0;
+    }
   
 </ol>
 <h4>Compile and verify using RISC-V GNU Compiler:</h4>
