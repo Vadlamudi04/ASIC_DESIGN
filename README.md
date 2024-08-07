@@ -40,7 +40,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```
 5. **Output:**
    ```c
-   The sum of numbers from 1 to 100 is 36
+   The sum of numbers from 1 to 100 is 5050
    ```
 
    ![PHOTO-2024-08-07-16-04-09](https://github.com/user-attachments/assets/015736d9-882d-441b-b2b1-8a47916fd7e7)
