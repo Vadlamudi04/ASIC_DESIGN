@@ -22,7 +22,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
     ```c
     #include <stdio.h>
     int main() {
-        int i=0;int sum=0;int n=8;
+        int i=0;int sum=0;int n=14;
         for(int i=1;i<=n;i+=1){
           sum+=i;
         }
@@ -40,7 +40,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```
 5. **Output:**
    ```c
-   The sum of numbers from 1 to 8 is 36
+   The sum of numbers from 1 to 100 is 36
    ```
 
 
@@ -62,11 +62,11 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    But we are interested in main section of the program so type : /main 
 3. **Obseravtion:**
    
-   There are x lines of opcode in the main section.
+   There are 15 lines of opcode in the main section.
 
 #### Using Ofast optimization:
 
-1. **Command for compiling the code using  RISC-V GCC compiler using -O1 optimization:**
+1. **Command for compiling the code using  RISC-V GCC compiler using -Ofast optimization:**
    ```c
    riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o 1tonsum.o 1tonsum.c
    ```
@@ -80,16 +80,16 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    But we are interested in main section of the program so type : /main 
 3. **Obseravtion:**
    
-   There are x lines of opcode in the main section.
+   There are 12 lines of opcode in the main section.
    
 ### Results:
 
-1. There are x lines of opcode in the main section for O1.
-2. There are x lines of opcode in the main section for Ofast.
-3. There are x lines of opcode in the main section for O2.
-4. There are x lines of opcode in the main section for O3.
+1. There are 15 lines of opcode in the main section for O1.
+2. There are 12 lines of opcode in the main section for Ofast.
+3. There are 12 lines of opcode in the main section for O2.
+4. There are 12 lines of opcode in the main section for O3.
 
-**Hence The compilation in the Ox procedure is optimised**
+**Hence The compilation in the O1 procedure is the one which takes most number of instructions.**
 
 
 ### Resources:
