@@ -56,14 +56,18 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```
    **Result:** This creates an object file "1tonsum.o"
    
-2. **Command for getting the assembly language code:**
+   ![PHOTO-2024-08-07-16-04-09](https://github.com/user-attachments/assets/3b1bdf64-c5fb-46e7-aed3-27a6f184d8c9)
+
+3. **Command for getting the assembly language code:**
    ```c
    riscv64-unknown-elf-objdump -d 1tonsum.o | less
    ```
    **Result:**  As soon as you enter the above command, a huge list of opcode is shown in the terminal.
    But we are interested in main section of the program so type : /main 
-3. **Obseravtion:**
+4. **Obseravtion:**
    
+   ![3](https://github.com/user-attachments/assets/af0fd908-3d5d-4fd3-b7e1-d2dc56efc951)
+
    There are 15 lines of opcode in the main section.
 
 #### Using Ofast optimization:
@@ -74,17 +78,23 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```
    **Result:** This creates an object file "1tonsum.o"
    
-2. **Command for getting the assembly language code:**
+   ![4](https://github.com/user-attachments/assets/35cf5501-0d07-43af-a492-55ac1765d998)
+
+3. **Command for getting the assembly language code:**
    ```c
    riscv64-unknown-elf-objdump -d 1tonsum.o | less
    ```
    **Result:**  As soon as you enter the above command, a huge list of opcode is shown in the terminal.
    But we are interested in main section of the program so type : /main 
-3. **Obseravtion:**
+4. **Obseravtion:**
    
+   ![5](https://github.com/user-attachments/assets/2b63d5c8-4618-497e-a036-588297b97d47)
+
    There are 12 lines of opcode in the main section.
    
 ### Results:
+
+   ![6](https://github.com/user-attachments/assets/6846d35c-1aee-4997-be56-750b753b8c9b)
 
 1. There are 15 lines of opcode in the main section for O1.
 2. There are 12 lines of opcode in the main section for Ofast.
