@@ -198,5 +198,10 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    
    **Observation:**
 
+   - [Spike RISC-V Simulator Documentation](https://github.com/riscv-software-src/riscv-isa-sim)
+
    The addi sp,sp,-16 instruction updates the sp register's value from ```0x0000003ffffffb50``` to ```0x0000003ffffffb50```.Which makes it evident that the addition of (-16) took place and the value 10 ( 16 in decimal base and 10 in hexadecimal base ) has been deducted.
+
+### References:
+   
 </details>
