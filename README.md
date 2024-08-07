@@ -12,8 +12,12 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 ### Procedure:
 
 #### Task1: Compile and verify using GCC Compiler:
-
-1. **Code Snippet for finding sum of first n numbers:**
+1. **Code to create a texteditor**
+   ```
+   leafpad 1tonsum.c
+   ```
+    
+2. **Code Snippet for finding sum of first n numbers:**
 
     ```c
     #include <stdio.h>
@@ -26,15 +30,15 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
         return 0;
     }
     ```
-2. **Command for compiling the above code in terminal using GCC compiler:**
+3. **Command for compiling the above code in terminal using GCC compiler:**
    ```
    gcc 1tonsum.c
    ```
-3. **Command for getting output:**
+4. **Command for getting output:**
    ```c
    ./a.out
    ```
-4. **Output:**
+5. **Output:**
    ```c
    The sum of numbers from 1 to 8 is 36
    ```
