@@ -38,6 +38,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    The sum of numbers from 1 to 4 is 10
    ```
 
+
 #### Task2: Compile and verify using RISC-V GNU Compiler:
 1. **Command for compiling the code using  RISC-V GCC compiler:**
   ```c
