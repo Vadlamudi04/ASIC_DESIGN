@@ -18,7 +18,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
     ```c
     #include <stdio.h>
     int main() {
-        int i=0;int sum=0;int n=4;
+        int i=0;int sum=0;int n=8;
         for(int i=1;i<=n;i+=1){
           sum+=i;
         }
@@ -36,7 +36,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```
 4. **Output:**
    ```c
-   The sum of numbers from 1 to 4 is 10
+   The sum of numbers from 1 to 8 is 36
    ```
 
 
