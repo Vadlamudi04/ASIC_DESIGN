@@ -11,7 +11,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 <h4>Compile and verify using GCC Compiler:</h4>
 <ol>
   <li><b>Code Snippet:</b></li>
-  ```
+    '''
     #include <stdio.h>
     
     int main() {
@@ -22,7 +22,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
         printf("The sum of numbers from 1 to %d is %d",n,sum);
         return 0;
     }
-    ```
+    '''
   
 </ol>
 <h4>Compile and verify using RISC-V GNU Compiler:</h4>
