@@ -127,4 +127,11 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 ### Procedure:
 
+   **Step1** Use the below command for compiling 1tonsum.c using RISCV Compiler.
+   
+   ```c
+   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o 1tonsum.o 1tonsum.c
+   ```
+   **Step2**
+
 </details>
