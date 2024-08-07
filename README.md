@@ -140,8 +140,9 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```
    spike pk 1tonsum.o
    ```
+   
+    ![PHOTO-2024-08-07-19-20-10](https://github.com/user-attachments/assets/77847277-bdd6-44db-9add-70082692af55)
 
-   ![PHOTO-2024-08-07-19-20-10](https://github.com/user-attachments/assets/77847277-bdd6-44db-9add-70082692af55)
 
    **Observation:**
    
