@@ -21,7 +21,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
         for(int i=1;i<=n;i+=1){
           sum+=i;
         }
-        printf("The sum of numbers from 1 to %d is %d",n,sum);
+        printf("The sum of numbers from 1 to %d is %d\n",n,sum);
         return 0;
     }
     ```
