@@ -102,7 +102,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 3. There are 12 lines of opcode in the main section for O2.
 4. There are 12 lines of opcode in the main section for O3.
 
-**Hence The compilation in the O1 procedure is the one which takes most number of instructions.**
+**Hence Compilation using O1 optimization takes the most number of instructions(most time).**
 
 
 ### Resources:
