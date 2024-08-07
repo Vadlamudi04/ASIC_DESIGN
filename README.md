@@ -44,7 +44,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```
 
 
-### Task2: Compile and verify using RISC-V GNU Compiler and optimize the compilation using O1 and Ofast.:
+### Task2: Compile and verify using RISC-V GNU Compiler and optimize the compilation using O1 and Ofast:
 
 #### Using O1 optimization
 
@@ -52,13 +52,13 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```c
    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o 1tonsum.o 1tonsum.c
    ```
-   Result: This creates an object file "1tonsum.o"
+   **Result:** This creates an object file "1tonsum.o"
    
 2. **Command for getting the assembly language code:**
    ```c
    riscv64-unknown-elf-objdump -d 1tonsum.o | less
    ```
-   Result:  As soon as you enter the above command, a huge list of opcode is shown in the terminal.
+   **Result:**  As soon as you enter the above command, a huge list of opcode is shown in the terminal.
    But we are interested in main section of the program so type : /main 
 3. **Obseravtion:**
    
@@ -70,13 +70,13 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    ```c
    riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o 1tonsum.o 1tonsum.c
    ```
-   Result: This creates an object file "1tonsum.o"
+   **Result:** This creates an object file "1tonsum.o"
    
 2. **Command for getting the assembly language code:**
    ```c
    riscv64-unknown-elf-objdump -d 1tonsum.o | less
    ```
-   Result:  As soon as you enter the above command, a huge list of opcode is shown in the terminal.
+   **Result:**  As soon as you enter the above command, a huge list of opcode is shown in the terminal.
    But we are interested in main section of the program so type : /main 
 3. **Obseravtion:**
    
