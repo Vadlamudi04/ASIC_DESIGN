@@ -222,6 +222,12 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 ![r](https://github.com/user-attachments/assets/714d5206-0dc4-47fd-8c62-cf65fcec60a6)
 
+- Base instruction set table for predefined values
+
+![g](https://github.com/user-attachments/assets/55b8f0ef-0468-47ee-b882-c7ffde7c56c9)
+
+
+
 <u>R-type</u>
 ---
    - In RISC-V, the R-Type instruction format is used for arithmetic, logical, and other operations that involve only registers. These instructions typically operate on two source registers and store the result in a destination register.
