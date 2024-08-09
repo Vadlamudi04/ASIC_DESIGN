@@ -206,3 +206,253 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
    - [Spike RISC-V Simulator Documentation](https://github.com/riscv-software-src/riscv-isa-sim)
       
 </details>
+
+<details>
+<summary><strong>Lab Session 3</strong></summary>
+
+### Objective:
+
+1. To identify various RISC-V instruction types (R, I, S, B, U, J).
+2. To determine the exact 32-bit instruction code for specific RISC-V instructions.
+
+### Procedure:
+- The RISC-V architecture uses several instruction formats to handle various operations. The six primary formats are R-Type, I-Type, S-Type, B-Type, U-Type, and J-Type, each designed for specific tasks such as arithmetic, logic operations, handling immediate values, branching, memory access, and jumps.
+  
+- Instruction formats for various RISC-V instruction types.
+
+![r](https://github.com/user-attachments/assets/714d5206-0dc4-47fd-8c62-cf65fcec60a6)
+
+<u>R-type</u>
+---
+   - In RISC-V, the R-Type instruction format is used for arithmetic, logical, and other operations that involve only registers. These instructions typically operate on two source registers and store the result in a destination register.
+   - Structure of R-Type Instructions:
+        - An R-Type instruction is 32 bits long and consists of the following fields:
+           - ```funct7 (7 bits)```: Specifies the operation variant, often used to differentiate between similar operations (e.g., ADD vs. SUB).
+           - ```rs2 (5 bits)```: The second source register.
+           - ```rs1 (5 bits)```: The first source register.
+           - ```funct3 (3 bits)```: Specifies the operation type (e.g., ADD, AND, OR).
+           - ```rd (5 bits)```: The destination register where the result is stored.
+           - ```opcode (7 bits)```: Identifies the general type of instruction (e.g., 0110011 for R-Type operations).
+
+<u>I-type</u>
+---
+   - In RISC-V, the I-Type instruction format is used for operations that involve an immediate value (a constant encoded directly in the instruction) along with one or two registers. These instructions are typically used for arithmetic operations with an immediate, memory access (load), and certain control flow operations.
+   - Structure of I-Type Instructions:
+      - An I-Type instruction is 32 bits long and consists of the following fields:
+         - ```imm[11:0] (12 bits)```: The immediate value, often sign-extended to 32 bits when used.
+         - ```rs1 (5 bits)```: The source register that provides an operand.
+         - ```funct3 (3 bits)```: Specifies the operation type (e.g., ADDI, SLTI, LW).
+         - ```rd (5 bits)```: The destination register where the result is stored.
+         - ```opcode (7 bits)```: Identifies the general type of instruction (e.g., 0010011 for arithmetic operations with an immediate).
+
+<u>S-type</u>
+---
+   - In RISC-V, the S-Type instruction format is used for store operations, where data from a register is stored into memory. These instructions typically calculate the memory address using a base register and an immediate value, then store the data at that address.
+   - Structure of S-Type Instructions:
+      - An S-Type instruction is 32 bits long and consists of the following fields:
+         - ```imm[11:5] (7 bits```: The upper 7 bits of the immediate value.
+         - ```rs2 (5 bits)```: The source register containing the data to be stored.
+         - ```rs1 (5 bits)```: The base register that provides the base address for the memory operation.
+         - ```funct3 (3 bits)```: Specifies the operation type (e.g., SW for storing a word, SH for storing a halfword).
+         - ```imm[4:0] (5 bits)```: The lower 5 bits of the immediate value.
+         - ```opcode (7 bits)```: Identifies the general type of instruction (e.g., 0100011 for store operations).
+
+<u>B-type</u>
+---
+   - In RISC-V, the B-Type instruction format is used for conditional branch operations. These instructions compare two registers and, based on the result, may branch to a different instruction address calculated using an immediate value.
+   - Structure of B-Type Instructions:
+      - A B-Type instruction is 32 bits long and consists of the following fields:
+         - ```imm[12] (1 bit)```: The most significant bit of the immediate value.
+         - ```imm[10:5] (6 bits)```: The next 6 bits of the immediate value.
+         - ```rs2 (5 bits)```: The second source register for the comparison.
+         - ```rs1 (5 bits)```: The first source register for the comparison.
+         - ```funct3 (3 bits)```: Specifies the comparison operation type (e.g., BEQ for branch if equal, BNE for branch if not equal).
+         - ```imm[4:1] (4 bits)```: The next 4 bits of the immediate value.
+         - ```imm[11] (1 bit)```: The 11th bit of the immediate value.
+         - ```opcode (7 bits)```: Identifies the general type of instruction (e.g., 1100011 for branch operations).
+
+<u>U-type</u>
+---
+   - In RISC-V, the U-Type instruction format is used for operations that involve loading a large immediate value into a register. These instructions are typically used for creating 32-bit constants or setting the upper 20 bits of a register.
+   - Structure of U-Type Instructions:
+      - A U-Type instruction is 32 bits long and consists of the following fields:
+         - ```imm[31:12] (20 bits)```: The immediate value, representing the upper 20 bits of the target value.
+         - ```rd (5 bits)```: The destination register where the result is stored.
+         - ```opcode (7 bits)```: Identifies the general type of instruction (e.g., 0110111 for LUI or 0010111 for AUIPC).
+
+<u>J-type</u>
+---
+   - In RISC-V, the J-Type instruction format is used for jump operations, specifically for the JAL (Jump and Link) instruction. This instruction sets the program counter (PC) to a target address calculated using an immediate value, and it also stores the return address in a register.
+   - Structure of J-Type Instructions:
+      - A J-Type instruction is 32 bits long and consists of the following fields:
+         - ```imm[20] (1 bit)```: The most significant bit of the immediate value.
+         - ```imm[10:1] (10 bits)```: The next 10 bits of the immediate value.
+         - ```imm[11] (1 bit)```: The 11th bit of the immediate value.
+         - ```imm[19:12] (8 bits)```: The next 8 bits of the immediate value.
+         - ```rd (5 bits)```: The destination register where the return address is stored.
+         - ```opcode (7 bits)```: Identifies the general type of instruction (e.g., 1101111 for the JAL instruction).
+
+
+
+**Identifying various RISC-V instruction type (R, I, S, B, U, J) and exact 32-bit instruction code in the instruction type format for below RISC-V instructions**
+
+   ```
+    ADD r1, r2, r3
+    SUB r3, r1, r2
+    AND r2, r1, r3
+    OR r8, r2, r5
+    XOR r8, r1, r4
+    SLT r10, r2, r4
+    ADDI r12, r3, 5
+    SW r3, r1, 4
+    SRL r16, r11, r2
+    BNE r0, r1, 20
+    BEQ r0, r0, 15
+    LW r13, r11, 2
+    SLL r15, r11, r2
+   ```
+   - ```ADD r1, r2, r3```
+      - Opcode for ADD = 0110011
+      - rd = r1 = 00001
+      - rs1 = r2 = 00010
+      - rs2 = r3 = 00011
+      - func3 = 000
+      - func7 = 0000000
+      - **Instruction Type:** R Type
+      - **32-bit Instruction:**
+      - **Hexadecimal representation:**
+      
+        
+   - ```SUB r3, r1, r2```
+      - Opcode for SUB = 
+      - rd = r3 = 00011
+      - rs1 = r1 = 00001
+      - rs2 = r2 = 00010
+      - func3 = 
+      - func7 = 
+      - **Instruction Type:** R Type
+      - **32-bit Instruction:**
+      - **Hexadecimal representation:**
+        
+   - ```AND r2, r1, r3```
+      - Opcode for AND = 
+      - rd = r2 = 00010
+      - rs1 = r1 = 00001
+      - rs2 = r3 = 00011
+      - func3 = 
+      - func7 = 
+      - **Instruction Type:** R Type
+      - **32-bit Instruction:**
+      - **Hexadecimal representation:**
+        
+   - ```OR r8, r2, r5```
+      - Opcode for OR = 0110011
+      - rd = r8 = 01000
+      - rs1 = r2 = 00010
+      - rs2 = r5 = 00101
+      - func3 = 
+      - func7 = 
+      - **Instruction Type:** R Type
+      - **32-bit Instruction:**
+      - **Hexadecimal representation:**     
+     
+   - ```XOR r8, r1, r4```
+      - Opcode for XOR = 
+      - rd = r8 = 01000
+      - rs1 = r1 = 00001
+      - rs2 = r4 = 00100
+      - func3 = 
+      - func7 = 
+      - **Instruction Type:** R Type
+      - **32-bit Instruction:**
+      - **Hexadecimal representation:**
+ 
+   - ```SLT r10, r2, r4```
+      - Opcode for SLT = 
+      - rd = r10 = 01010
+      - rs1 = r2 = 00010
+      - rs2 = r4 = 00100
+      - func3 = 
+      - func7 = 
+      - **Instruction Type:** R Type
+      - **32-bit Instruction:**
+      - **Hexadecimal representation:**
+ 
+   - ```ADDI r12, r3, 5```
+      - Opcode for ADDI = 0010011
+      - rd = r12 = 01100
+      - rs1 = r3 = 00010
+      - imm = 000000000101
+      - func3 = 
+      - **Instruction Type:** I Type
+      - **32-bit Instruction:**
+      - **Hexadecimal representation:**
+      
+   - ```SW r3, r1, 4```
+      - Opcode for SW = 0100011
+      - rs1 = r3 = 00011
+      - rs2 = r1 = 00001
+      - imm = 0000000 0100
+      - func3 = 010
+      - **Instruction Type:** S Type
+      - **32-bit Instruction:**
+      - **Hexadecimal representation:**
+
+   - ```SRL r16, r11, r2```
+      - Opcode for SRL = 
+      - rd = r16 = 10000
+      - rs1 = r11 = 01011
+      - rs2 = r2 = 00010
+      - func3 = 
+      - func7 = 
+      - **Instruction Type:** R Type
+      - **32-bit Instruction:**
+      - **Hexadecimal representation:**
+
+   - ```BNE r0, r1, 20```
+      - Opcode for BNE = 
+      - rs1 = r0 = 00000
+      - rs2 = r1 = 00001
+      - Imm[12:1] = 20 = 
+      - func3 = 000
+      - **Instruction Type:** B Type
+      - **32-bit Instruction:**
+      - **Hexadecimal representation:**
+        
+   - ```BEQ r0, r0, 15```
+      - Opcode for BEQ = 1100011
+      - rs1 = r0 = 00000
+      - rs2 = r0 = 00000
+      - Imm[12:1] = 15 = 
+      - func3 = 000
+      - **Instruction Type:** B Type
+      - **32-bit Instruction:**
+      - **Hexadecimal representation:**
+   
+   - ```LW r13, r11, 2```
+      - Opcode for LW = 
+      - rd = r13 = 01101
+      - rs1 = r11 = 01011
+      - imm = 000000000010
+      - func3 = 
+      - **Instruction Type:** I Type
+      - **32-bit Instruction:**
+      - **Hexadecimal representation:**
+              
+   - ```SLL r15, r11, r2```
+      - Opcode for SLL = 
+      - rd = r15 = 01111
+      - rs1 = r11 = 01011
+      - rs2 = r2 = 00010
+      - func3 = 
+      - func7 = 
+      - **Instruction Type:** R Type
+      - **32-bit Instruction:**
+      - **Hexadecimal representation:**  
+
+### References:
+
+   - [RISC-V Instruction Set Manual](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf)
+
+
+</details>
