@@ -325,30 +325,30 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func3 = 000
       - func7 = 0000000
       - **Instruction Type:** R Type
-      - **32-bit Instruction:**
+      - **32-bit Instruction:** 0000000_00011_00010_000_00001_0110011
       - **Hexadecimal representation:**
       
         
    - ```SUB r3, r1, r2```
-      - Opcode for SUB = 
+      - Opcode for SUB = 0110011
       - rd = r3 = 00011
       - rs1 = r1 = 00001
       - rs2 = r2 = 00010
-      - func3 = 
-      - func7 = 
+      - func3 = 000
+      - func7 = 0100000
       - **Instruction Type:** R Type
-      - **32-bit Instruction:**
+      - **32-bit Instruction:** 0100000_00010_00001_000_00011_0110011
       - **Hexadecimal representation:**
         
    - ```AND r2, r1, r3```
-      - Opcode for AND = 
+      - Opcode for AND = 0110011
       - rd = r2 = 00010
       - rs1 = r1 = 00001
       - rs2 = r3 = 00011
-      - func3 = 
-      - func7 = 
+      - func3 = 111
+      - func7 = 0000000
       - **Instruction Type:** R Type
-      - **32-bit Instruction:**
+      - **32-bit Instruction:** 0000000_00011_00001_111_00010_0110011
       - **Hexadecimal representation:**
         
    - ```OR r8, r2, r5```
@@ -356,70 +356,70 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - rd = r8 = 01000
       - rs1 = r2 = 00010
       - rs2 = r5 = 00101
-      - func3 = 
-      - func7 = 
+      - func3 = 110
+      - func7 = 0000000
       - **Instruction Type:** R Type
-      - **32-bit Instruction:**
+      - **32-bit Instruction:** 0000000_00101_00010_110_01000_0110011
       - **Hexadecimal representation:**     
      
    - ```XOR r8, r1, r4```
-      - Opcode for XOR = 
+      - Opcode for XOR = 0110011
       - rd = r8 = 01000
       - rs1 = r1 = 00001
       - rs2 = r4 = 00100
-      - func3 = 
-      - func7 = 
+      - func3 = 100
+      - func7 = 0000000
       - **Instruction Type:** R Type
-      - **32-bit Instruction:**
+      - **32-bit Instruction:** 0000000_00100_00001_100_01000_0110011
       - **Hexadecimal representation:**
  
    - ```SLT r10, r2, r4```
-      - Opcode for SLT = 
+      - Opcode for SLT = 0110011
       - rd = r10 = 01010
       - rs1 = r2 = 00010
       - rs2 = r4 = 00100
-      - func3 = 
-      - func7 = 
+      - func3 = 010
+      - func7 = 0000000
       - **Instruction Type:** R Type
-      - **32-bit Instruction:**
+      - **32-bit Instruction:** 0000000_00100_00010_010_01010_0110011
       - **Hexadecimal representation:**
  
    - ```ADDI r12, r3, 5```
       - Opcode for ADDI = 0010011
       - rd = r12 = 01100
-      - rs1 = r3 = 00010
+      - rs1 = r3 = 00011
       - imm = 000000000101
-      - func3 = 
+      - func3 = 000
       - **Instruction Type:** I Type
-      - **32-bit Instruction:**
+      - **32-bit Instruction:** 000000000101_00011_000_01100_0010011
       - **Hexadecimal representation:**
       
    - ```SW r3, r1, 4```
       - Opcode for SW = 0100011
       - rs1 = r3 = 00011
       - rs2 = r1 = 00001
-      - imm = 0000000 0100
+      - imm = 0000000 00100
       - func3 = 010
       - **Instruction Type:** S Type
       - **32-bit Instruction:**
       - **Hexadecimal representation:**
 
    - ```SRL r16, r11, r2```
-      - Opcode for SRL = 
+      - Opcode for SRL = 0110011
       - rd = r16 = 10000
       - rs1 = r11 = 01011
       - rs2 = r2 = 00010
-      - func3 = 
-      - func7 = 
+      - func3 = 101
+      - func7 = 0000000
       - **Instruction Type:** R Type
-      - **32-bit Instruction:**
+      - **32-bit Instruction:** 0000000_00010_01011_101_10000_0110011
       - **Hexadecimal representation:**
 
    - ```BNE r0, r1, 20```
-      - Opcode for BNE = 
+      - Opcode for BNE = 1100011
       - rs1 = r0 = 00000
       - rs2 = r1 = 00001
-      - Imm[12:1] = 20 = 
+      - Imm[12:1] = 20 = 00000001 0100
       - func3 = 000
       - **Instruction Type:** B Type
       - **32-bit Instruction:**
@@ -436,7 +436,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - **Hexadecimal representation:**
    
    - ```LW r13, r11, 2```
-      - Opcode for LW = 
+      - Opcode for LW = 0010011
       - rd = r13 = 01101
       - rs1 = r11 = 01011
       - imm = 000000000010
@@ -446,14 +446,14 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - **Hexadecimal representation:**
               
    - ```SLL r15, r11, r2```
-      - Opcode for SLL = 
+      - Opcode for SLL = 0110011
       - rd = r15 = 01111
       - rs1 = r11 = 01011
       - rs2 = r2 = 00010
-      - func3 = 
-      - func7 = 
+      - func3 = 001
+      - func7 = 0000000
       - **Instruction Type:** R Type
-      - **32-bit Instruction:**
+      - **32-bit Instruction:** 0000000_00010_01011_001_01111_0110011
       - **Hexadecimal representation:**  
 
 ### References:
