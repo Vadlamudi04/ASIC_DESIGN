@@ -419,7 +419,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - Opcode for BNE = 1100011
       - rs1 = r0 = 00000
       - rs2 = r1 = 00001
-      - Imm[12:1] = 20 = 00000001 0100
+      - Imm[12:1] = 20 = 00 000001 0100
       - func3 = 000
       - **Instruction Type:** B Type
       - **32-bit Instruction:**
@@ -429,7 +429,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - Opcode for BEQ = 1100011
       - rs1 = r0 = 00000
       - rs2 = r0 = 00000
-      - Imm[12:1] = 15 = 
+      - Imm[12:1] = 15 = f
       - func3 = 000
       - **Instruction Type:** B Type
       - **32-bit Instruction:**
