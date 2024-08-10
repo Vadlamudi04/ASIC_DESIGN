@@ -326,7 +326,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func7 = 0000000
       - **Instruction Type:** R Type
       - **32-bit Instruction:** 0000000_00011_00010_000_00001_0110011
-      - **Hexadecimal representation:**
+      - **Hexadecimal representation:** 0x003100B3
       
         
    - ```SUB r3, r1, r2```
@@ -338,7 +338,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func7 = 0100000
       - **Instruction Type:** R Type
       - **32-bit Instruction:** 0100000_00010_00001_000_00011_0110011
-      - **Hexadecimal representation:**
+      - **Hexadecimal representation:** 0x402081B3
         
    - ```AND r2, r1, r3```
       - Opcode for AND = 0110011
@@ -349,7 +349,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func7 = 0000000
       - **Instruction Type:** R Type
       - **32-bit Instruction:** 0000000_00011_00001_111_00010_0110011
-      - **Hexadecimal representation:**
+      - **Hexadecimal representation:** 0x0030F133
         
    - ```OR r8, r2, r5```
       - Opcode for OR = 0110011
@@ -360,7 +360,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func7 = 0000000
       - **Instruction Type:** R Type
       - **32-bit Instruction:** 0000000_00101_00010_110_01000_0110011
-      - **Hexadecimal representation:**     
+      - **Hexadecimal representation:** 0x00516433    
      
    - ```XOR r8, r1, r4```
       - Opcode for XOR = 0110011
@@ -371,7 +371,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func7 = 0000000
       - **Instruction Type:** R Type
       - **32-bit Instruction:** 0000000_00100_00001_100_01000_0110011
-      - **Hexadecimal representation:**
+      - **Hexadecimal representation:** 0x0040C433
  
    - ```SLT r10, r2, r4```
       - Opcode for SLT = 0110011
@@ -382,7 +382,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func7 = 0000000
       - **Instruction Type:** R Type
       - **32-bit Instruction:** 0000000_00100_00010_010_01010_0110011
-      - **Hexadecimal representation:**
+      - **Hexadecimal representation:** 0x00412533
  
    - ```ADDI r12, r3, 5```
       - Opcode for ADDI = 0010011
@@ -392,7 +392,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func3 = 000
       - **Instruction Type:** I Type
       - **32-bit Instruction:** 000000000101_00011_000_01100_0010011
-      - **Hexadecimal representation:**
+      - **Hexadecimal representation:** 0x00518613
       
    - ```SW r3, r1, 4```
       - Opcode for SW = 0100011
@@ -402,7 +402,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func3 = 010
       - **Instruction Type:** S Type
       - **32-bit Instruction:** 0000000_00001_00011_010_00100_0100011
-      - **Hexadecimal representation:**
+      - **Hexadecimal representation:** 0x0011A223
 
    - ```SRL r16, r11, r2```
       - Opcode for SRL = 0110011
@@ -413,7 +413,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func7 = 0000000
       - **Instruction Type:** R Type
       - **32-bit Instruction:** 0000000_00010_01011_101_10000_0110011
-      - **Hexadecimal representation:**
+      - **Hexadecimal representation:** 0x0025D833
 
    - ```BNE r0, r1, 20```
       - Opcode for BNE = 1100011
@@ -423,7 +423,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func3 = 001
       - **Instruction Type:** B Type
       - **32-bit Instruction:** 0_000001_00001_00000_001_0100_0_1100011
-      - **Hexadecimal representation:**
+      - **Hexadecimal representation:** 0x02101463
         
    - ```BEQ r0, r0, 15```
       - Opcode for BEQ = 1100011
@@ -433,7 +433,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func3 = 000
       - **Instruction Type:** B Type
       - **32-bit Instruction:** 0_000000_00000_00000_000_1111_0_1100011
-      - **Hexadecimal representation:**
+      - **Hexadecimal representation:** 0x00000F63
    
    - ```LW r13, r11, 2```
       - Opcode for LW = 0000011
@@ -443,7 +443,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func3 = 010
       - **Instruction Type:** I Type
       - **32-bit Instruction:** 000000000010_01011_010_01101_0000011
-      - **Hexadecimal representation:**
+      - **Hexadecimal representation:** 0x0025A683
               
    - ```SLL r15, r11, r2```
       - Opcode for SLL = 0110011
@@ -454,7 +454,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - func7 = 0000000
       - **Instruction Type:** R Type
       - **32-bit Instruction:** 0000000_00010_01011_001_01111_0110011
-      - **Hexadecimal representation:**  
+      - **Hexadecimal representation:** 0x002597B3
 
 ### References:
 
