@@ -401,7 +401,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - imm = 0000000 00100
       - func3 = 010
       - **Instruction Type:** S Type
-      - **32-bit Instruction:**
+      - **32-bit Instruction:** 0000000_00001_00011_010_00100_0100011
       - **Hexadecimal representation:**
 
    - ```SRL r16, r11, r2```
@@ -419,30 +419,30 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
       - Opcode for BNE = 1100011
       - rs1 = r0 = 00000
       - rs2 = r1 = 00001
-      - Imm[12:1] = 20 = 00 000001 0100
-      - func3 = 000
+      - Imm[12:1] = 20 = 0 0 000001 0100
+      - func3 = 001
       - **Instruction Type:** B Type
-      - **32-bit Instruction:**
+      - **32-bit Instruction:** 0_000001_00001_00000_001_0100_0_1100011
       - **Hexadecimal representation:**
         
    - ```BEQ r0, r0, 15```
       - Opcode for BEQ = 1100011
       - rs1 = r0 = 00000
       - rs2 = r0 = 00000
-      - Imm[12:1] = 15 = f
+      - Imm[12:1] = 15 = 0 0 000000 1111
       - func3 = 000
       - **Instruction Type:** B Type
-      - **32-bit Instruction:**
+      - **32-bit Instruction:** 0_000000_00000_00000_000_1111_0_1100011
       - **Hexadecimal representation:**
    
    - ```LW r13, r11, 2```
-      - Opcode for LW = 0010011
+      - Opcode for LW = 0000011
       - rd = r13 = 01101
       - rs1 = r11 = 01011
       - imm = 000000000010
-      - func3 = 
+      - func3 = 010
       - **Instruction Type:** I Type
-      - **32-bit Instruction:**
+      - **32-bit Instruction:** 000000000010_01011_010_01101_0000011
       - **Hexadecimal representation:**
               
    - ```SLL r15, r11, r2```
