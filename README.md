@@ -300,8 +300,8 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 
 
 
-**Identifying various RISC-V instruction type (R, I, S, B, U, J) and exact 32-bit instruction code in the instruction type format for below RISC-V instructions**
-
+<u>Identifying various RISC-V instruction type (R, I, S, B, U, J) and exact 32-bit instruction code in the instruction type format for below RISC-V instructions:</u>
+---
    ```
     ADD r1, r2, r3
     SUB r3, r1, r2
