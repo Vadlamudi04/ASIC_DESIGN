@@ -497,7 +497,7 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 | Instruction     | Hardcoded 32bit pattern | Hardcoded hexadecimal pattern| 32bit pattern   | Hexadecimal pattern |
 |-----------------|-------------------------|------------------------------|---------------------|---------------|
 | ADD r1, r2, r3  | 0000001_00011_00010_000_00001_0000000 | 0x02310080 | 0000000_00011_00010_000_00001_0110011 | 0x003100B3      |
-| SUB r3, r1, r2  | 0000001_00010_00001_001_00011_0000000 | 0x02209180  | 0100000_00010_00001_000_00011_0110011  | 0x402081B3     |
+| SUB r3, r1, r2  | 0000001_00010_00001_001_00011_0000000  | 0x02209180  | 0100000_00010_00001_000_00011_0110011  | 0x402081B3     |
 | AND r2, r1, r3  | 0000001_00011_00001_010_00010_0000000 | 0x0230A100 | 0000000_00011_00001_111_00010_0110011 | 0x0030F133     |
 | OR r8, r2, r5  | 0000001_00101_00010_011_01000_0000000  | 0x02513400|0000000_00101_00010_110_01000_0110011  | 0x00516433       |
 | XOR r8, r1, r4  | 0000001_00100_00001_100_01000_0000000 | 0x0240C400 |0000000_00100_00001_100_01000_0110011  | 0x0040C433    |
@@ -509,9 +509,91 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 | SRL r16, r11, r2  | 0000000_00010_01011_001_10000_0000011 |0x00259803  | 0000000_00010_01011_101_10000_0110011 | 0x0025D833      |
 
 
- ### Output Waveforms:
+ ### Output Waveforms for the instructions provided in the verilog code:
+ 
+   ![im1](https://github.com/user-attachments/assets/f3910b2e-82af-45e8-a51e-f3894066cf42)
 
+      
+   |S. no.| Operation          | Standard RISCV ISA | Hardcoded ISA |
+   |-----|--------------------|---------------------|---------------|
+   |1.| ADD R6, R1, R2     | 0x00110333        | 0x02208300  |
+   |2.| SUB R7, R1, R2     | 0x402083b3        | 0x02209380  |
+   |3.| AND R8, R1, R3     | 0x0030f433        | 0x0230a400  |
+   |4.| OR R9, R2, R5      | 0x005164b3        | 0x02513480  |
+   |5.| XOR R10, R1, R4    | 0x0040c533        | 0x0240c500  |
+   |6.| SLT R11, R2, R4     | 0x0045a0b3        | 0x02415580  |
+   |7.| ADDI R12, R4, 5    | 0x004120b3        | 0x00520600  |
+   |8.| BEQ R0, R0, 15     | 0x00000f63        | 0x00f00002  |
+   |9.| SW R3, R1, 2       | 0x0030a123        | 0x00209181  |
+   |10.| LW R13, R1, 2      | 0x0020a683        | 0x00208681  |
+   |11.| BEQ R0, R0, 15   | 0x00000f63    | 0x00f00002   |
+   |12.| ADD R14, R2, R2    | 0x00210733         | 0x00210700  |
+
+
+   The following are the waveforms of each instruction by using the test bench code
+
+   ```1.  ADD r6, r1, r2 ```
    
+   ![PHOTO-2024-08-11-17-05-01](https://github.com/user-attachments/assets/d4736e6e-97f3-4fd1-868a-fcce723cbe70)
 
+
+   ```2. SUB r7, r1, r2 ```
+
+   ![PHOTO-2024-08-11-17-09-45](https://github.com/user-attachments/assets/d9dcbc88-1e4b-4962-838c-779cb422bda9)
+
+
+
+   ```3.  AND r8, r1, r3 ```
+
+   ![PHOTO-2024-08-11-17-10-31](https://github.com/user-attachments/assets/dbf8bdc2-07a2-49c5-a895-35bfee470d3b)
+
+
+   ```4. OR r9, r2, r5 ```
+
+   ![PHOTO-2024-08-11-17-11-33](https://github.com/user-attachments/assets/96629d0f-1020-490e-b2ee-3a0f339402d6)
+
+
+   ```5. XOR r10, r1, r4 ```
+
+   ![PHOTO-2024-08-11-17-12-30](https://github.com/user-attachments/assets/0b066277-4778-45ef-9748-cc17ea992fca)
+
+
+   ```6. SLT r11, r2, r4 ```
+
+   ![PHOTO-2024-08-11-17-13-11](https://github.com/user-attachments/assets/5e15331c-5ea9-41ec-ae8a-e91b8f700f1d)
+
+
+   ```7. ADDI r12, r4, 5 ```
+
+   ![PHOTO-2024-08-11-17-13-53](https://github.com/user-attachments/assets/5dbe3daa-c3c9-433f-8fb9-df1b0ea6f8dd)
+
+
+   ```8. SW r3, r1, 2 ```
+
+   ![PHOTO-2024-08-11-17-14-26](https://github.com/user-attachments/assets/fda3ea2e-7499-4a9c-8806-9b3096add011)
+
+
+   ```9. LW r0, r0, 15 ```
+
+   ![PHOTO-2024-08-11-17-14-58](https://github.com/user-attachments/assets/0033d654-56bf-4e7a-8c3b-73d0e06611f0)
+
+
+   ```10. BEQ r0, r0, 15 ```
+
+   ![PHOTO-2024-08-11-17-15-42](https://github.com/user-attachments/assets/0ac584e5-5031-42a9-a9bd-16870c7b01bf)
+
+
+   ```11. ADD r14, r2, r2```
+   
+   ![im12](https://github.com/user-attachments/assets/139b89a2-fabe-4f8f-8125-11c5ed7bf6cb)
+
+
+   The final output plot is :
+
+   ![PHOTO-2024-08-11-17-18-55](https://github.com/user-attachments/assets/044915f8-6d13-44a9-89d7-dd1176c49adf)
+
+   ### References:
+
+   - [RISC-V Instruction Set Manual](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf)
 
 </details>
