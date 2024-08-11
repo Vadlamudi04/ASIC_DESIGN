@@ -484,10 +484,15 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 <details>
 <summary><strong>Lab Session 4</strong></summary>
 
-### Standard RISC-V ISA and Hardcoded ISA based on the provided Verilog code
+### Objective:
 
-- In the Verilog code, the opcode varies for each instruction type, and different instructions have distinct func3 values.
-- To differentiate between immediate operations and other arithmetic functions, func7 is used; otherwise, func7 is set to b'0.
+- Functional simulation Experiment
+
+### Standard RISC-V ISA and Hardcoded ISA based on the provided Verilog code:
+
+- In Verilog code, each instruction type has a different opcode, and instructions have distinct func3 and func7 values compared to original riscv values. The func7 value distinguishes immediate operations from other arithmetic functions; if not used for this purpose, func7 is set to b'0 in the verilog code.
+  
+- In the below table Hardcoded 32bit pattern is formed by using the op codes, func3 and  func7 values from the verilog code.
 
 | Instruction     | Hardcoded 32bit pattern | Hardcoded hexadecimal pattern| 32bit pattern   | Hexadecimal pattern |
 |-----------------|-------------------------|------------------------------|---------------------|---------------|
@@ -502,5 +507,11 @@ We need to compile and verify a basic C code of sum to numbers from 1 to n using
 | LW r13, r11, 2  | 000000000010_01011_000_01101_0000001   | 0x0258681 |000000000010_01011_010_01101_0000011  | 0x0025A683      |
 | BEQ r0, r0, 15  | 0_000000_00000_00000_000_1111_0_1100011   | 0X00f00002 |0_000000_00000_00000_000_1111_0_1100011  | 0x00000F63      |
 | SRL r16, r11, r2  | 0000000_00010_01011_001_10000_0000011 |0x00259803  | 0000000_00010_01011_101_10000_0110011 | 0x0025D833      |
- 
+
+
+ ### Output Waveforms:
+
+   
+
+
 </details>
