@@ -530,11 +530,10 @@ This table provides a summary of RISC-V instructions, including their types, 32-
    |5.| XOR R10, R1, R4    | 0x0040c533        | 0x0240c500  |
    |6.| SLT R11, R2, R4     | 0x0045a0b3        | 0x02415580  |
    |7.| ADDI R12, R4, 5    | 0x004120b3        | 0x00520600  |
-   |8.| BEQ R0, R0, 15     | 0x00000f63        | 0x00f00002  |
-   |9.| SW R3, R1, 2       | 0x0030a123        | 0x00209181  |
-   |10.| LW R13, R1, 2      | 0x0020a683        | 0x00208681  |
-   |11.| BEQ R0, R0, 15   | 0x00000f63    | 0x00f00002   |
-   |12.| ADD R14, R2, R2    | 0x00210733         | 0x00210700  |
+   |8.| SW R3, R1, 2       | 0x0030a123        | 0x00209181  |
+   |9.| LW R13, R1, 2      | 0x0020a683        | 0x00208681  |
+   |10.| BEQ R0, R0, 15   | 0x00000f63    | 0x00f00002   |
+   |11.| ADD R14, R2, R2    | 0x00210733         | 0x00210700  |
 
 
    The following are the waveforms of each instruction by using the test bench code
