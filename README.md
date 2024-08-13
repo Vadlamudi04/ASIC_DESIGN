@@ -603,3 +603,30 @@ This table provides a summary of RISC-V instructions, including their types, 32-
    - [RISC-V Instruction Set Manual](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf)
 
 </details>
+
+<details>
+<summary><strong>Lab Session 5</strong></summary>
+
+   ### Objective:
+   - To verify that the output of the below code is same for both riscv-gcc and gcc compiler.
+
+   ### Procedure: 
+
+   - The code in the photo is a Random Number Guessing game where the computer generates a random number within a range, and the user attempts to guess it. The program gives feedback if the guess is too high or low and tracks the number of attempts needed to guess correctly.
+
+      ![PHOTO-2024-08-13-14-37-07](https://github.com/user-attachments/assets/6cd8e9c9-2a3b-4880-8221-6d846f713d24)
+
+   - The below photo shows the output obtained by running the above C code using a standard GCC compiler.
+
+     ![l5-2](https://github.com/user-attachments/assets/43a6b274-2043-4638-851b-d3a702ef2a2e)
+
+   
+   - The below photo shows the output obtained by running the above C code using a RISC-V GCC compiler.
+
+     ![l5-3](https://github.com/user-attachments/assets/2ed1805f-6f7d-4649-9941-8c92bc6d969c)
+
+     ### Conclusion:
+
+     - If we look at the above images we can see that output is same using the gcc and the riscv compiler.
+
+</details>
