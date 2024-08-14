@@ -718,11 +718,11 @@ This table provides a summary of RISC-V instructions, including their types, 32-
    - Commands to get output using GCC compiler
 
      ```c
-        gcc stock.c
+     1.  gcc stock.c
       ```
      
      ```c
-        ./a.out
+     2.   ./a.out
      ```
      
    - The below photo shows the output obtained by running the above C code using a standard GCC compiler.
@@ -733,11 +733,11 @@ This table provides a summary of RISC-V instructions, including their types, 32-
    - Commands to get output using RISC-V GCC compiler
      
      ```c
-        riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o stock.o stock.c
+     1.   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o stock.o stock.c
      ```
-     
+
      ```c
-        spike pk stock.o
+     2.  spike pk stock.o
      ```
    
    - The below photo shows the output obtained by running the above C code using a RISC-V GCC compiler.
