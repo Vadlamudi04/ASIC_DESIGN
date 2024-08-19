@@ -750,3 +750,274 @@ This table provides a summary of RISC-V instructions, including their types, 32-
      - If we look at the above images we can see that output is same using the gcc and the riscv compiler.
 
 </details>
+
+<details>
+<summary><strong>Lab Session 6</strong></summary>
+<details>
+<summary><strong>Day3</strong></summary>
+
+## Digital Logic Design and TL-Verilog with Makerchip:
+
+### Logic Gates: 
+Logic Gates are the core components of digital circuits, performing essential logical operations on binary input signals. These gates are fundamental to the design of complex systems like processors, memory units, and controllers. Logic gates operate on binary signals, where "0" and "1" correspond to low and high voltage levels in a digital circuit. The gates take one or more input signals and produce an output signal based on specific logical functions.
+
+Here are some common types of logic gates:
+![d3_1](https://github.com/user-attachments/assets/e21f4645-26e8-445e-a32b-74f7f82ec93a)
+
+
+### Multiplexer Using Ternary Operator: 
+
+**2:1 Multiplexer:** The following Verilog code uses a ternary operator to implement a 2:1 multiplexer. The output f follows x1 when s is high (1) and x0 when s is low (0).
+```
+assign f = s ? x1 : x0;
+```
+This code translates into hardware that selects between x1 and x0 based on the value of s.
+
+![d3_2](https://github.com/user-attachments/assets/b30c0560-d92d-4b9e-a64a-c1f636649b41)
+
+
+**4:1 Multiplexer:**  A higher-bit multiplexer can be realized using nested ternary operators, as shown in the Verilog code below:
+```
+assign f = sel[0] ? a : (sel[1] ? b : (sel[2] ? c : d));
+```
+This code effectively creates a priority-encoded series of 2:1 multiplexers. Here, the sel vector is one-hot, meaning only one bit is high at any time, which directs the selection among inputs a, b, c, and d.
+
+![d3_3](https://github.com/user-attachments/assets/3766ff9e-0f6f-4ed9-9053-1eea448b86dc)
+
+
+### Transaction Level (TL) - Verilog: 
+
+TL-Verilog is a modern extension of traditional Verilog, introduced by Redwood EDA, to simplify hardware modeling and design. It enhances the design process by providing a more abstract and efficient syntax while remaining compatible with standard Verilog. TL-Verilog supports transaction-level modeling, making it easier to manage complex microarchitectures. In this approach, a transaction moves through the architecture, interacting with components like pipelines, arbiters, and queues. TL-Verilog is particularly effective in reducing bugs and streamlining design with tools like Makerchip.
+
+### Makerchip IDE: 
+
+Makerchip IDE is a powerful tool for digital design, offering an integrated environment for coding, simulating, and testing HDL designs. Supporting languages like TL-Verilog, SystemVerilog, Verilog, and VHDL, Makerchip provides a visual platform to construct and simulate digital systems in real-time. Its user-friendly interface and extensive capabilities make it ideal for both beginners and experienced designers. With Makerchip, you can prototype, debug, and refine your digital designs efficiently, ensuring that your circuits function as intended before moving to hardware implementation.
+
+
+### Basic Combinational Circuits in Makerchip:
+---
+
+#### 1. Inverter
+Code is given below
+```tl-verilog
+$out = ! $in;
+```
+The generated block diagram and waveforms are as shown
+
+![d3_4](https://github.com/user-attachments/assets/b649f4a3-c337-42fa-8be4-7f28a622468d)
+
+
+#### 2. Arithmetic Operation on Vectors
+Code is given below
+```tl-verilog
+$out[4:0] = $in1[3:0] + $in2[3:0];
+```
+The generated block diagram and waveforms are as shown
+
+![d3_5](https://github.com/user-attachments/assets/b2b0c9d2-9ab7-4e41-99b6-4d6e5ed939e5)
+
+
+#### 3. 2-Input And Gate
+Code is given below
+```tl-verilog
+$out = $in1 && $in2;
+```
+The generated block diagram and waveforms are as shown
+
+![d3_6](https://github.com/user-attachments/assets/c2848d8a-dff3-4603-a71e-d84fc2be26df)
+
+#### 3. 2-Input OR Gate
+Code is given below
+```tl-verilog
+$out = $in1 || $in2;
+```
+The generated block diagram and waveforms are as shown
+
+![d3_7](https://github.com/user-attachments/assets/f91e714b-3ad9-4359-a0ec-132910cdbfc6)
+
+#### 4. 2-Input XOR Gate
+Code is given below
+```tl-verilog
+$out = $in1 ^ $in2;
+```
+The generated block diagram and waveforms are as shown
+
+![d3_8](https://github.com/user-attachments/assets/9be94c4b-9c6a-4a7c-b37a-1fa762332f75)
+
+#### 6. 2:1 MUX
+Code is given below
+```tl-verilog
+$out[11:0] = $sel ? $in1[11:0] : $in0[11:0];
+```
+The generated block diagram and waveforms are as shown
+
+![d3_9](https://github.com/user-attachments/assets/967d46ff-25ac-43ef-97ac-8096d597695a)
+
+#### 7. Combinational Calculator Implementation in TL-Verilog
+
+**Calculator Overview:**
+In this section, we demonstrate a basic combinational calculator implemented using TL-Verilog on the Makerchip platform. The calculator does four fundamental arithmetic operations: addition, subtraction, multiplication, and division.
+
+```tl-verilog
+$val1[31:0] = $rand1[3:0];
+$val2[31:0] = $rand2[3:0];
+
+$sum[31:0]  = $val1[31:0] + $val2[31:0];
+$diff[31:0] = $val1[31:0] - $val2[31:0];
+$prod[31:0] = $val1[31:0] * $val2[31:0];
+$quot[31:0] = $val1[31:0] / $val2[31:0];
+
+$out[31:0] = ($sel[1:0] == 2'b00) ? $sum[31:0]:
+             ($sel[1:0] == 2'b01) ? $diff[31:0]:
+             ($sel[1:0] == 2'b10) ? $prod[31:0]:
+                                    $quot[31:0];
+```
+**Description:** 
+
+In this code snippet, two random 4-bit values, `$rand1[3:0]` and `$rand2[3:0]`, are assigned to the 32-bit variables `$val1[31:0]` and `$val2[31:0]`, respectively. The calculator then performs four arithmetic operations on these values:
+
+The result of one of these operations is selected by a multiplexer (MUX), controlled by the selection bits `$sel[1:0]`. The MUX determines which operation's output is assigned to `$out[31:0]`.
+
+The generated block diagram and waveforms are as shown
+
+
+![d3_10](https://github.com/user-attachments/assets/a6578318-0ba3-4807-9689-15cebb601037)
+
+
+### Sequential Circuits in Makerchip:
+---
+
+A sequential circuit is a digital circuit that uses memory components to retain data, allowing it to generate outputs based on both current inputs and the circuit's previous state. Unlike combinational circuits, which depend only on present inputs, sequential circuits use feedback loops and storage elements like flip-flops or registers to track their internal state. This internal state, along with current inputs, influences the circuit's behavior, enabling tasks that require input history, such as counting, data storage, or event sequencing.
+
+
+#### 1. Fibbonacci Series:
+
+Code is given below:
+
+```tl-verilog
+
+$num[31:0] = $reset ? 1 : (>>1$num + >>2$num);
+
+```
+The generated block diagram and waveforms are shown below:
+
+<img width="323" alt="d3_10" src="https://github.com/user-attachments/assets/fe64a7b9-e04a-4b35-a710-489245398cc2">
+
+<img width="1440" alt="Screenshot 2024-08-19 at 10 55 46 PM" src="https://github.com/user-attachments/assets/70f3befc-7fff-48fc-8458-a5cc00aefe46">
+
+
+#### 2. Counter Series:
+
+Code is given below:
+
+```tl-verilog
+
+$cnt[31:0] = $reset ? 0 : (>>1$cnt + 1);
+
+```
+The generated block diagram and waveforms are shown below:
+
+![d3_11](https://github.com/user-attachments/assets/86e41f88-23a0-41a9-beda-88066ce08588)
+
+<img width="1439" alt="Screenshot 2024-08-19 at 10 57 11 PM" src="https://github.com/user-attachments/assets/0da1f14c-f56c-458a-ad53-044222bfe0bf">
+
+#### 3.Sequential Calculator:
+
+- Similar to previous combinational calculator but mimics real scenario in which the result of the previous operation is considered as one of the input for the next operation. Upon reset the result becomes zero.
+
+Code is given below:
+```tl-verilog
+
+   $val1[31:0] = >>1$out;
+   $val2[31:0] = $rand2[3:0];
+
+   $sum[31:0]  = $val1[31:0] + $val2[31:0];
+   $diff[31:0] = $val1[31:0] - $val2[31:0];
+   $prod[31:0] = $val1[31:0] * $val2[31:0];
+   $quot[31:0] = $val1[31:0] / $val2[31:0];
+
+   $nxt[31:0] = ($sel[1:0] == 2'b00) ? $sum[31:0]:
+                ($sel[1:0] == 2'b01) ? $diff[31:0]:
+                ($sel[1:0] == 2'b10) ? $prod[31:0]:
+                                       $quot[31:0];
+   
+   $out[31:0] = $reset ? 32'h0 : $nxt;
+
+```
+The generated block diagram and waveforms are as shown:
+
+![d3_14](https://github.com/user-attachments/assets/16422daa-a746-49b0-aee5-dd83259cb1c0)
+
+![d3_13](https://github.com/user-attachments/assets/80e3e1fb-fd32-4e14-b228-000960b783b8)
+
+### Pipelined Logic:
+---
+
+In Transaction-Level Verilog (TL-Verilog), pipelined logic is efficiently expressed using pipeline constructs that represent data flow across design stages, each corresponding to a clock cycle. This approach simplifies the modeling of sequential logic by automatically handling state propagation and enabling clear, concise descriptions of complex, multi-stage operations, improving both design clarity and maintainability.
+
+#### 1. Recereating the design:
+
+<img width="727" alt="Screenshot 2024-08-19 at 11 04 18 PM" src="https://github.com/user-attachments/assets/ffb5924f-b071-4e01-aaf6-d8ce569499ef">
+
+Code is given below:
+```tl-verilog
+|pipe
+  @1
+    $err1 = $bad_input || $illegal_op;
+  @3
+    $err2 = $over_flow || $err1;
+  @6
+    $err3 = $div_by_zero || $err2;
+```
+The generated block diagram and waveforms are as shown:
+
+<img width="1440" alt="Screenshot 2024-08-19 at 11 08 42 PM" src="https://github.com/user-attachments/assets/9835e32b-a376-4364-b3c9-d31fad051557">
+
+So you can observe that the given design of pipeline and the recreated design are same.
+
+#### 2. Pipelined Calculator:
+
+- Similar to previous Sequential Calculator but with a pipelined design and using ```$valid``` inorder to clear alternate values.
+
+Code is given below:
+```tl-verilog
+   |cal
+      @1
+         $reset = *reset;
+         $clk_kar = *clk;
+
+         $valid[31:0] = $reset ? 0 : (>>1$valid + 1);
+         $nreset = $reset | ~$valid;
+         
+         $val1[31:0] = >>1$out;
+         $val2[31:0] = $rand2[3:0];
+
+         $sum[31:0]  = $val1[31:0] + $val2[31:0];
+         $diff[31:0] = $val1[31:0] - $val2[31:0];
+         $prod[31:0] = $val1[31:0] * $val2[31:0];
+         $quot[31:0] = $val1[31:0] / $val2[31:0];
+         
+      @2
+         $nxt[31:0] = ($sel[1:0] == 2'b00) ? $sum[31:0]:
+                      ($sel[1:0] == 2'b01) ? $diff[31:0]:
+                      ($sel[1:0] == 2'b10) ? $prod[31:0]:
+                                             $quot[31:0];
+        
+         
+         $out[31:0] = $nreset ? 32'h0 : $nxt;
+         
+   
+```
+The generated block diagram and waveforms are as shown:
+
+<img width="399" alt="Screenshot 2024-08-19 at 11 12 36 PM" src="https://github.com/user-attachments/assets/00fac17d-6f81-47e1-97a3-946ffaac0ce8">
+
+<img width="1440" alt="Screenshot 2024-08-19 at 11 43 10 PM" src="https://github.com/user-attachments/assets/9f2b9b37-1c12-4d9a-becd-1f10e39bad34">
+
+### References:
+- [MYTH Workshop 2 TLV](https://drive.google.com/file/d/1ZcjLzg-53It4CO3jDLofiUPZJ485JZ_g/view)
+- [GitHub](https://github.com/stevehoover/RISC-V_MYTH_Workshop?tab=readme-ov-file)
+
+</details>
+
+</details>
