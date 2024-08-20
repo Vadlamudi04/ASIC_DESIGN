@@ -987,7 +987,7 @@ Code is given below:
          $clk_kar = *clk;
 
          $valid[31:0] = $reset ? 0 : (>>1$valid + 1);
-         $nreset = $reset || ~$valid;
+         $nreset = $reset | ~$valid;
          
          $val1[31:0] = >>2$out;
          $val2[31:0] = $rand2[3:0];
