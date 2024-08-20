@@ -928,7 +928,7 @@ The generated block diagram and waveforms are shown below:
 Code is given below:
 ```tl-verilog
 
-   $val1[31:0] = >>1$out;
+   $val1[31:0] = >>2$out;
    $val2[31:0] = $rand2[3:0];
 
    $sum[31:0]  = $val1[31:0] + $val2[31:0];
@@ -987,9 +987,9 @@ Code is given below:
          $clk_kar = *clk;
 
          $valid[31:0] = $reset ? 0 : (>>1$valid + 1);
-         $nreset = $reset | ~$valid;
+         $nreset = $reset || ~$valid;
          
-         $val1[31:0] = >>1$out;
+         $val1[31:0] = >>2$out;
          $val2[31:0] = $rand2[3:0];
 
          $sum[31:0]  = $val1[31:0] + $val2[31:0];
@@ -1014,10 +1014,64 @@ The generated block diagram and waveforms are as shown:
 
 <img width="1440" alt="Screenshot 2024-08-19 at 11 43 10 PM" src="https://github.com/user-attachments/assets/9f2b9b37-1c12-4d9a-becd-1f10e39bad34">
 
+#### 3. Cycle Calculator with validity:
+
+- we add ```$valid_or_reset = $valid || $reset;``` as a when condition for calculation instead of zeroing ```$out```.
+
+Code is given below:
+
+```tl-verilog
+
+$reset = *reset;
+   $clk_kar = *clk;
+   
+   |cal
+      @1
+         $reset = *reset;
+         $clk_kar = *clk;
+         
+         $cnt[31:0] = $reset ? 0 : (>>1$cnt + 1);
+         $valid = $cnt;
+         $valid_or_reset = ($reset | $valid);
+         
+      
+      ?$valid
+         @1
+            $ans[31:0] = >>2$out;
+            $val1[31:0] = $rand1[3:0];
+            $val2[31:0] = $rand2[3:0];
+            
+            $sum[31:0]  = $val1[31:0] + $val2[31:0];
+            $diff[31:0] = $val1[31:0] - $val2[31:0];
+            $prod[31:0] = $val1[31:0] * $val2[31:0];
+            $quot[31:0] = $val1[31:0] / $val2[31:0];
+            
+         @2
+            $nxt[31:0] = ($sel[1:0] == 2'b00) ? $sum[31:0]:
+                         ($sel[1:0] == 2'b01) ? $diff[31:0]:
+                         ($sel[1:0] == 2'b10) ? $prod[31:0]:
+                                                $quot[31:0];
+            
+            $out[31:0] = $valid_or_reset ? 32'h0 : $nxt;
+            
+            
+```
+
+The generated block diagram and waveforms are as shown:
+
+<img width="1424" alt="Screenshot 2024-08-20 at 8 04 45 PM" src="https://github.com/user-attachments/assets/c849b585-17c6-49ad-aebf-3ebac9ab3d66">
+
+
+
 ### References:
 - [MYTH Workshop 2 TLV](https://drive.google.com/file/d/1ZcjLzg-53It4CO3jDLofiUPZJ485JZ_g/view)
 - [GitHub](https://github.com/stevehoover/RISC-V_MYTH_Workshop?tab=readme-ov-file)
 
+</details>
+
+<details>
+<summary><strong>Day4</strong></summary>
+   
 </details>
 
 </details>
