@@ -1012,7 +1012,7 @@ The generated block diagram and waveforms are as shown:
 
 <img width="399" alt="Screenshot 2024-08-19 at 11 12 36 PM" src="https://github.com/user-attachments/assets/00fac17d-6f81-47e1-97a3-946ffaac0ce8">
 
-<img width="1440" alt="Screenshot 2024-08-19 at 11 43 10 PM" src="https://github.com/user-attachments/assets/9f2b9b37-1c12-4d9a-becd-1f10e39bad34">
+<img width="1440" alt="Screenshot 2024-08-20 at 8 17 46 PM" src="https://github.com/user-attachments/assets/a793a04d-553a-4646-a02d-9349776cfdee">
 
 #### 3. Cycle Calculator with validity:
 
@@ -1022,7 +1022,7 @@ Code is given below:
 
 ```tl-verilog
 
-$reset = *reset;
+   $reset = *reset;
    $clk_kar = *clk;
    
    |cal
@@ -1037,8 +1037,7 @@ $reset = *reset;
       
       ?$valid
          @1
-            $ans[31:0] = >>2$out;
-            $val1[31:0] = $rand1[3:0];
+            $val1[31:0] = >>2$out;
             $val2[31:0] = $rand2[3:0];
             
             $sum[31:0]  = $val1[31:0] + $val2[31:0];
@@ -1055,11 +1054,14 @@ $reset = *reset;
             $out[31:0] = $valid_or_reset ? 32'h0 : $nxt;
             
             
+            
+            
+            
 ```
 
 The generated block diagram and waveforms are as shown:
 
-<img width="1424" alt="Screenshot 2024-08-20 at 8 04 45 PM" src="https://github.com/user-attachments/assets/c849b585-17c6-49ad-aebf-3ebac9ab3d66">
+<img width="1439" alt="Screenshot 2024-08-20 at 8 11 41 PM" src="https://github.com/user-attachments/assets/673d049c-2bc6-41b1-aa17-f90b50a02737">
 
 
 
