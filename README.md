@@ -1368,13 +1368,13 @@ Upon checking the log file we get the following result
 
 ## Pipelining the CPU:
 
-Pipelining introduces hazards, notably the "branch instruction hazard," or "branch penalty." This occurs because branch instructions determine execution sequence changes, creating uncertainties. Hazards include:
+Now pipelining of the CPU core is done below, which allows easy retiming and reduces functional bug to a great extent . For pipelining we simply need to add @1, @2 and so on. In TL verilog, another advantage is defining of pipeline in systematic order is not necessary. Pipelining introduces hazards, notably the "branch instruction hazard," or "branch penalty." This occurs because branch instructions determine execution sequence changes, creating uncertainties. Hazards include:
 
-1. **Structural Hazard:** Resource conflicts like shared execution units, causing pipeline stalls until resolved.
+1. **Structural Hazards:** Resource conflicts like shared execution units, causing pipeline stalls until resolved.
    
-2. **Data Hazard:** Dependencies on previous instruction results, risking incorrect outcomes if data isn't ready.
+2. **Data Hazards:** Dependencies on previous instruction results, risking incorrect outcomes if data isn't ready.
 
-3. **Control Hazard (Branch Hazard):** Uncertainty over branch outcomes delays confirmation until execution, potentially leading to incorrect instruction fetches and performance penalties due to pipeline flushing.
+3. **Control Hazards (Branch Hazards):** Uncertainty over branch outcomes delays confirmation until execution, potentially leading to incorrect instruction fetches and performance penalties due to pipeline flushing.
 
 ### Valid signal for Pipelined Logic:
 
@@ -1547,7 +1547,7 @@ $src2_value[31:0] = $rs2_bypass ? >>1$result[31:0] : $rf_rd_data2[31:0];
          
          //Arithmetic instructions
          $is_addi  = $dec_bits ==? 11'bx_000_0010011;
-         $is_add   = $dec_bits ==  11'b0_000_0110011;
+         $is_add   = $dec_bits ==? 11'b0_000_0110011;
          $is_lui   = $dec_bits ==? 11'bx_xxx_0110111;
          $is_slti  = $dec_bits ==? 11'bx_010_0010011;
          $is_sltiu = $dec_bits ==? 11'bx_011_0010011;
@@ -1664,12 +1664,11 @@ $src2_value[31:0] = $rs2_bypass ? >>1$result[31:0] : $rf_rd_data2[31:0];
          $dmem_wr_data[31:0] =  $src2_value[31:0];
          $dmem_rd_en         =  $valid_load;
          
-      
          //Write back data read from load instruction to register
          $ld_data[31:0]      =  $dmem_rd_data[31:0];
          
       
-   *passed = |cpu/xreg[17]>>10$value == (1+2+3+4+5+6+7+8+9);
+   *passed = |cpu/xreg[14]>>10$value == (1+2+3+4+5+6+7+8+9+10);
    //Run for 80 cycles without any checks
    *passed = *cyc_cnt > 80;
    *failed = 1'b0;
@@ -1692,9 +1691,9 @@ $src2_value[31:0] = $rs2_bypass ? >>1$result[31:0] : $rf_rd_data2[31:0];
 
 **Block diagram:**
 
-<img width="530" alt="Screenshot 2024-08-21 at 11 51 16 PM" src="https://github.com/user-attachments/assets/0dfb2265-57f7-4bdf-b26f-7022f589d760">
+<img width="556" alt="Screenshot 2024-08-22 at 12 14 00 AM" src="https://github.com/user-attachments/assets/b53d0cf0-016b-4c30-89b1-c586208863c3">
 
-### Waveform:
+### Waveforms:
 
 **CLK:**
 
@@ -1707,6 +1706,13 @@ $src2_value[31:0] = $rs2_bypass ? >>1$result[31:0] : $rf_rd_data2[31:0];
 **Gradual increment of output from 0(h00) to 55(h37):**
 
 <img width="843" alt="Screenshot 2024-08-21 at 11 58 58 PM" src="https://github.com/user-attachments/assets/adfdbe8e-e782-48cc-8a8c-8c69cf1c307a">
+
+**VIZ table:**
+
+You can see that the value of reg 10 will reach to 55 after 64 cycles.
+
+<img width="843" alt="Screenshot 2024-08-22 at 12 15 25 AM" src="https://github.com/user-attachments/assets/55cf2ca7-ff9b-41f9-9d57-e9386cf117e0">
+
 
 
 </details>
