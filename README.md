@@ -1342,7 +1342,7 @@ The output is as follows:-
 In order to check whether the code written is correct or not we verify it using the testbench for the 1st five cycles
 
 ```bash
-*passed = |cpu/xreg[10]>>5$value == (1+2+3+4+5+6+7+8+9) ;
+*passed = |cpu/xreg[14]>>5$value == (1+2+3+4+5+6+7+8+9+10) ;
 ```
 Upon checking the log file we get the following result
 
@@ -1358,10 +1358,11 @@ Upon checking the log file we get the following result
 
 <img width="1440" alt="Screenshot 2024-08-21 at 1 32 01 PM" src="https://github.com/user-attachments/assets/61eed547-e223-41af-8c61-8eb90c9039d4">
 
-**Waveforms showing output's gradual addition from 1 to 9 ;that is from 0(h00) to 45(h2d):**
+**Waveforms showing output's gradual addition from 1 to 10 ;that is from 0(h00) to 55(h37):**
 
-<img width="928" alt="Screenshot 2024-08-21 at 1 48 58 PM" src="https://github.com/user-attachments/assets/3bf2c210-4fbd-49e9-a398-b08428dbf028">
-   
+<img width="843" alt="Screenshot 2024-08-21 at 11 58 58 PM" src="https://github.com/user-attachments/assets/adfdbe8e-e782-48cc-8a8c-8c69cf1c307a">
+
+
 </details>
 <details>
 <summary><strong>Day5</strong></summary>
