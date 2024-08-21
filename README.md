@@ -1342,7 +1342,7 @@ The output is as follows:-
 In order to check whether the code written is correct or not we verify it using the testbench for the 1st five cycles
 
 ```bash
-*passed = |cpu/xreg[10]>>5$value == (1+2+3+4+5+6+7+8+9) ;
+*passed = |cpu/xreg[14]>>5$value == (1+2+3+4+5+6+7+8+9+10) ;
 ```
 Upon checking the log file we get the following result
 
