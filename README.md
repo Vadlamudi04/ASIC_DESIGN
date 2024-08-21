@@ -1215,11 +1215,14 @@ Apart from the immediate we have other fields which also need to be decoded. The
          $rd_valid = $is_r_instr || $is_i_instr || $is_u_instr || $is_j_instr;
          ?$rd_valid
             $rd[4:0] = $instr[11:7];
+
+         $opcode[6:0] = $instr[6:0];
 ```
 
 At any given time, only one instruction is decoded, which could belong to any of the six instruction types. Therefore, it's essential to validate the instruction to ensure it fits into its specific category, preventing conflicts between different instruction types.
 
 <img width="1440" alt="Screenshot 2024-08-21 at 3 25 15 AM" src="https://github.com/user-attachments/assets/971198b3-aa24-400e-92dc-fa9f60c7fbf2">
+
 
 ### 3c. Decoding Individual Instructions
 
@@ -1290,9 +1293,7 @@ $result[31:0] = $is_addi ? $src1_value + $imm :
 
 In this section, we have implemented the code to account for ```addi``` and ```add``` operations.
 
-<img width="1439" alt="Screenshot 2024-08-21 at 3 16 08 AM" src="https://github.com/user-attachments/assets/c3884319-a898-4fa1-9026-362b6f0b4fd9">
-
-
+<img width="1440" alt="Screenshot 2024-08-21 at 11 53 07 AM" src="https://github.com/user-attachments/assets/c0604b13-3f92-4747-92d7-4a2d41f249bf">
 
 ### 6. Register File Write
 
