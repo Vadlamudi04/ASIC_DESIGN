@@ -1713,6 +1713,11 @@ You can see that the value of reg 10 will reach to 55 after 64 cycles.
 
 <img width="843" alt="Screenshot 2024-08-22 at 12 15 25 AM" src="https://github.com/user-attachments/assets/55cf2ca7-ff9b-41f9-9d57-e9386cf117e0">
 
+**Simulation status:**
+
+<img width="547" alt="Screenshot 2024-08-22 at 12 18 38 AM" src="https://github.com/user-attachments/assets/7ba653b5-744c-4151-8f0c-9fa751949f8b">
+
+
 
 
 </details>
