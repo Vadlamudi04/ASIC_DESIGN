@@ -1709,7 +1709,7 @@ $src2_value[31:0] = $rs2_bypass ? >>1$result[31:0] : $rf_rd_data2[31:0];
 
 **VIZ table:**
 
-You can see that the value of reg 10 will reach to 55 after 64 cycles.
+You can see that the value of reg 10 and reg 14 will reach to 55 after 64 cycles.
 
 <img width="843" alt="Screenshot 2024-08-22 at 12 15 25 AM" src="https://github.com/user-attachments/assets/55cf2ca7-ff9b-41f9-9d57-e9386cf117e0">
 
