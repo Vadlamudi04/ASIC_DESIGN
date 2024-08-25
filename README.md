@@ -1723,3 +1723,144 @@ You can see that the value of reg 10 and reg 14 will reach to 55 after 64 cycles
 
 </details>
 </details>
+
+<details>
+<summary><strong>Lab Session 7:</strong> Comparision of GTK wave output and Makerchip output</summary>
+
+## Comparision of RISC-V Pre-Synthesis Simulation outputs using Iverilog GTKwave and Makerchip
+
+The RISC-V processor was designed using TL-Verilog in the Makerchip IDE. To implement it on an FPGA, it needs to be converted to Verilog, which was done using the Sandpiper-SaaS compiler. Pre-synthesis simulations were then performed using the GTKWave simulator.
+
+**Step-by-Step process of simulation:**
+
+1. Run these set of commands to set up a development environment for working with simulation and synthesis tools, for tasks involving Verilog and RISC-V.
+
+``` bash
+$ sudo apt install make python python3 python3-pip git iverilog gtkwave
+
+$ cd ~
+
+$ sudo apt-get install python3-venv
+
+$ python3 -m venv .venv
+
+$ source ~/.venv/bin/activate
+
+$ pip3 install pyyaml click sandpiper-saas
+```
+
+![image](https://github.com/user-attachments/assets/a22edab5-6c59-4e98-bac6-bb59c89a5234)
+
+
+2. In order to install the Required Packages run these set of commands in virtual environment:
+   
+```bash
+$ sudo apt install make python python3 python3-pip git iverilog gtkwave docker.io
+
+$ sudo chmod 666 /var/run/docker.sock
+
+$ cd ~
+
+$ pip3 install pyyaml click sandpiper-saas
+
+```
+![image](https://github.com/user-attachments/assets/c2851530-1ddb-494e-8dda-accb4d7d0df7)
+
+
+3. Now we can clone the following repository in home directory and make a ```pre_synth_sim``` directory which will contain output:
+
+```bash
+$ cd ~
+
+$ git clone https://github.com/manili/VSDBabySoC.git
+
+$ cd /home/vsduser/VSDBabySoC
+
+$ make pre_synth_sim
+
+```
+
+![image](https://github.com/user-attachments/assets/36e4b6d9-fdad-43cb-a7c0-696abeeecad7)
+
+
+
+4. Replace the ```rvmyth.tlv``` file in the VSDBabySoC/src/module folder with our RISC-V design from makerchip ```.tlv``` file which we want to convert into verilog and also change the testbench according to our makerchip code.
+
+5. Inorder to get verilog code of our TLV code ie, to translate .tlv definition of RISC-V into .v definition use the following code.
+
+```bash
+$ sandpiper-saas -i ./src/module/rvmyth.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/
+```
+![image](https://github.com/user-attachments/assets/abfa2d5b-9db8-4ddb-954c-6e248e450576)
+
+6. Now to compile and simulate RISC-V design run the following code.
+   
+```bash
+$ iverilog -o output/pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module
+```
+
+6. The result of the simulation (i.e. pre_synth_sim.vcd) will be stored in the output/pre_synth_sim directory.
+```bash
+$ cd output
+
+$ ./pre_synth_sim.out
+```
+![image](https://github.com/user-attachments/assets/929c392e-aa09-4420-ac4f-6a3c2b04ba8a)
+
+
+ 7. To open the .vcd simulation file through GTKWave simulation tool
+    
+```bash
+$ gtkwave pre_synth_sim.vcd
+```
+
+**Pre-synthesis Simulation results:**
+Signals to plot are the following:
+- clk_kar: This is the clock input to the RISC-V core. 
+- reset: This is the input reset signal to the RISC-V core. 
+- OUT[9:0]: This is the 10-bit output [9:0] OUT port of the RISC-V core. This port comes from the RISC-V register #14, originally.
+
+**GTKWave Simulation waveforms:**
+
+- clk_kar plot:
+  
+  ![image](https://github.com/user-attachments/assets/e9de0614-6697-444e-b026-6b9319ca76b2)
+  
+- reset plot:
+  
+  ![image](https://github.com/user-attachments/assets/6bf81794-13c7-439a-9c8b-2a8f380c2338)
+
+  
+- OUT[9:0] plot:
+
+   ![image](https://github.com/user-attachments/assets/6ebd9c96-ce55-4b1e-a9f6-8566bb11b8ed)
+
+
+
+**Makerchip IDE simulation results for comparison**
+
+- clk_kar plot:
+  
+  <img width="1215" alt="Screenshot 2024-08-26 at 3 28 39 AM" src="https://github.com/user-attachments/assets/382dca2e-c408-4311-a6db-4ec9ed9781ce">
+
+- reset plot:
+  
+  <img width="1227" alt="Screenshot 2024-08-26 at 3 28 01 AM" src="https://github.com/user-attachments/assets/60f4b3c2-8dcd-4b86-9295-c662b97cd198">
+
+- OUT[9:0] plot:
+
+   <img width="1053" alt="Screenshot 2024-08-26 at 3 26 01 AM" src="https://github.com/user-attachments/assets/323aa1b7-f8e9-4629-b12a-a38749e7d988">
+
+
+## References:
+
+*  https://forgefunder.com/~kunal/riscv_workshop.vdi
+*  https://gcc.gnu.org/onlinedocs/gcc/RISC-V-Options.html
+*  https://github.com/vinayrayapati/rv32i
+*  [https://github.com/stevehoover](https://github.com/stevehoover/RISC-V_MYTH_Workshop)
+*  https://makerchip.com/sandbox
+*  https://gcc.gnu.org/onlinedocs/gcc/RISC-V-Options.html
+  
+
+   
+</details>
