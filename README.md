@@ -1849,7 +1849,7 @@ Signals to plot are the following:
 
 - OUT[9:0] plot:
 
-   <img width="1053" alt="Screenshot 2024-08-26 at 3 26 01 AM" src="https://github.com/user-attachments/assets/323aa1b7-f8e9-4629-b12a-a38749e7d988">
+   <img width="1100" alt="Screenshot 2024-08-26 at 3 31 43 AM" src="https://github.com/user-attachments/assets/c45eabdf-e38d-4ec8-9544-07139ced0b71">
 
 
 ## References:
