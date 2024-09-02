@@ -2003,13 +2003,15 @@ The output waveforms are given below:
 
    ![PHOTO-2024-09-02-23-29-26](https://github.com/user-attachments/assets/65c24233-a609-4fec-aa81-202a68445831)
    
-   ![PHOTO-2024-09-02-23-29-27](https://github.com/user-attachments/assets/e61a57bd-fa43-445a-af57-f8b20e5d6c0c)
+   ![PHOTO-2024-09-02-23-45-20 2](https://github.com/user-attachments/assets/74081cfd-3ffe-47e5-a76a-9c9952e97179)
+
 
 -----
 
 **3. DAC output signal**
 
-   ![PHOTO-2024-09-02-23-29-26 2](https://github.com/user-attachments/assets/32e951a9-36b7-4f1d-8ac3-ca8eb4f52346)
+   ![PHOTO-2024-09-02-23-45-20](https://github.com/user-attachments/assets/34c53730-8a3d-4181-a88e-806661eaa693)
+
 
 ----
 
