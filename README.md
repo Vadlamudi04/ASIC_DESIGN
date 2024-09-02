@@ -1864,3 +1864,9 @@ Signals to plot are the following:
 
    
 </details>
+
+<details>
+<summary><strong>Lab Session 8:</strong></summary>
+
+</details>
+
