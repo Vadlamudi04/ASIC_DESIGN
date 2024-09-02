@@ -1866,7 +1866,167 @@ Signals to plot are the following:
 </details>
 
 <details>
-<summary><strong>Lab Session 8:</strong></summary>
+<summary><strong>Lab Session 8:</strong>RISC-V Pre synthesis Analog simulation using IVerilog and GTKWave</summary>
+
+## Analyzing RISC-V Pre-Synthesis Analog Simulation outputs using Iverilog GTKwave.
+
+### TASK 1 : TOOLS INSTALLATION:
+
+- Commands to install Yosys in UBUNTU :
+
+``` bash
+$ git clone https://github.com/YosysHQ/yosys.git
+
+$ cd yosys
+
+$ sudo apt install make (If make is not installed) 
+
+$ sudo apt-get install build-essential clang bison flex \
+        libreadline-dev gawk tcl-dev libffi-dev git \
+        graphviz xdot pkg-config python3 libboost-system-dev \
+        libboost-python-dev libboost-filesystem-dev zlib1g-dev
+
+$ make config-gcc
+
+$ make 
+
+$ sudo make install
+```
+
+- To verify the installation of yosys, type yosys in terminal window :
+
+![PHOTO-2024-09-02-23-29-23](https://github.com/user-attachments/assets/a369f8ec-ef54-4672-87b6-5f5c7844d267)
+
+
+- Commands to install Iverilog in UBUNTU :
+
+```bash
+$ sudo apt-get install iverilog
+```
+- To verify the installation of iverilog in the system, check the below screenshot:
+
+![PHOTO-2024-09-02-23-29-24](https://github.com/user-attachments/assets/949088e7-a0b3-4506-8b14-b430d7112eda)
+
+
+- Commands to install GTKWave in UBUNTU(Linux) :
+
+```bash
+$ sudo apt update
+
+$ sudo apt install gtkwave
+```
+
+- To verify the installation of gtkwave in the system,  check the below screenshot :
+
+![PHOTO-2024-09-02-23-29-24 2](https://github.com/user-attachments/assets/f1089349-eb8e-436c-b93c-822c1aa3a1b7)
+
+
+- Commands to install OpenSTA in UBUNTU :
+
+```
+$ git clone https://github.com/The-OpenROAD-Project/OpenSTA.git
+
+$ cd OpenSTA
+
+$ mkdir build
+
+$ cd build
+
+$ cmake ..
+
+$ make
+
+$ sudo make install
+```
+
+
+### TASK 2 : BabySoC Simulation  
+
+The VSDBabySoC is a compact and efficient RISC-V-based System on Chip (SoC). Its primary purpose is to integrate and test three open-source IP cores simultaneously while calibrating its analog components. The VSDBabySoC features:
+
+   - RVMYTH Microprocessor: A RISC-V microprocessor core that forms the central processing unit of the SoC.
+   - 8x-PLL (Phase-Locked Loop): Generates a stable clock signal, crucial for synchronizing operations across the SoC.
+   - 10-bit DAC (Digital-to-Analog Converter): Facilitates communication with other analog devices, enabling interaction with the analog world.
+     
+These components make VSDBabySoC a versatile and valuable tool for testing and calibration purposes.
+
+
+___Phase-Locked-Loop (PLL)___
+
+A Phase-Locked Loop (PLL) is an electronic circuit designed to synchronize the phase and frequency of its output signal with that of a reference signal. It usually comprises three key components:
+
+- Phase Detector: Measures the phase difference between the reference and output signals, producing an error signal that reflects this discrepancy.
+
+- Loop Filter: Smooths the error signal to minimize noise and enhance stability.
+
+- Voltage-Controlled Oscillator (VCO): Modifies its output frequency in response to the filtered error signal, aiming to reduce the phase difference.
+
+PLLs are commonly used in applications such as clock generation, frequency synthesis, and data recovery in communication systems.
+
+___Digital-to-Analog Converter (DAC)___
+
+A Digital-to-Analog Converter (DAC) is an electronic device that transforms digital signals (usually in binary form) into analog signals, such as voltage or current.
+
+This conversion is essential for systems where digital data must be understood by analog devices or for creating outputs that humans can perceive, such as in audio and video equipment.
+
+DACs are widely used in applications like audio playback, video display, and signal processing.
+
+
+- Commands to run the `rvmyth.v` file
+```
+$ cd BabySoC_Simulation
+```
+```
+$ iverilog -o ./pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module/
+```
+
+```
+$ ./pre_synth_sim.out
+```
+```
+$ gtkwave pre_synth_sim.vcd
+```
+
+### Task3 : Generating the output waveforms
+
+The output waveforms are given below:
+
+**1. clk and reset signals**
+
+   ![PHOTO-2024-09-02-23-29-25](https://github.com/user-attachments/assets/30757617-19e4-4777-a1a2-1ca9db2b09e0)
+   
+   ![PHOTO-2024-09-02-23-29-25 2](https://github.com/user-attachments/assets/c91354b6-7094-4dc0-bd47-c4d1426e326d)
+
+------
+
+**2. PLL clock input and output signals**
+
+   ![PHOTO-2024-09-02-23-29-26](https://github.com/user-attachments/assets/65c24233-a609-4fec-aa81-202a68445831)
+   
+   ![PHOTO-2024-09-02-23-29-27](https://github.com/user-attachments/assets/e61a57bd-fa43-445a-af57-f8b20e5d6c0c)
+
+-----
+
+**3. DAC output signal**
+
+   ![PHOTO-2024-09-02-23-29-26 2](https://github.com/user-attachments/assets/32e951a9-36b7-4f1d-8ac3-ca8eb4f52346)
+
+----
+
+
+### References:
+
+*  https://forgefunder.com/~kunal/riscv_workshop.vdi
+*  https://github.com/vinayrayapati/rv32i
+*  [https://github.com/stevehoover](https://github.com/stevehoover/RISC-V_MYTH_Workshop)
+*  https://github.com/manili/VSDBabySoC.git
+
+</details>
+
+
+
+
+
 
 </details>
 
