@@ -2533,13 +2533,13 @@ Run the below code to view the netlist:
 ```
 yosys
 
-read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 read_verilog mult_2.v
 
-synth -top mult2
+synth -top mul2
 
-abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 show 
 
