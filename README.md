@@ -2856,7 +2856,7 @@ write_verilog -noattr multiple_module_opt_net.v
 !vim multiple_module_opt_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/d89bbe82-5aff-4400-8913-085fadc0b45a)
+![Screenshot from 2024-10-21 17-32-18](https://github.com/user-attachments/assets/e2e1a6b2-4097-41d2-96e1-aaee5cfdd777)
 
 ![35](https://github.com/user-attachments/assets/05b7a73b-546a-4fff-b1d9-052d4328a81d)
 
@@ -2906,7 +2906,7 @@ write_verilog -noattr multiple_module_opt2_net.v
 !vim multiple_module_opt_net2.v
 ```
 
-![image](https://github.com/user-attachments/assets/9bc043e4-344e-4526-9399-9b51c5f8b17a)
+![Screenshot from 2024-10-21 17-37-12](https://github.com/user-attachments/assets/abe2c7dc-db43-4a7b-ac9e-684ef961b8ff)
 
 
 ![36](https://github.com/user-attachments/assets/0416007d-9701-426c-b020-ca7144719062)
