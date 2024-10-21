@@ -2345,7 +2345,7 @@ write_verilog -noattr multiple_modules_flat.v
 ![211](https://github.com/user-attachments/assets/a609c2b8-4cdc-4ebc-a0ba-a780aa658123)
 
  
-**Netlist file**
+**Netlist file**\
 
 ![212](https://github.com/user-attachments/assets/678bf842-c912-4818-8b94-8de47f26fae6)
 
@@ -2435,14 +2435,20 @@ ls
 
 gtkwave tb_dff_asyncres.vcd
 ```
-![Step 2](./Lab12/41.png)
+
+![215](https://github.com/user-attachments/assets/36a5bc0c-1680-4ddf-ab4f-9f5bd95a8ab6)
 
 **GTK WAVE OF ASYNCHRONOUS RESET**
-![Step 2](./Lab12/42.png)
+
+![216](https://github.com/user-attachments/assets/334cf593-e309-4d9b-b327-d5718cd02ee7)
+
 **GTK WAVE OF ASYNCHRONOUS SET**
-![Step 2](./Lab12/43.png)
+
+![217](https://github.com/user-attachments/assets/be12e8a3-a0fe-497d-92ae-9ee085ba3433)
+
 **GTK WAVE OF SYNCHRONOUS RESET**
-![Step 2](./Lab12/44.png)
+
+![218](https://github.com/user-attachments/assets/747dbaf4-61a0-4b9c-95bc-5cd1fbb61500)
 
 #### FLIP FLOP SYNTHESIS
 
