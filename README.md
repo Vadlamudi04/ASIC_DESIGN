@@ -2026,8 +2026,163 @@ The output waveforms are given below:
 </details>
 
 
+<details>
+<summary><strong>Lab Session 9:</strong> RTL Design using Verilog with Sky130 Technology</summary>
+
+<details>
+<summary><strong>Day 1:</strong>Introduction to Verilog RTL design and Synthesis.</summary>
+
+### 1.1. Introduction to open source simulator iverilog
+
+In digital circuit design, **register-transfer level** (RTL) is an abstraction that models a synchronous digital circuit by describing how data flows between hardware registers and how logic operations are applied to these signals. This RTL abstraction is used in HDL (Hardware Description Language) to create high-level models of a circuit, which can then be used to derive lower-level representations and, eventually, the actual hardware layout.
+
+**Simulator**: A tool used to verify the design. In this workshop, we utilize the iverilog tool. Simulation involves generating models that replicate the behavior of the intended device (simulation models) and creating test models to validate the device (test benches). RTL Design: Consists of one or more Verilog files that implement the required design specifications and functionality for the circuit.
+
+**Test Bench**: The configuration used to provide stimulus (test vectors) to the design in order to verify its functionality.
+
+#### HOW SIMULATOR WORKS 
+**Simulator** looks for changes on input signals and based on that output is evaluated.
+![Step 2](./Lab12/1.png)
+
+**Design** may have 1 or more primary inputs and primary outputs but **TB** doesn't have.
+
+#### SIMULATION FLOW
+![Step 2](./Lab12/2.png)
+**Simulator** continuously checks for changes in the input. If there is an input change, the output is evaluated; else the simulator will never evaluate the output.
+### 1.2. Introduction to LABS
+#### ENVIRONMENT SETUP
+
+```
+//create a directory
+mkdir VLSI 
+cd VLSI
+git clone https://github.com/kunalg123/vsdflow.git
+git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
+```
+![Step 2](./Lab12/3.png)
+
+**sky130RTLDesignAndSynthesisWorkshop** Directory has: My_Lib - which contains all the necessary library files; where lib has the standard cell libraries to be used in synthesis and verilog_model with all standard cell verilog models for the standard cells present in the lib. Ther verilog_files folder contains all the experiments for lab sessions including both verilog code and test bench codes.
+
+![Step 2](./Lab12/4.png)
+
+### 1.3. Labs using iverilog & gtkwave
+
+### Simulation using iverilog simulator - 2:1 multiplexer rtl design
+
+#### VERILOG FILE OF A SIMPLE 2:1 MUX
+
+![Step 2](./Lab12/5.png)
+
+To compile the verilog and testbench file use the following commands which will generate an executable file and will dump the waveform to view it using the gtkwave
+
+```
+iverilog good_mux.v tb_good_mux.v
+```
+![Step 2](./Lab12/6.png)
+
+#### GTKWAVE Analysis
+
+To view the waveform using the gtkwave run the following commands
+
+```
+./a.out
+gtkwave tb_good_mux.vcd
+```
+
+We can view the waveform of a simple 2:1 mux which selects the input based on the select line
+![Step 2](./Lab12/7.png)
+
+#### Access Module Files
+To view the contents of the file run the following command
+```
+$ vim tb_good_mux.v -o good_mux.v 
+```
+![Step 2](./Lab12/8.png)
+
+Design file
+![Step 2](./Lab12/10.png)
+
+Testbench File
+![Step 2](./Lab12/9.png)
+
+### 1.4. Introduction to Yosys & Logic Synthesis
+
+**Synthesizer** is a tool for converting the **RTL** to Netlist and here we are using the **Yosys** Synthesizer.
+#### Yosys SETUP
+
+![Step 2](./Lab12/11.png)
+
+#### Verifying the Synthesis
+![Step 2](./Lab12/12.png)
+
+**Note**:- The set of Primary inputs / primary outputs will remain the same between the RTL design and Synthesized netlist → Same Test bench can be used
+
+#### 1.5. Logic Synthesis
+
+RTL Design - behavioral representation in HDL form for the required specification.
+
+ **Synthesis** - RTL to Gate level translation.
+ The design is converted int gates and connections are made. This given outas a file called **netlist**.
+
+>_.lib file is a collection of logical modules which includes all basic logic gates. It may also contain different flavors of the same gate (2 input AND, 3 input AND – slow, medium and fast version)._
+
+#### Faster cells and Slower Cells
+
+A cell delay in the digital logic circuit depends on the load of the circuit which here is Capacitance.
+
+Faster the charging / discharging of the capacitance --> Lesser is the Cell Delay
+
+Inorder to charge/discharge the capacitance faster, we use wider transistors that can source more current. This will help us reduce the cell delay but at the same time, wider transistors consumer more power and area. Similarly, using narrower transistors help in reduced area and power but the circuit will have a higher cell delay. Hence, we have to compromise on area and power if we are to design a circuit with low cell delay.
+
+#### Constraints
+
+A Constraint is a guidance file given to a synthesizer inorder to enable an optimum implementation of the logic circuit by selecting the appropriate flavour of cells (fast or slow).
+
+**Yosys flow**
+1. start yosys.
+          
+```
+yosys
+```
+![Step 2](./Lab12/13.png)
+
+2. load the sky130 standard library.
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+![Step 2](./Lab12/14.png)
+3. Read the design files
+```
+read_verilog good_mux.v
+```
+![Step 2](./Lab12/15.png)
+4. Synthesize the top level module
+```
+synth -top good_mux
+```
+![Step 2](./Lab12/16.png)
+        
+5. Map to the standard library
+```
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+![Step 2](./Lab12/17.png)
+
+6. Two view the result as a graphich use the show command.
+```
+show
+```
+![Step 2](./Lab12/18.png)
+7. To write the result netlist to a file use the write_veriog command. This will output the netlist to a file in the current directory.
+```
+write_verilog -noattr good_mux_netlist.v
+```
+![Step 2](./Lab12/19.png)
+</details>
 
 
+
+</details>
 
 
 </details>
