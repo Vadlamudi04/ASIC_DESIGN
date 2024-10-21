@@ -2906,7 +2906,8 @@ write_verilog -noattr multiple_module_opt2_net.v
 !vim multiple_module_opt_net2.v
 ```
 
-![Screenshot from 2024-10-21 17-37-12](https://github.com/user-attachments/assets/abe2c7dc-db43-4a7b-ac9e-684ef961b8ff)
+![Screenshot from 2024-10-21 17-37-12](https://github.com/user-attachments/assets/8789b961-44eb-4451-97d3-aaac5ac73fec)
+
 
 
 ![36](https://github.com/user-attachments/assets/0416007d-9701-426c-b020-ca7144719062)
@@ -2948,29 +2949,41 @@ Run the below code for netlist:
 
 ```
 yosys
+
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 read_verilog dff_const1.v
+
 synth -top dff_const1
+
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 show
+
 write_verilog -noattr dff_const1_net.v
+
+!vim dff_const1_net.v
 ```
 
 
 ![image](https://github.com/user-attachments/assets/080978a6-12a9-443c-8d25-e923d6560b9b)
 
-![image](https://github.com/user-attachments/assets/b66b706b-cc36-4e8a-aeda-1b8a30480bd8)
+![Screenshot from 2024-10-21 17-50-00](https://github.com/user-attachments/assets/42f1d861-1789-40b5-9ad3-9bfab4d82e59)
+
 
 GTKWave Output:
 
 ```
 iverilog dff_const1.v tb_dff_const1.v
-./a.out
-gtkwave tb_dff_const1.vcd
-```
 
-![image](https://github.com/user-attachments/assets/f4e729c1-1130-40f3-ae69-99b1a2015d08)
+./a.out
+
+gtkwave tb_dff_const1.vcd
+
+```
+![Screenshot from 2024-10-21 17-54-37](https://github.com/user-attachments/assets/5d69a914-4870-47de-8522-1da1d3780cde)
 
 
 **Example 2:**
@@ -2993,25 +3006,36 @@ Run the below code for netlist:
 
 ```
 yosys
+
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 read_verilog dff_const2.v
+
 synth -top dff_const2
+
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 show
+
 write_verilog -noattr dff_const2_net.v
+
+!vim dff_const2_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/bb6d4ae1-0cf3-4186-bb6b-aca6476b1840)
+![Screenshot from 2024-10-21 17-59-25](https://github.com/user-attachments/assets/27170a05-b904-4ab9-97ed-ae0303f50993)
 
-![image](https://github.com/user-attachments/assets/3503d2c9-ac1b-4d1b-986e-5aaf494b9059)
+![Screenshot from 2024-10-21 17-57-07](https://github.com/user-attachments/assets/437dc4e6-5ed5-4aa7-8cd9-716219293ae0)
 
 
 GTKWave Output:
 
 ```
 iverilog dff_const2.v tb_dff_const2.v
+
 ./a.out
+
 gtkwave tb_dff_const2.vcd
 ```
 
@@ -3045,26 +3069,35 @@ Run the below code for netlist:
 
 ```
 yosys
+
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 read_verilog dff_const3.v
+
 synth -top dff_const3
+
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 show
+
 write_verilog -noattr dff_const3_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/cdf64a91-3fad-429b-b91e-b2b563d16dc7)
 
+![Screenshot from 2024-10-21 18-02-12](https://github.com/user-attachments/assets/1d405b4d-c7eb-4fb6-9bd2-88b6bdda4d3c)
 
-![image](https://github.com/user-attachments/assets/3085e4f7-d89f-43e5-a26f-fb1a1fe8999e)
+![Screenshot from 2024-10-21 18-02-49](https://github.com/user-attachments/assets/5d0dbaa6-03d6-4650-9488-5ad58ddf6aaa)
 
 
 GTKWave Output:
 
 ```
 iverilog dff_const3.v tb_dff_const3.v
+
 ./a.out
+
 gtkwave tb_dff_const3.vcd
 ```
 
@@ -3099,25 +3132,33 @@ Run the below code for netlist:
 
 ```
 yosys
+
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 read_verilog dff_const4.v
+
 synth -top dff_const4
+
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 show
+
 write_verilog -noattr dff_const4_net.v
 ```
 ![image](https://github.com/user-attachments/assets/a10095c1-63f2-4343-9304-413d0f941465)
 
-
-![image](https://github.com/user-attachments/assets/45dd36fd-035a-4adc-aad8-ffda9c2a3ee2)
+![Screenshot from 2024-10-21 18-03-58](https://github.com/user-attachments/assets/0af3ff11-2c59-49ff-b9dd-49707a344c78)
 
  
 GTKWave Output:
 
 ```
 iverilog dff_const4.v tb_dff_const4.v
+
 ./a.out
+
 gtkwave tb_dff_const4.vcd
 ```
 
@@ -3151,30 +3192,38 @@ Run the below code for netlist:
 
 ```
 yosys
+
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 read_verilog dff_const5.v
+
 synth -top dff_const5
+
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 show
+
 write_verilog -noattr dff_const5_net.v
 ```
 
 ![image](https://github.com/user-attachments/assets/42cac623-761a-4a4d-9678-7ce0960b0377)
 
-
-![image](https://github.com/user-attachments/assets/243df51b-d924-465f-9ddf-7523b9d42e60)
+![Screenshot from 2024-10-21 18-04-56](https://github.com/user-attachments/assets/1e6b6509-ede0-43e2-b877-7ab4f5047733)
 
 
 GTKWave Output:
 
 ```
 iverilog dff_const5.v tb_dff_const5.v
+
 ./a.out
+
 gtkwave tb_dff_const5.vcd
 ```
+![Screenshot from 2024-10-21 18-20-22](https://github.com/user-attachments/assets/917d71a5-b1bc-440d-82a3-b339a4da755c)
 
-![image](https://github.com/user-attachments/assets/d695cd08-fc33-44d9-bfa2-ce27ae98e9c6)
 
 
 **Sequential Logic Optimizations for unused outputs**
@@ -3201,26 +3250,34 @@ Run the below code for netlist:
 
 ```
 yosys
+
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 read_verilog counter_opt.v
+
 synth -top counter_opt
+
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 show
+
 write_verilog -noattr counter_opt_net.v
 ```
 
 ![image](https://github.com/user-attachments/assets/b08e9a6a-0947-4a36-9c34-1e722a09303e)
 
-
-![image](https://github.com/user-attachments/assets/b55ceee6-1bbc-4236-957e-3c0c90592573)
+![Screenshot from 2024-10-21 18-05-56](https://github.com/user-attachments/assets/d1fd37cc-af90-4aa7-9af2-20618f664a21)
 
 
 GTKWave Output:
 
 ```
 iverilog counter_opt.v tb_counter_opt.v
+
 ./a.out
+
 gtkwave tb_counter_opt.vcd
 ```
 
@@ -3247,28 +3304,38 @@ Run the below code for netlist:
 
 ```
 yosys
+
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 read_verilog counter_opt.v
+
 synth -top counter_opt
+
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 show
+
 write_verilog -noattr counter_opt_net.v
+
 ```
 ![image](https://github.com/user-attachments/assets/6b0daf62-32e0-486e-adfd-71fd8c8edac6)
 
-
-![image](https://github.com/user-attachments/assets/c8b04d5e-479c-42c5-9af9-b612d85064fb)
+![Screenshot from 2024-10-21 18-07-39](https://github.com/user-attachments/assets/758cc273-b58d-4286-a891-bf9f6756c58e)
 
 
 GTKWave Output:
 
 ```
 iverilog counter_opt.v tb_counter_opt.v
+
 ./a.out
+
 gtkwave tb_counter_opt.vcd
 ```
-![image](https://github.com/user-attachments/assets/977035cf-fd8e-4432-8717-ca7f6966d993)
+
+![Screenshot from 2024-10-21 18-10-22](https://github.com/user-attachments/assets/ae5620f9-2bbb-4a74-bddb-1da1d42d427c)
 
 
 
