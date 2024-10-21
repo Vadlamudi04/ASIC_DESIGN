@@ -2313,6 +2313,7 @@ When you do synth -top 'topmodulename' in yosys, it does an hierarchical synthes
 
 
 **Netlist file**
+
 ![29](https://github.com/user-attachments/assets/afb77c7e-1275-4bdb-bcc2-7a8aa1f3acf6)
 
 
@@ -2345,7 +2346,7 @@ write_verilog -noattr multiple_modules_flat.v
 ![211](https://github.com/user-attachments/assets/a609c2b8-4cdc-4ebc-a0ba-a780aa658123)
 
  
-**Netlist file**\
+**Netlist file**
 
 ![212](https://github.com/user-attachments/assets/678bf842-c912-4818-8b94-8de47f26fae6)
 
@@ -2468,121 +2469,147 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 show 
 ```
-![Step 2](./Lab12/45.png)
 **Statistics of D FLipflop with Asynchronous Reset**
 
-![Step 2](./Lab12/46.png)
-![Step 2](./Lab12/47.png)
+![219](https://github.com/user-attachments/assets/d1eb363e-908a-4f66-9adc-76ccc0d30f76)
+
+![220](https://github.com/user-attachments/assets/7fdc1826-fd15-46c4-a7c2-8648275d7144)
+
 
 **Realization of Logic**
 
-![Step 2](./Lab12/48.png)
+![221](https://github.com/user-attachments/assets/eec91e5d-9634-4f87-8111-5e878760ecf4)
+
+
 
 **Note:**  We wrote a flop with active high reset but the flop is having acting low reset so the tool inserted the inverter so (!(!(reset))) is just reset so at the end we got a flop with active high reset
 
 **Statistics of D FLipflop with Asynchronous set**\
 Follow the same steps as given above just the file name changes to dff_async_set.v
 
-![Step 2](./Lab12/49.png)
-![Step 2](./Lab12/50.png)
+![222](https://github.com/user-attachments/assets/4e40503f-28f9-4c14-ab11-08a2de0946f1)
+
+![223](https://github.com/user-attachments/assets/d4910286-fb0e-4e89-991b-d96d0e8b8653)
 
 **Realization of Logic**
 
-![Step 2](./Lab12/51.png)
+![224](https://github.com/user-attachments/assets/90253526-d4c0-472d-a5af-fd6c52c258dc)
+
 **Note:**  We wrote a flop with active high set but the flop is having acting low set so the tool inserted the inverter so (!(!(set))) is just set so at the end we got a flop with active high set
 
 **Statistics of D FLipflop with Synchronous Reset**
 
-![Step 2](./Lab12/52.png)
-![Step 2](./Lab12/53.png)
+![225](https://github.com/user-attachments/assets/2359180b-0025-4e05-88fb-a62283acf525)
+
+![226](https://github.com/user-attachments/assets/b1719320-bc77-4798-964f-3250cabe02c9)
+
 
 **Realization of Logic**
 
-![Step 2](./Lab12/54.png)
+![227](https://github.com/user-attachments/assets/b4a086a2-e521-437c-a8df-867890ba7ee7)
 
 
 
+## Optimizations
 
+### Example 1: mult_2.v 
 
+**verilog code**
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Optimizations
 ```
-modules used are opened using the command
-vim mult_*.v -o
-_Invoke Yosys
+module mul2 (input [2:0] a, output [3:0] y);
+assign y = a * 2;
+endmodule
+```
+
+**truth table**
+
+![Screenshot from 2024-10-21 15-35-31](https://github.com/user-attachments/assets/b53852d4-4db4-417e-8532-8f5e453fc84a)
+
+We can see the multiplication of a number by 2 doesnt really need any extra hardware we just need to append the LSB's with zeroes and the remaining bits are the input bits of same, It can be realised by grouding the LSB's and wiring the input properly to the output.
+
+Run the below code to view the netlist:
+
+```
 yosys
-_Read library 
+
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-_Read Design
+
 read_verilog mult_2.v
-_Synthesize Design - this controls which module to synthesize
-synth -top mul2
-_Generate Netlist
+
+synth -top mult2
+
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-_Realizing Graphical Version of Logic for single modules
+
 show 
-_Writing the netlist in a crisp manner 
-write_verilog -noattr mult_2.v
-!vim mult_2.v
+
+write_verilog -noattr mult_2_net.v
+
+!vim mult_2_net.v
 ```
-## Example 1: mult_2.v 
+**Statestics**
 
-**_Expected Logic_**
+![228](https://github.com/user-attachments/assets/3f367c55-e759-4b11-8650-2a8b346811f8)
 
-![Step 2](./Lab12/55.png)
 
-**_Statistics & abc command return due to absence of standard cell library_**
+**Realization of Logic**
 
-![Step 2](./Lab12/56.png)
-![Step 2](./Lab12/57.png)
+![229](https://github.com/user-attachments/assets/3092e0ce-3b9d-4085-bb8b-c07267f7492f)
 
- ##### No hardware requirements - No # of memories, memory bites, processes and cells. Number of cells inferred is 0.
+**Netlist**
 
-**_NetList File of Sub-module_**
+![230](https://github.com/user-attachments/assets/26ea571c-6b14-4dd7-8fff-e612712f93e8)
+
+
+### Example 2: mult_8.v
+
+**verilog code**
+
+```
+module mult8 (input [2:0] a , output [5:0] y);
+	assign y = a * 9;
+endmodule
+```
+
+**logic behaviour**
+
+![Screenshot from 2024-10-21 15-43-38](https://github.com/user-attachments/assets/a66a1c34-977d-446c-a462-fae3073a1425)
+
+
+In this design the 3-bit input number "a" is multiplied by 9 i.e (a9) which can be re-written as (a8) + a . The term (a8) is nothing but a left shifting the number a by three bits. Consider that a = a2 a1 a0. (a8) results in a2 a1 a0 0 0 0. (a9)=(a8)+a = a2 a1 a0 a2 a1 a0 = aa(in 6 bit format). Hence in this case no hardware realization is required. The synthesized netlist of this design is shown below:
+
+```
+yosys
+
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog mult_8.v
+
+synth -top mult8
+
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+show
+
+write_verilog -noattr mult_8_net.v
+
+```
+
+**Statestics**
+
+![231](https://github.com/user-attachments/assets/04a1c856-0b9b-497f-94f2-7384a0a77071)
+
+
+**Realization of Logic**
+
+![232](https://github.com/user-attachments/assets/d520d717-8f5f-49c4-8788-d5a0a92e0781)
+
+
+**Netlist**
  
-![Step 2](./Lab12/59.png)
-
-
- **_Realization of Logic_**
- 
-![Step 2](./Lab12/58.png)
-
-## (ii) mult_8.v
-
-follow the same steps but replace the file name with mult_8.v and the corresponding the top module name
-
-**_Expected Logic_**
-
-![Step 2](./Lab12/60.png)
-![Step 2](./Lab12/61.png)
-
-**Statistics **
-
-![Step 2](./Lab12/62.png)
-![Step 2](./Lab12/63.png)
- ##### No hardware requirements - No # of memories, memory bites, processes and cells. Number of cells inferred is 0.
- 
- **_NetList File of Sub-module_**
- 
-![Step 2](./Lab12/64.png)
-
- **_Realization of Logic_**
- 
-![Step 2](./Lab12/65.png)
+![233](https://github.com/user-attachments/assets/a11b3e1b-df78-4dde-87bd-c4a1104741f0)
 
 
 
