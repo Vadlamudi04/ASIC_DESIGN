@@ -3606,6 +3606,9 @@ gtkwave dump.vcd
 
 ![PHOTO-2024-10-24-02-46-15](https://github.com/user-attachments/assets/2319d29c-ec92-4d2b-8c91-677e2ced564f)
 
+### NetList:
+
+![image](https://github.com/user-attachments/assets/a158e6a9-7c92-44f0-afc5-43cf2f9ac9d9)
 
 
 
