@@ -3592,10 +3592,19 @@ iverilog ../../my_lib/verilog_model/primitives.v ../../my_lib/verilog_model/sky1
 
 gtkwave dump.vcd
 ```
-
-![6](https://github.com/user-attachments/assets/6676e3f8-0b2f-4b23-bde5-eef20432d7fc)
+<img width="896" alt="Screenshot 2024-10-24 at 2 43 18 AM" src="https://github.com/user-attachments/assets/06a82c14-6240-4ec1-b480-6183ea8f2d2d">
 
 ![7](https://github.com/user-attachments/assets/ce4aa0e4-9542-46f8-a088-ab1f427e88b1)
+
+### Realization: 
+
+![PHOTO-2024-10-24-01-55-37](https://github.com/user-attachments/assets/f400bd2e-0285-4dcf-991a-46662df07a2b)
+
+![PHOTO-2024-10-24-01-56-14](https://github.com/user-attachments/assets/9cb37544-d272-42b8-9006-3f3e86f2fc13)
+
+![PHOTO-2024-10-24-02-46-15](https://github.com/user-attachments/assets/2319d29c-ec92-4d2b-8c91-677e2ced564f)
+
+
 
 
 ## RTL Simulations
