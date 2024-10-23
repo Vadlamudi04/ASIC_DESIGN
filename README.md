@@ -3592,7 +3592,9 @@ iverilog ../../my_lib/verilog_model/primitives.v ../../my_lib/verilog_model/sky1
 
 gtkwave dump.vcd
 ```
-<img width="896" alt="Screenshot 2024-10-24 at 2 43 18 AM" src="https://github.com/user-attachments/assets/06a82c14-6240-4ec1-b480-6183ea8f2d2d">
+
+<img width="1004" alt="Screenshot 2024-10-24 at 3 10 44 AM" src="https://github.com/user-attachments/assets/f5f17cae-aaa4-47a5-9fe8-7e6ee77e7a08">
+
 
 ![7](https://github.com/user-attachments/assets/ce4aa0e4-9542-46f8-a088-ab1f427e88b1)
 
