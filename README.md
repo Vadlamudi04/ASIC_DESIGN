@@ -3559,7 +3559,7 @@ cd /home/karthikeya/VLSI/sky130RTLDesignAndSynthesisWorkshop/src/module
 ```
 yosys       
 
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty -lib /home/karthikeya/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 read_verilog clk_gate.v
 
@@ -3567,7 +3567,7 @@ read_verilog rvmyth.v
 
 synth -top rvmyth
 
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty /home/karthikeya/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 write_verilog -noattr rvmyth_net.v
 
