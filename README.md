@@ -3536,10 +3536,88 @@ gtkwave tb_blocking_caveat.vcd
 In this case there is a synthesis and simulation mismatch. While performing synthesis yosys has corrected the latch error.
 
 </details>
-
 </details>
 
+<details>
+<summary><strong>Lab Session 10</strong> Synthesize RISC-V and compare output with functional simulations</summary>
+	
+## Synthesizing RISC-V and comparing output with functional (RTL) simulation.
 
+
+### Steps 
+
+Copy the ```src``` folder from your ```BabySoC``` folder to your ```sky130RTLDesignAndSynthesisWorkshop``` folder in your ```VLSI``` folder from previous lab.
+
+Now go the following Directory: 
+
+```
+cd /home/karthikeya/VLSI/sky130RTLDesignAndSynthesisWorkshop/src/module
+```
+
+### Synthesis: 
+
+```
+yosys       
+
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog clk_gate.v
+
+read_verilog rvmyth.v
+
+synth -top rvmyth
+
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+write_verilog -noattr rvmyth_net.v
+
+!gvim rvmyth_net.v
+
+exit
+```
+
+![3](https://github.com/user-attachments/assets/5c547ed5-1f14-476c-9bce-b225154366a5)
+
+![4](https://github.com/user-attachments/assets/00f86b76-1b8c-4390-8772-d29075df22d3)
+
+![5](https://github.com/user-attachments/assets/9672c299-f4f4-4f49-bb28-f6d942a41052)
+
+
+
+Now to observe the output waveform of synthesised RISC-V
+```
+iverilog ../../my_lib/verilog_model/primitives.v ../../my_lib/verilog_model/sky130_fd_sc_hd.v rvmyth.v testbench.v vsdbabysoc.v avsddac.v avsdpll.v clk_gate.v
+
+./a.out
+
+gtkwave dump.vcd
+```
+
+![6](https://github.com/user-attachments/assets/6676e3f8-0b2f-4b23-bde5-eef20432d7fc)
+
+![7](https://github.com/user-attachments/assets/ce4aa0e4-9542-46f8-a088-ab1f427e88b1)
+
+
+## RTL Simulations
+
+ ### Command Steps :
+ ```
+cd BabySoC
+
+iverilog -o ./pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module/
+
+./pre_synth_sim.out
+
+gtkwave pre_synth_sim.vcd
+
+```
+
+![1](https://github.com/user-attachments/assets/8996b6f2-64cb-45b2-a534-d85e285d70b2)
+
+![2](https://github.com/user-attachments/assets/6219ef9f-c391-4220-854c-403c88202790)
+
+ 
+</details>
 
 
 
