@@ -3683,6 +3683,8 @@ read_sdc ./sdc/vsdbabysoc_synthesis.sdc
 report_checks -path_delay min_max -format full_clock_expanded -digits 4
 ```
 
+![image](https://github.com/user-attachments/assets/ba17e067-d19c-40ee-9c1f-40c6d3b909a7)
+
 Setup Time:
 
 ![l2](https://github.com/user-attachments/assets/cb9ca529-063a-4e94-aa0b-6170afa51bc5)
