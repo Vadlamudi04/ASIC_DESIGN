@@ -3631,9 +3631,69 @@ gtkwave pre_synth_sim.vcd
 
 
 
+<details>
+<summary><strong>Lab Session 11:</strong>Post Synthesis Static Timing Analysis using OpenSTA.</summary>
+	
+### Static Timing Analysis (STA)
+Static Timing Analysis (STA) is a technique used to verify the timing performance of digital circuits without requiring dynamic simulation. It checks if a circuit meets timing constraints by analyzing the paths data takes from inputs to outputs, considering delays through gates and interconnects. STA identifies setup and hold time violations, ensuring data stability around clock edges. It also incorporates clock properties, including frequency, skew, and jitter, and assumes worst-case delay conditions to guarantee performance under varying conditions. Tools like Synopsys PrimeTime and Cadence Tempus automate this process, identifying timing issues early for reliable circuit operation at target speeds.
+
+STA is essential in digital design for several reasons. It ensures data signals propagate within set time limits for valid outputs and identifies violations, ensuring flip-flops and sequential elements function reliably. STA aids performance optimization by highlighting critical paths that restrict the maximum operating frequency and allows for early detection of timing issues, minimizing costly redesigns. It also supports balancing performance with power efficiency by analyzing the power impact of clock frequency changes. Automated STA tools efficiently handle complex designs, incorporating variations in manufacturing, temperature, and voltage to ensure consistent performance.
+
+### Reg-to-Reg Path
+A reg-to-reg path connects two sequential elements, such as flip-flops, within a digital circuit. It’s a key focus in STA, verifying data flow between registers through combinational logic. Reg-to-reg paths help ensure correct data transfer and synchronization, particularly in pipelined or sequential designs. STA checks for setup and hold time compliance, ensuring data stability at the registers. Timing analysis considers delays through the connecting combinational logic, with critical reg-to-reg paths impacting the circuit's maximum frequency. For registers in different clock domains, STA accounts for additional considerations like metastability and synchronization.
+
+### Clk-to-Reg Path
+A clk-to-reg path connects a clock signal to a register, enabling proper register operation in response to clock edges. This path represents the delay for the clock signal to reach the register from its source, accounting for delays through buffers or routing. During setup analysis, it helps define when data must arrive at the register in relation to the clock edge. Clock delay affects the timing of data capture, and both setup and hold timing are analyzed, particularly when dealing with clock jitter or variations. Special considerations apply when registers belong to different clock domains, ensuring reliable synchronization.
+
+### STA for synthesized Risc-V core using time period of 10.65 ns.
+To verify that our synthesized RISC-V Core module meets its timing constraints, we will generate setup and hold timing reports. These reports will confirm that data signals propagate correctly throughout the core. Run the following commands:
+```
+set PERIOD 10.65
+
+set_units -time ns
+create_clock [get_pins {pll/CLK}] -name clk -period $PERIOD
+set_clock_uncertainty -setup  [expr $PERIOD * 0.05] [get_clocks clk]
+set_input_delay -min 0 [get_ports ENb_CP] -clock [get_clocks "clk"]
+set_input_delay -min 0 [get_ports ENb_VCO] -clock [get_clocks "clk"]
+set_input_delay -min 0 [get_ports REF] -clock [get_clocks "clk"]
+set_input_delay -min 0 [get_ports VCO_IN] -clock [get_clocks "clk"]
+set_input_delay -min 0 [get_ports VREFH] -clock [get_clocks "clk"]
+set_clock_transition [expr $PERIOD * 0.05] [get_clocks clk]
+set_clock_uncertainty -hold [expr $PERIOD * 0.08] [get_clocks clk]
+set_input_transition [expr $PERIOD * 0.08] [get_ports ENb_CP]
+set_input_transition [expr $PERIOD * 0.08] [get_ports ENb_VCO]
+set_input_transition [expr $PERIOD * 0.08] [get_ports REF]
+set_input_transition [expr $PERIOD * 0.08] [get_ports VCO_IN]
+set_input_transition [expr $PERIOD * 0.08] [get_ports VREFH]
+```
+
+Now, run the below commands:
+```
+cd VSDBabySoc/src
+sta
+read_liberty -min ./lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty -min ./lib/avsdpll.lib
+read_liberty -min ./lib/avsddac.lib
+read_liberty -max ./lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty -max ./lib/avsdpll.lib
+read_liberty -max ./lib/avsddac.lib
+read_verilog ../output/synth/vsdbabysoc.synth.v
+link_design vsdbabysoc
+read_sdc ./sdc/vsdbabysoc_synthesis.sdc
+report_checks -path_delay min_max -format full_clock_expanded -digits 4
+```
+
+Setup Time:
+
+![l2](https://github.com/user-attachments/assets/cb9ca529-063a-4e94-aa0b-6170afa51bc5)
 
 
+Hold Time:
 
+![l1](https://github.com/user-attachments/assets/5d2d5ea0-470a-4b7f-bc99-79c7d7cb9ca7)
+
+
+</details>
 
 
 
