@@ -3651,6 +3651,7 @@ To verify that our synthesized RISC-V Core module meets its timing constraints, 
 set PERIOD 10.65
 
 set_units -time ns
+
 create_clock [get_pins {pll/CLK}] -name clk -period $PERIOD
 set_clock_uncertainty -setup  [expr $PERIOD * 0.05] [get_clocks clk]
 set_clock_transition [expr $PERIOD * 0.05] [get_clocks clk]
@@ -3665,16 +3666,27 @@ set_input_transition [expr $PERIOD * 0.08] [get_ports VREFH]
 Now, run the below commands:
 ```
 cd VSDBabySoc/src
+
 sta
+
 read_liberty -min ./lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 read_liberty -min ./lib/avsdpll.lib
+
 read_liberty -min ./lib/avsddac.lib
+
 read_liberty -max ./lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 read_liberty -max ./lib/avsdpll.lib
+
 read_liberty -max ./lib/avsddac.lib
+
 read_verilog ../output/synth/vsdbabysoc.synth.v
+
 link_design vsdbabysoc
+
 read_sdc ./sdc/vsdbabysoc_synthesis.sdc
+
 report_checks -path_delay min_max -format full_clock_expanded -digits 4
 ```
 
