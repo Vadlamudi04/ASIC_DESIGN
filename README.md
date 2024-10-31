@@ -3777,10 +3777,6 @@ table:
 Graphs:
 
 
-<details>
-<summary>sta reports for various sky libraries.</summary>
-
-</details>
 </details>
 
 
