@@ -3707,6 +3707,90 @@ Hold Time:
 
 
 
+<details>
+<summary><strong>Lab Session 12:</strong>Post Synthesis Static Timing Analysis comparison for various sky libraries.</summary>
+
+## STA comparison for various sky libraries
+
+Store all the sky `lib` files in a folder named `timing_libs`. Now, go to `VSDBabySoC/src` and create a tickle file `sta_across_pvt.tcl` . The below block is the content of the tickle file:
+
+```
+set list_of_lib_files(1) "sky130_fd_sc_hd__ff_100C_1v65.lib"
+set list_of_lib_files(2) "sky130_fd_sc_hd__ff_100C_1v95.lib"
+set list_of_lib_files(3) "sky130_fd_sc_hd__ff_n40C_1v56.lib"
+set list_of_lib_files(4) "sky130_fd_sc_hd__ff_n40C_1v65.lib"
+set list_of_lib_files(5) "sky130_fd_sc_hd__ff_n40C_1v76.lib"
+set list_of_lib_files(6) "sky130_fd_sc_hd__ff_n40C_1v95.lib"
+set list_of_lib_files(7) "sky130_fd_sc_hd__ff_n40C_1v95_ccsnoise.lib.part1"
+set list_of_lib_files(8) "sky130_fd_sc_hd__ff_n40C_1v95_ccsnoise.lib.part2"
+set list_of_lib_files(9) "sky130_fd_sc_hd__ff_n40C_1v95_ccsnoise.lib.part3"
+set list_of_lib_files(10) "sky130_fd_sc_hd__ss_100C_1v40.lib"
+set list_of_lib_files(11) "sky130_fd_sc_hd__ss_100C_1v60.lib"
+set list_of_lib_files(12) "sky130_fd_sc_hd__ss_n40C_1v28.lib"
+set list_of_lib_files(13) "sky130_fd_sc_hd__ss_n40C_1v35.lib"
+set list_of_lib_files(14) "sky130_fd_sc_hd__ss_n40C_1v40.lib"
+set list_of_lib_files(15) "sky130_fd_sc_hd__ss_n40C_1v44.lib"
+set list_of_lib_files(16) "sky130_fd_sc_hd__ss_n40C_1v60.lib"
+set list_of_lib_files(17) "sky130_fd_sc_hd__ss_n40C_1v60_ccsnoise.lib.part1"
+set list_of_lib_files(18) "sky130_fd_sc_hd__ss_n40C_1v60_ccsnoise.lib.part2"
+set list_of_lib_files(19) "sky130_fd_sc_hd__ss_n40C_1v60_ccsnoise.lib.part3"
+set list_of_lib_files(20) "sky130_fd_sc_hd__ss_n40C_1v76.lib"
+set list_of_lib_files(21) "sky130_fd_sc_hd__tt_025C_1v80.lib"
+set list_of_lib_files(22) "sky130_fd_sc_hd__tt_100C_1v80.lib"
+
+for {set i 1} {$i <= [array size list_of_lib_files]} {incr i} {
+read_liberty ./timing_libs/$list_of_lib_files($i)
+read_verilog ../output/synth/vsdbabysoc.synth.v
+link_design vsdbabysoc
+read_sdc ./sdc/vsdbabysoc_synthesis.sdc
+check_setup -verbose
+report_checks -path_delay min_max -fields {nets cap slew input_pins fanout} -digits {4} > ./sta_output/min_max_$list_of_lib_files($i).txt
+
+}
+
+```
+
+![Screenshot from 2024-10-31 11-18-14](https://github.com/user-attachments/assets/050dc5f8-e7f7-486e-8d74-84d10fa1ad1c)
+
+constraints file:
+
+![Screenshot from 2024-10-31 11-28-12](https://github.com/user-attachments/assets/6e71de93-75f5-415d-af83-41fe91d04b37)
+
+
+Now, run the following commands:
+
+```
+cd VSDBabySoC/src
+
+sta
+
+source sta_across_pvt.tcl
+```
+
+![Screenshot from 2024-10-31 11-21-20](https://github.com/user-attachments/assets/2a8e5d8e-b29f-4edb-850a-035ab4ea04f3)
+
+table:
+
+![Screenshot from 2024-10-31 12-24-26](https://github.com/user-attachments/assets/23f73fe3-9847-4a96-8b3a-d863e528c3fc)
+
+
+Graphs:
+
+
+<details>
+<summary>sta reports for various sky libraries.</summary>
+
+</details>
+</details>
+
+
+
+
+
+
+
+
+
 
 
 
