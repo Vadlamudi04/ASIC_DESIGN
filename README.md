@@ -1,4 +1,9 @@
 # ASIC_DESIGN
+
+<details>
+<summary><strong>Pre Midterm</strong></summary>
+
+
 <details>
 <summary><strong>Lab Session 1</strong></summary>
 
@@ -2026,10 +2031,12 @@ The output waveforms are given below:
 </details>
 
 
+</details>
 
 
 
-
+<details>
+<summary><strong>Post Midterm</strong></summary>
 
 
 
@@ -3790,6 +3797,7 @@ Graphs:
 
 
 
+</details>
 
 
 
