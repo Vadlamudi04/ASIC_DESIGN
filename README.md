@@ -3776,6 +3776,15 @@ table:
 
 Graphs:
 
+**Worst Setup Slack:**
+
+![Screenshot from 2024-11-02 11-18-26](https://github.com/user-attachments/assets/974952c0-8ba2-492e-b020-70139ea6f99c)
+
+
+**Worst Hold Slack:**
+
+![Screenshot from 2024-11-02 11-18-42](https://github.com/user-attachments/assets/18a62966-a8f0-479e-a166-e3a49e3cbc4f)
+
 
 </details>
 
