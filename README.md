@@ -3793,6 +3793,147 @@ Graphs:
 ![Screenshot from 2024-11-02 11-18-42](https://github.com/user-attachments/assets/18a62966-a8f0-479e-a166-e3a49e3cbc4f)
 
 
+<details>
+<summary><strong>Timing Reports:</strong></summary>
+	
+**sky130_fd_sc_hd__ff_100C_1v65.lib:**
+
+![Screenshot from 2024-11-03 11-17-56](https://github.com/user-attachments/assets/0d42ab97-93f4-44c2-9cfb-6445d645db6e)
+
+![Screenshot from 2024-11-03 11-17-39](https://github.com/user-attachments/assets/438d468c-91f9-4a64-b77a-2e4b8ae4fc8a)
+
+**sky130_fd_sc_hd__ff_100C_1v95.lib:**
+
+![Screenshot from 2024-11-03 11-18-20](https://github.com/user-attachments/assets/2eddb20e-e57d-46a7-b969-d1031b258502)
+
+![Screenshot from 2024-11-03 11-18-15](https://github.com/user-attachments/assets/ea4167fe-3f35-44d2-be0d-d1787d579343)
+
+
+**sky130_fd_sc_hd__ff_n40C_1v56.lib:**
+
+![Screenshot from 2024-11-03 11-20-18](https://github.com/user-attachments/assets/b1b8ad30-792e-4585-ab69-88c97739bd5b)
+
+![Screenshot from 2024-11-03 11-19-23](https://github.com/user-attachments/assets/d818abd1-02fe-4b4e-99e9-e694a2ef0cdb)
+
+**sky130_fd_sc_hd__ff_n40C_1v65.lib:**
+
+![Screenshot from 2024-11-03 11-20-37](https://github.com/user-attachments/assets/650adad4-5a42-4a0e-b109-c6208ac8820f)
+
+![Screenshot from 2024-11-03 11-20-31](https://github.com/user-attachments/assets/7f76f46d-9a30-4951-93b5-d94ff8bad71f)
+
+**sky130_fd_sc_hd__ff_n40C_1v76.lib:**
+
+![Screenshot from 2024-11-03 11-20-52](https://github.com/user-attachments/assets/f2defda9-8859-4ef5-a87c-f6a270aed521)
+
+![Screenshot from 2024-11-03 11-20-47](https://github.com/user-attachments/assets/ea3e0625-051e-42dd-b6e4-3debf3f3b7e8)
+
+**sky130_fd_sc_hd__ff_n40C_1v95.lib:**
+
+![Screenshot from 2024-11-03 11-21-07](https://github.com/user-attachments/assets/8dfea3de-38bb-413a-b73a-9ed18b8fde59)
+
+![Screenshot from 2024-11-03 11-21-02](https://github.com/user-attachments/assets/981b75e7-13d3-40eb-8c6a-49319f6c223e)
+
+**sky130_fd_sc_hd__ff_n40C_1v95_ccsnoise.lib.part1:**
+
+![Screenshot from 2024-11-03 11-21-21](https://github.com/user-attachments/assets/e36ed78c-4f72-46e0-b04d-65e1d77d29d6)
+
+![Screenshot from 2024-11-03 11-21-16](https://github.com/user-attachments/assets/2674e91f-c17f-4743-9270-a4fc88a63cbd)
+
+**sky130_fd_sc_hd__ff_n40C_1v95_ccsnoise.lib.part2:**
+
+![Screenshot from 2024-11-03 11-22-46](https://github.com/user-attachments/assets/de015b6a-db52-4268-a80e-71f03675cfe1)
+
+![Screenshot from 2024-11-03 11-22-41](https://github.com/user-attachments/assets/bdd94725-a92c-4edd-8eab-9bdb8c3b184d)
+
+
+**sky130_fd_sc_hd__ff_n40C_1v95_ccsnoise.lib.part3:**
+
+![Screenshot from 2024-11-03 11-23-02](https://github.com/user-attachments/assets/dfd43174-1870-4aef-8d3a-81e15e8a3dfd)
+
+![Screenshot from 2024-11-03 11-22-57](https://github.com/user-attachments/assets/4181e19d-81b6-4547-851a-7ac6376aaf45)
+
+
+**sky130_fd_sc_hd__ss_100C_1v40.lib:**
+
+![Screenshot from 2024-11-03 11-23-18](https://github.com/user-attachments/assets/bbbb34f5-46b5-4684-bc7a-fe67c436af6e)
+
+![Screenshot from 2024-11-03 11-23-12](https://github.com/user-attachments/assets/33b9c806-ba9b-455a-acc2-040260f76995)
+
+**sky130_fd_sc_hd__ss_100C_1v60.lib:**
+
+![Screenshot from 2024-11-03 11-23-30](https://github.com/user-attachments/assets/cc2ddb82-f824-47cf-bb09-eafedd8f747e)
+
+![Screenshot from 2024-11-03 11-23-26](https://github.com/user-attachments/assets/5b812d42-0ea1-452f-a406-a558274d4203)
+
+**sky130_fd_sc_hd__ss_n40C_1v28.lib:**
+
+![Screenshot from 2024-11-03 11-23-52](https://github.com/user-attachments/assets/31e7dc07-dff9-44dd-95ab-a65358700919)
+
+![Screenshot from 2024-11-03 11-23-40](https://github.com/user-attachments/assets/00ad4368-89df-4b14-b410-1766ebf501fd)
+
+**sky130_fd_sc_hd__ss_n40C_1v35.lib:**
+
+![Screenshot from 2024-11-03 11-24-40](https://github.com/user-attachments/assets/e12c7eaa-2dcf-4366-acad-f9a17a5a866f)
+
+![Screenshot from 2024-11-03 11-24-16](https://github.com/user-attachments/assets/5e7300ba-dd36-4805-abd9-96b5aba7aa72)
+
+**sky130_fd_sc_hd__ss_n40C_1v40.lib:**
+
+![Screenshot from 2024-11-03 11-25-21](https://github.com/user-attachments/assets/1d30d7a9-35b2-49a2-b85b-c2bfb415c766)
+
+![Screenshot from 2024-11-03 11-24-55](https://github.com/user-attachments/assets/5e442603-e15d-4a51-92e0-54ddfa7f21c0)
+
+**sky130_fd_sc_hd__ss_n40C_1v44.lib:**
+
+![Screenshot from 2024-11-03 11-28-24](https://github.com/user-attachments/assets/bb22a65d-45bf-4363-a43d-944ddb46817a)
+
+![Screenshot from 2024-11-03 11-28-15](https://github.com/user-attachments/assets/1272bd5d-69b2-4df6-b23b-0cd3f87127df)
+
+**sky130_fd_sc_hd__ss_n40C_1v60.lib:**
+
+![Screenshot from 2024-11-03 11-28-46](https://github.com/user-attachments/assets/fb5a7e32-2618-4a40-9f73-d60124a89ed0)
+
+![Screenshot from 2024-11-03 11-28-36](https://github.com/user-attachments/assets/549b5eae-30e9-40f2-b035-6dc49138d631)
+
+**sky130_fd_sc_hd__ss_n40C_1v60_ccsnoise.lib.part1:**
+
+![Screenshot from 2024-11-03 11-29-23](https://github.com/user-attachments/assets/9bb8f620-31ce-46aa-aa38-c6b9bcf9e072)
+
+![Screenshot from 2024-11-03 11-29-10](https://github.com/user-attachments/assets/1d149c79-57fe-4040-a417-cb11e65f36c9)
+
+
+**sky130_fd_sc_hd__ss_n40C_1v60_ccsnoise.lib.part2:**
+
+![Screenshot from 2024-11-03 11-29-57](https://github.com/user-attachments/assets/d23970d6-065a-4397-9434-150449d4cace)
+
+![Screenshot from 2024-11-03 11-29-44](https://github.com/user-attachments/assets/e2675ca4-c894-4f4b-8d61-5bc5a696bdfb)
+
+**sky130_fd_sc_hd__ss_n40C_1v60_ccsnoise.lib.part3:**
+
+![Screenshot from 2024-11-03 11-30-19](https://github.com/user-attachments/assets/181879a1-38a8-4dc8-9da7-67be19a3224e)
+
+![Screenshot from 2024-11-03 11-30-11](https://github.com/user-attachments/assets/6f7ae392-f51f-448d-8ab7-b156aaeaebdb)
+
+**sky130_fd_sc_hd__ss_n40C_1v76.lib:**
+
+![Screenshot from 2024-11-03 11-30-46](https://github.com/user-attachments/assets/31db73bf-0b8f-41be-b3e3-b6831264edce)
+
+![Screenshot from 2024-11-03 11-30-31](https://github.com/user-attachments/assets/1b5a927a-ac6b-4b51-9560-25f2dbd4355f)
+
+**sky130_fd_sc_hd__tt_025C_1v80.lib:**
+![Screenshot from 2024-11-03 11-31-21](https://github.com/user-attachments/assets/37ecc157-00f7-41a4-865b-28a1a31cf19a)
+
+![Screenshot from 2024-11-03 11-30-59](https://github.com/user-attachments/assets/b523e0b7-b17e-4b5c-b9a3-7a6e4f92f167)
+
+**sky130_fd_sc_hd__tt_100C_1v80.lib:**
+
+![Screenshot from 2024-11-03 11-35-48](https://github.com/user-attachments/assets/543fd4cb-a883-4934-9891-833055650399)
+
+![Screenshot from 2024-11-03 11-35-42](https://github.com/user-attachments/assets/3e9fbbdf-beca-4f18-80ae-e1bbebadf6bb)
+
+
+</details>
+
 </details>
 
 
