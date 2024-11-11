@@ -3940,7 +3940,10 @@ Graphs:
 <details>
 <summary><strong>Lab Session 13</strong>  Advanced Physical Design using OpenLane using Sky130</summary>
 
-## Day-1: Inception of open-source EDA, OpenLane and Sky130 PDK
+<details>
+<summary><strong>Day-1:</strong>  Inception of open-source EDA, OpenLane and Sky130 PDK</summary>
+
+## Inception of open-source EDA, OpenLane and Sky130 PDK
 
 **QFN-48 Package**: The QFN-48 is a compact leadless package with 48 connection pads around its perimeter, providing excellent thermal and electrical performance, ideal for high-density applications.
 
@@ -4084,7 +4087,7 @@ Flop ratio = Number of D Flip flops = 1613  = 0.1084
 - **D Flip-flops**: 1,613 with a flop ratio of 0.1084
 
 </details>
-
+</details>
 </details>
 
 
