@@ -4215,7 +4215,7 @@ run_floorplan
 Then, in a new terminal, access the floorplan file as follows:
 
 ```
-cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/09-11_07-10/results/floorplan
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-11_16-28/results/floorplan
 gedit picorv32a.floorplan.def
 ```
 
@@ -4231,7 +4231,7 @@ According to the floorplan definitions:
 To view the floorplan in Magic:
 
 ```
-cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-03_12-06/results/floorplan/
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-11_16-28/results/floorplan/
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
 ```
 
@@ -4243,13 +4243,18 @@ Decap cells and tap cells are placed to manage power delivery and maintain elect
 To place the standard cells:
 
 ```
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design picorv32a
+run_synthesis
+run_floorplan
 run_placement
 ```
 
 View the placement in Magic with:
 
 ```
-cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-03_12-06/results/placement/
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-11_16-56/results/placement/
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
 ```
 
