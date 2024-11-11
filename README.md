@@ -3937,6 +3937,153 @@ Graphs:
 </details>
 
 
+<details>
+<summary><strong>Lab Session 13</strong>  Advanced Physical Design using OpenLane using Sky130</summary>
+
+## Day-1: Inception of open-source EDA, OpenLane and Sky130 PDK
+
+**QFN-48 Package**: The QFN-48 is a compact leadless package with 48 connection pads around its perimeter, providing excellent thermal and electrical performance, ideal for high-density applications.
+
+![Screenshot from 2024-11-11 14-32-57](https://github.com/user-attachments/assets/3f1237c7-c6a6-453f-9655-636f8778eb9c)
+
+**Chip**: An integrated circuit (IC) on a silicon substrate with various functional blocks like memory, processors, and I/O, designed for specific electronics applications.
+
+![Screenshot from 2024-11-11 14-33-11](https://github.com/user-attachments/assets/32a46c31-bde4-46b7-807a-5f09e7a42a82)
+
+**Pads**: Small metallic contact points on a chip or package, used to connect internal circuitry with external connections, enabling signal transfer.
+
+**Core**: The main processing unit of a chip, containing functional logic optimized for power and performance.
+
+**Die**: The section of a silicon wafer containing an individual IC before packaging, hosting all the active circuitry of the chip.
+
+![Screenshot from 2024-11-11 14-33-23](https://github.com/user-attachments/assets/ff797bc6-ea8e-4bd9-be22-e3cf8ce4df95)
+
+**IPs (Intellectual Properties)**: Pre-designed functional modules, such as USB controllers or memory interfaces, licensed for reuse in various designs to save development time and costs.
+
+![Screenshot from 2024-11-11 14-33-32](https://github.com/user-attachments/assets/4e0b10e5-eea2-4b68-a42c-3db071423e38)
+
+---
+
+### Software to Hardware Execution Flow
+
+When running an application on hardware, it first enters the system software layer, which translates it to binary form. Key components here include the Operating System (OS), Compiler, and Assembler.
+
+1. **OS**: Breaks down application functions written in high-level languages (e.g., C, Java) and passes them to a compiler.
+2. **Compiler**: Translates functions into hardware-specific low-level instructions.
+3. **Assembler**: Converts these instructions into binary code, which the hardware can execute.
+
+![Screenshot from 2024-11-11 14-33-50](https://github.com/user-attachments/assets/0f07a5f9-9ce0-457e-a7af-1caffa64f809)
+
+For instance, take a stopwatch app running on a RISC-V core. The OS generates a function in C, which is sent to the compiler. The compiler produces RISC-V-specific instructions adapted to the architecture. These instructions are then processed by the assembler, converting them to binary code. This binary code is then integrated into the chip layout, allowing the hardware to execute the intended functionality.
+
+![Screenshot from 2024-11-11 14-34-04](https://github.com/user-attachments/assets/1d9b1e0e-1170-4709-98b9-3f2f71f28098)
+
+For the above stopwatch the below figure shows the input and output of the compiler and assembler.
+
+![Screenshot from 2024-11-11 14-34-16](https://github.com/user-attachments/assets/205f26fb-62b5-40d4-8bf2-ef96fc9ff711)
+
+The compiler produces instructions specific to the architecture, and the assembler converts these into corresponding binary patterns. To execute them on hardware, an RTL (written in a Hardware Description Language) interprets and implements the instructions. This RTL design is then synthesized into a netlist, represented by interconnected logic gates. Finally, the netlist undergoes physical design implementation, preparing it for chip fabrication.
+
+![Screenshot from 2024-11-11 14-34-28](https://github.com/user-attachments/assets/f4df4c33-62e9-4a78-9f14-98282aa9c2a2)
+
+---
+
+### Components of ASIC Design
+
+- **RTL IPs**: Verified circuit blocks (adders, flip-flops) in HDL, used to accelerate complex designs.
+- **EDA Tools**: Automates ASIC tasks like synthesis, optimization, and timing analysis, ensuring performance meets requirements.
+- **PDK Data**: Semiconductor foundry files defining the manufacturing process, ensuring ASIC designs are fabrication-ready.
+
+![Screenshot from 2024-11-11 14-34-40](https://github.com/user-attachments/assets/610fc21f-8262-4d4b-b868-01a9d84b40ca)
+
+---
+
+### Simplified RTL to GDSII Flow
+
+![Screenshot from 2024-11-11 14-34-49](https://github.com/user-attachments/assets/9d8d2664-476d-4cd6-b5b3-7e0aed241a2f)
+
+1. **RTL Design**: Describes circuit function using HDLs like Verilog or VHDL.
+2. **RTL Synthesis**: Converts RTL to a gate-level netlist with optimized cells.
+3. **Floor and Power Planning**: Lays out major components, power grid, and I/O.
+4. **Placement**: Allocates cells to minimize wirelength and signal delay.
+5. **Clock Tree Synthesis (CTS)**: Distributes clock signals uniformly to reduce skew.
+6. **Routing**: Connects components while meeting design rules.
+7. **Sign-off**: Final verification, confirming design readiness for fabrication.
+8. **GDSII Generation**: Creates the layout for chip production.
+
+---
+
+### OpenLane ASIC Flow Overview
+
+![Screenshot from 2024-11-11 14-34-58](https://github.com/user-attachments/assets/414fbce3-7665-4375-9123-42a11f41ccec)
+
+1. **RTL Synthesis and Technology Mapping**: Uses Yosys and ABC.
+2. **Static Timing Analysis**: Uses OpenSTA.
+3. **Floor Planning**: Utilizes init_fp, ioPlacer, pdn, tapcell.
+4. **Placement**: Managed by RePLace, Resizer, OpenPhySyn, and OpenDP.
+5. **Clock Tree Synthesis**: Uses TritonCTS.
+6. **Fill Insertion**: Uses OpenDP.
+7. **Routing**: Uses FastRoute/CU-GR (global) and TritonRoute/DR-CU (detailed).
+8. **SPEF Extraction**: OpenRCX for parasitic data.
+9. **GDSII Output**: Uses Magic and KLayout.
+10. **Design Rule Checks**: Magic and KLayout.
+11. **Layout vs. Schematic Check**: Uses Netgen.
+12. **Antenna Checks**: Handled by Magic.
+
+---
+
+### OpenLane Directory Structure
+
+```plaintext
+├── OpenLane            # Tool directory
+│   ├── designs         # Holds all designs
+│   │   └── picorv32a   # Example design
+├── pdks                # PDK-related files
+│   ├── skywater-pdk    # Skywater 130nm PDKs
+│   ├── open-pdks       # Scripts for open-source tool compatibility
+│   ├── sky130A         # Open-source compatible PDK variant
+│   │   ├── libs.ref    # Node-specific files (e.g., timing, tech LEF)
+│   │   ├── libs.tech   # Tool-specific files (e.g., for KLayout)
+```
+
+### Running Synthesis in OpenLane
+
+1. **Navigate and start OpenLane**:
+   ```bash
+   cd Desktop/work/tools/openlane_working_dir/openlane
+   docker
+   ./flow.tcl -interactive
+   package require openlane 0.9
+   prep -design picorv32a
+   run_synthesis
+   ```
+
+2. **View the Netlist**:
+   ```bash
+   cd designs/picorv32a/runs/09-11_06-33/results/synthesis/
+   gedit picorv32a.synthesis.v
+   ```
+
+3. **Yosys Report**:
+   ```bash
+   cd ../..
+   cd reports/synthesis
+   gedit 1-yosys_4.stat.rpt
+   ```
+
+**Report Summary**:
+
+```
+Flop ratio = Number of D Flip flops = 1613  = 0.1084
+             ______________________   _____
+             Total Number of cells    14876
+```
+
+- **Wire Count**: 14,596
+- **Cell Count**: 14,876, including specific cells like `sky130_fd_sc_hd__a2111o_2`, `sky130_fd_sc_hd__and2_2`.
+- **D Flip-flops**: 1,613 with a flop ratio of 0.1084
+
+</details>
 
 </details>
 
