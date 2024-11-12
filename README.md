@@ -4369,6 +4369,7 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
    cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech . 
    magic -T sky130A.tech sky130_inv.mag & 
    ```
+![Screenshot from 2024-11-12 23-41-52](https://github.com/user-attachments/assets/7a9892ee-2b6f-4b28-98e1-b0f55c74fc26)
 
 #### CMOS Fabrication Process (16 Masks)
 
@@ -4406,6 +4407,18 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
 
 <img width="773" alt="Screenshot 2024-11-12 at 11 46 46 PM" src="https://github.com/user-attachments/assets/1b5b48f3-ee2d-47a5-8ebd-41614f33b050">
 
+#### Inverter Layout
+
+![Screenshot from 2024-11-12 23-54-13](https://github.com/user-attachments/assets/2a56754f-c532-49fd-9b5b-fb856f12012a)
+
+![Screenshot from 2024-11-12 23-54-26](https://github.com/user-attachments/assets/7674039b-6ed1-4ed1-9897-902f042e7096)
+
+![Screenshot from 2024-11-12 23-54-39](https://github.com/user-attachments/assets/7d601e97-0fd2-458a-908f-90a123c57d53)
+
+![Screenshot from 2024-11-12 23-55-26](https://github.com/user-attachments/assets/1445b939-6717-4fb0-8ff4-7a4edb397fbd)
+
+![Screenshot from 2024-11-12 23-55-53](https://github.com/user-attachments/assets/da582617-e15b-47c5-b1f5-bd0777e9461e)
+
 #### SPICE Extraction with Magic
 
 Run commands in `tkcon` to extract and generate SPICE:
@@ -4416,7 +4429,13 @@ ext2spice cthresh 0 rthresh 0
 ext2spice 
 ```
 
+![Screenshot from 2024-11-13 00-06-58](https://github.com/user-attachments/assets/da8b3fa8-5e39-480e-a472-58a994479b1a)
+
 #### Modifying SPICE File for Transient Analysis
+
+![Screenshot from 2024-11-13 00-07-35](https://github.com/user-attachments/assets/caa04964-e21d-49b0-9f7b-4c76b94fda3c)
+
+![Screenshot from 2024-11-13 00-07-42](https://github.com/user-attachments/assets/0e09dbd7-2872-48c8-981a-b9ab25284ab6)
 
 Edit `sky130_inv.spice`:
 ```
@@ -4447,6 +4466,10 @@ To simulate:
 ngspice sky130_inv.spice 
 plot y vs time a 
 ```
+![Screenshot from 2024-11-13 00-12-43](https://github.com/user-attachments/assets/86b19c94-3ce9-4e95-8aa3-6833c976202e)
+
+![Screenshot from 2024-11-13 00-13-12](https://github.com/user-attachments/assets/defbf5aa-4975-4f56-bcf1-af4b032145fd)
+
 
 #### Characterizing Slew Rate and Propagation Delay
 
@@ -4475,12 +4498,20 @@ gvim .magicrc
 magic -d XR & 
 ```
 
+![Screenshot from 2024-11-13 00-18-20](https://github.com/user-attachments/assets/421d67f3-8c6e-46b8-9af5-df1339da4c91)
+
+![Screenshot from 2024-11-13 00-21-58](https://github.com/user-attachments/assets/dc4f6182-faba-4842-a6cb-b1c8f35bb9ae)
+
 Run DRC commands:
 ``` 
 tech load sky130A.tech 
 drc check 
 drc why 
 ```
+
+![Screenshot from 2024-11-13 00-33-24](https://github.com/user-attachments/assets/b99c626f-6e9f-4312-a934-31b964dc1a5c)
+
+![Screenshot from 2024-11-13 00-35-16](https://github.com/user-attachments/assets/fe5c1e08-92e6-46b5-9791-34731fd28a46)
 
 <img width="805" alt="Screenshot 2024-11-13 at 12 38 16 AM" src="https://github.com/user-attachments/assets/ddccab54-9579-42a6-80e2-a4b74dc21eea">
 
