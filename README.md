@@ -4404,6 +4404,8 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
 
 16. **Final Testing and Packaging**: Rigorous testing ensures chip functionality, after which functional chips are separated, packaged, and prepared for deployment.
 
+<img width="773" alt="Screenshot 2024-11-12 at 11 46 46 PM" src="https://github.com/user-attachments/assets/1b5b48f3-ee2d-47a5-8ebd-41614f33b050">
+
 #### SPICE Extraction with Magic
 
 Run commands in `tkcon` to extract and generate SPICE:
@@ -4480,6 +4482,7 @@ drc check
 drc why 
 ```
 
+<img width="805" alt="Screenshot 2024-11-13 at 12 38 16 AM" src="https://github.com/user-attachments/assets/ddccab54-9579-42a6-80e2-a4b74dc21eea">
 
 </details>
 
