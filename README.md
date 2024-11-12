@@ -4310,7 +4310,7 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
 <details>
 <summary><strong>Day-3:</strong> Design library cell using Magic Layout and ngspice characterization </summary>
 
-### CMOS Inverter NGSPICE Simulations
+## CMOS Inverter NGSPICE Simulations
 
 #### SPICE Deck for a CMOS Inverter Simulation
 
