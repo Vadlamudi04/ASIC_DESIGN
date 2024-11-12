@@ -4061,18 +4061,34 @@ The compiler produces instructions specific to the architecture, and the assembl
    run_synthesis
    ```
 
-2. **View the Netlist**:
+   ![1](https://github.com/user-attachments/assets/79bf5c08-c476-4a13-aafa-fbe3660bab49)
+
+
+3. **View the Netlist**:
    ```bash
    cd designs/picorv32a/runs/09-11_06-33/results/synthesis/
    gedit picorv32a.synthesis.v
    ```
 
-3. **Yosys Report**:
+   ![2](https://github.com/user-attachments/assets/a1181bfc-46e3-47c1-b840-b33829a2bb60)
+
+   ![3](https://github.com/user-attachments/assets/e33278e6-b30b-4a4e-b81d-d5fa7c23eea0)
+
+5. **Yosys Report**:
    ```bash
    cd ../..
    cd reports/synthesis
    gedit 1-yosys_4.stat.rpt
    ```
+
+   ![5](https://github.com/user-attachments/assets/5a482c16-ee27-4e18-8335-5cb1a5ce84e7)
+
+
+   ![4](https://github.com/user-attachments/assets/ce9c6b15-4c39-468c-a518-a3f2a06bf129)
+
+
+  
+
 **Report:**
 
 ```
@@ -4212,12 +4228,17 @@ run_synthesis
 run_floorplan
 ```
 
+![6](https://github.com/user-attachments/assets/45b7ab86-7a1a-409b-8512-1faca81e8f3b)
+
+![7](https://github.com/user-attachments/assets/0337802f-8d1d-4f40-923e-ec21cd5dcf91)
+
 Then, in a new terminal, access the floorplan file as follows:
 
 ```
 cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-11_16-28/results/floorplan
 gedit picorv32a.floorplan.def
 ```
+![8](https://github.com/user-attachments/assets/4e392782-99bb-4dfb-8126-09e68f33bf2f)
 
 According to the floorplan definitions:
 
@@ -4234,10 +4255,16 @@ To view the floorplan in Magic:
 cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-11_16-28/results/floorplan/
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
 ```
+![9](https://github.com/user-attachments/assets/d9840e47-8674-4907-aaee-626c976c2180)
+
 
 ### **Decap and Tap Cells**
 
 Decap cells and tap cells are placed to manage power delivery and maintain electrical connectivity across the chip.
+
+![91](https://github.com/user-attachments/assets/7f8e09de-ac57-4f8e-83bd-1d2b556f0737)
+
+![92](https://github.com/user-attachments/assets/7e09a833-01b6-4e21-bf17-849ed2fc1b94)
 
 ### **Unplaced Standard Cells at Origin**
 To place the standard cells:
@@ -4251,12 +4278,18 @@ run_floorplan
 run_placement
 ```
 
+![93](https://github.com/user-attachments/assets/70f206ca-ebc8-432f-8176-5a27fa4e3799)
+
 View the placement in Magic with:
 
 ```
 cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-11_16-56/results/placement/
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
 ```
+
+![94](https://github.com/user-attachments/assets/ea69e54b-2497-4ecc-952e-195cc10be485)
+
+![95](https://github.com/user-attachments/assets/7d8fc7fd-385f-4289-af88-7456b2e51b30)
 
 ### **Cell Design and Characterization Flow**
 The library provides essential cell information, including various sizes, functionalities, and threshold voltages. A typical design flow includes:
