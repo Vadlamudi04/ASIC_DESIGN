@@ -4066,7 +4066,7 @@ The compiler produces instructions specific to the architecture, and the assembl
 
 3. **View the Netlist**:
    ```bash
-   cd designs/picorv32a/runs/09-11_06-33/results/synthesis/
+   cd designs/picorv32a/runs/11-11_16-15/results/synthesis/
    gedit picorv32a.synthesis.v
    ```
 
@@ -4264,10 +4264,10 @@ Decap cells and tap cells are placed to manage power delivery and maintain elect
 
 ![91](https://github.com/user-attachments/assets/7f8e09de-ac57-4f8e-83bd-1d2b556f0737)
 
-![92](https://github.com/user-attachments/assets/7e09a833-01b6-4e21-bf17-849ed2fc1b94)
 
 ### **Unplaced Standard Cells at Origin**
-To place the standard cells:
+
+![92](https://github.com/user-attachments/assets/7e09a833-01b6-4e21-bf17-849ed2fc1b94)
 
 ```
 ./flow.tcl -interactive
@@ -4355,7 +4355,7 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
 
 4. **Node Naming**: Assign names (e.g., `VDD`, `GND`, `IN`, `OUT`) to nodes around each component in the SPICE netlist for easier reference.
 
-<img width="953" alt="Screenshot 2024-11-12 at 11 23 10 PM" src="https://github.com/user-attachments/assets/cbd5664c-8342-4f0c-9cc9-1320c3d1ca68">
+   <img width="953" alt="Screenshot 2024-11-12 at 11 23 10 PM" src="https://github.com/user-attachments/assets/cbd5664c-8342-4f0c-9cc9-1320c3d1ca68">
 
 
 5. **Simulation Commands**: For transient analysis, use:
@@ -4366,8 +4366,8 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
    dc1 
    plot out vs in 
    ```
-   
-<img width="938" alt="Screenshot 2024-11-12 at 11 23 32 PM" src="https://github.com/user-attachments/assets/4339530d-407c-4be8-a2de-ecdac84d3523">
+
+   <img width="938" alt="Screenshot 2024-11-12 at 11 23 32 PM" src="https://github.com/user-attachments/assets/4339530d-407c-4be8-a2de-ecdac84d3523">
 
 #### Simulation and Analysis
 
@@ -4380,7 +4380,7 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
    .dc Vin 0 2.5 0.05 
    ```
 
-<img width="950" alt="Screenshot 2024-11-12 at 11 23 49 PM" src="https://github.com/user-attachments/assets/09eb989c-2a66-4225-b15a-2ded2d9299ee">
+    <img width="950" alt="Screenshot 2024-11-12 at 11 23 49 PM" src="https://github.com/user-attachments/assets/09eb989c-2a66-4225-b15a-2ded2d9299ee">
 
 
 - **Transient Analysis for Propagation Delay**: SPICE command for pulse input:
@@ -4390,7 +4390,7 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
    .tran 10p 4n 
    ```
 
-<img width="884" alt="Screenshot 2024-11-12 at 11 28 02 PM" src="https://github.com/user-attachments/assets/4f45f9d0-43ab-494e-8e18-c775f27509ae">
+    <img width="884" alt="Screenshot 2024-11-12 at 11 28 02 PM" src="https://github.com/user-attachments/assets/4f45f9d0-43ab-494e-8e18-c775f27509ae">
 
 #### Cloning the Custom Inverter Layout
 
@@ -4402,7 +4402,8 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
    cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech . 
    magic -T sky130A.tech sky130_inv.mag & 
    ```
-![Screenshot from 2024-11-12 23-41-52](https://github.com/user-attachments/assets/7a9892ee-2b6f-4b28-98e1-b0f55c74fc26)
+
+   ![Screenshot from 2024-11-12 23-41-52](https://github.com/user-attachments/assets/7a9892ee-2b6f-4b28-98e1-b0f55c74fc26)
 
 #### CMOS Fabrication Process (16 Masks)
 
@@ -4438,7 +4439,7 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
 
 16. **Final Testing and Packaging**: Rigorous testing ensures chip functionality, after which functional chips are separated, packaged, and prepared for deployment.
 
-<img width="773" alt="Screenshot 2024-11-12 at 11 46 46 PM" src="https://github.com/user-attachments/assets/1b5b48f3-ee2d-47a5-8ebd-41614f33b050">
+    <img width="773" alt="Screenshot 2024-11-12 at 11 46 46 PM" src="https://github.com/user-attachments/assets/1b5b48f3-ee2d-47a5-8ebd-41614f33b050">
 
 #### Inverter Layout
 
