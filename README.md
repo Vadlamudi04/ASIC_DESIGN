@@ -4306,8 +4306,174 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
 ```
 
 </details>
+
+<details>
+<summary><strong>Day-3:</strong> Design library cell using Magic Layout and ngspice characterization </summary>
+
+### CMOS Inverter NGSPICE Simulations
+
+#### SPICE Deck for a CMOS Inverter Simulation
+
+1. **Netlist Creation**: Define a netlist for the CMOS inverter circuit, labeling nodes clearly (e.g., `input`, `output`, `ground`, and `supply`) for easier identification during SPICE simulation.
+
+2. **Device Sizing**: Define the Width-to-Length (W/L) ratios for the PMOS and NMOS transistors. Typically, the PMOS width is 2x to 3x the NMOS width for balanced drive strength.
+
+3. **Voltage Levels**: Set gate and supply voltages in multiples of the transistor length.
+
+4. **Node Naming**: Assign names (e.g., `VDD`, `GND`, `IN`, `OUT`) to nodes around each component in the SPICE netlist for easier reference.
+
+5. **Simulation Commands**: For transient analysis, use:
+   ``` 
+   source [filename].cir 
+   run 
+   setplot 
+   dc1 
+   plot out vs in 
+   ```
+
+#### Simulation and Analysis
+
+- **Switching Threshold (Vm)**: Vm is the input voltage at which the inverter output switches between logic levels. For equal PMOS/NMOS sizes, Vm is around VDD/2. Adjusting PMOS or NMOS sizes shifts Vm higher or lower.
+
+- **SPICE Command for Threshold Calculation**:
+   ``` 
+   Vin in 0 2.5 
+   .op 
+   .dc Vin 0 2.5 0.05 
+   ```
+
+- **Transient Analysis for Propagation Delay**: SPICE command for pulse input:
+   ``` 
+   Vin in 0 0 pulse 0 2.5 0 10p 10p 1n 2n 
+   .op 
+   .tran 10p 4n 
+   ```
+
+#### Cloning the Custom Inverter Layout
+
+1. Clone the inverter:
+   ``` 
+   cd Desktop/work/tools/openlane_working_dir/openlane 
+   git clone https://github.com/nickson-jose/vsdstdcelldesign 
+   cd vsdstdcelldesign 
+   cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech . 
+   magic -T sky130A.tech sky130_inv.mag & 
+   ```
+
+#### CMOS Fabrication Process (16 Masks)
+
+1. **Substrate Preparation**: The process begins with silicon wafer preparation as the base for the circuit.
+
+2. **N-Well Formation**: Phosphorus impurities are implanted or diffused to create N-well regions on the substrate.
+
+3. **P-Well Formation**: P-well regions are formed similarly, using boron or other dopants through ion implantation or diffusion.
+
+4. **Gate Oxide Deposition**: A thin layer of silicon dioxide is deposited to act as the gate insulator.
+
+5. **Polysilicon Deposition**: A polysilicon layer is deposited on the gate oxide to form the gate electrode.
+
+6. **Polysilicon Masking and Etching**: Areas where polysilicon should remain are defined with a photoresist mask, and unprotected sections are etched away.
+
+7. **N-Well Masking and Implantation**: A mask preserves N-well regions while phosphorus or similar impurities are implanted in other areas.
+
+8. **P-Well Masking and Implantation**: A mask protects P-well regions, allowing boron or equivalent dopants to be implanted elsewhere.
+
+9. **Source/Drain Implantation**: Using masks, dopants (e.g., arsenic for NMOS, boron for PMOS) are implanted to form the source and drain regions.
+
+10. **Gate Formation**: The gate electrode is defined by etching the polysilicon layer, guided by a mask.
+
+11. **Source/Drain Masking and Etching**: Masks define the source and drain areas, followed by etching to clear the oxide from those regions.
+
+12. **Contact/Via Formation**: Holes are etched through the oxide layer to expose areas like the source/drain or polysilicon gates for contacts.
+
+13. **Metal Deposition**: A metal layer, usually aluminum or copper, is deposited to create electrical interconnections.
+
+14. **Metal Masking and Etching**: Metal interconnect patterns are defined using a photoresist mask, with etching to remove unneeded metal.
+
+15. **Passivation Layer Deposition**: A protective silicon dioxide or nitride layer is applied to shield metal interconnections.
+
+16. **Final Testing and Packaging**: Rigorous testing ensures chip functionality, after which functional chips are separated, packaged, and prepared for deployment.
+
+#### SPICE Extraction with Magic
+
+Run commands in `tkcon` to extract and generate SPICE:
+``` 
+pwd 
+extract all 
+ext2spice cthresh 0 rthresh 0 
+ext2spice 
+```
+
+#### Modifying SPICE File for Transient Analysis
+
+Edit `sky130_inv.spice`:
+```
+* SPICE3 file created from sky130_inv.ext - technology: sky130A
+
+.option scale=0.01u
+.include ./libs/pshort.lib
+.include ./libs/nshort.lib
+
+M1000 Y A VGND VGND nshort_model.0 w=35 l=23
++  ad=1.44n pd=0.152m as=1.37n ps=0.148m
+M1001 Y A VPWR VPWR pshort_model.0 w=37 l=23
++  ad=1.44n pd=0.152m as=1.52n ps=0.156m
+
+VDD VPWR 0 3.3V
+VSS VGND 0 0V
+Va A VGND PULSE(0V 3.3V 0 0.1ns 0.1ns 2ns 4ns)
+
+.tran 1n 20n
+.control
+run
+.endc
+.end
+```
+
+To simulate:
+``` 
+ngspice sky130_inv.spice 
+plot y vs time a 
+```
+
+#### Characterizing Slew Rate and Propagation Delay
+
+Using transient response:
+- **Rise Transition**: Time for output to rise from 20% to 80% of max value.
+- **Fall Transition**: Time for output to fall from 80% to 20%.
+- **Cell Rise/Fall Delay**: Difference in time for 50% output change compared to input transition.
+
+Example calculations:
+```
+Rise Transition: 63.96 ps
+Fall Transition: 41.9 ps
+Cell Rise Delay: 61.36 ps
+Cell Fall Delay: 20 ps
+```
+
+#### Magic Tool DRC Rules Check
+
+Set up and run:
+``` 
+cd 
+wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz 
+tar xfz drc_tests.tgz 
+cd drc_tests 
+gvim .magicrc 
+magic -d XR & 
+```
+
+Run DRC commands:
+``` 
+tech load sky130A.tech 
+drc check 
+drc why 
+```
+
+
 </details>
 
+</details>
 
 
 
