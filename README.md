@@ -4843,7 +4843,8 @@ sta pre_sta.conf
 
 NOR gate of drive strength 2 is driving 5 fanouts
 
-![image](https://github.com/user-attachments/assets/ec8dd4f0-4089-4d30-bf28-40f807171603)
+![Uploading Screenshot 2024-11-14 at 1.28.09 AM.png…]()
+
 
 Run the following commands to optimise timing:
 
@@ -4852,7 +4853,8 @@ report_net -connections _13111_
 replace_cell _16171_ sky130_fd_sc_hd__nor3_2
 report_checks -fields {net cap slew input_pins} -digits 4
 ```
-![image](https://github.com/user-attachments/assets/49667f40-1eb1-42a8-ad22-0a287eb92de0)
+<img width="1008" alt="Screenshot 2024-11-14 at 1 28 20 AM" src="https://github.com/user-attachments/assets/ebedc8d1-2c4d-4138-a31c-bb6b43edc491">
+
 
 We can observe that the tns has reduced to -402.45 from -403.54 and wns has reduced to -5.44 from -5.59
 
@@ -4952,12 +4954,12 @@ set_propagated_clock [all_clocks]
 report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
 exit
 ```
+<img width="1019" alt="Screenshot 2024-11-14 at 1 29 08 AM" src="https://github.com/user-attachments/assets/f09ec34a-7e7a-4467-bf06-fc880fdc7556">
 
-![image](https://github.com/user-attachments/assets/7c6b4604-6a86-4e24-a2a0-ec2bb4259aeb)
+<img width="1007" alt="Screenshot 2024-11-14 at 1 29 17 AM" src="https://github.com/user-attachments/assets/ac9e3380-1e82-4e53-9a32-cc1ed74e4243">
 
-![image](https://github.com/user-attachments/assets/8d8d1a9b-187f-4680-8f9c-8d3bfab2976e)
+<img width="1006" alt="Screenshot 2024-11-14 at 1 29 33 AM" src="https://github.com/user-attachments/assets/ee06dcb4-380e-4c29-94e6-6d7e62b656a7">
 
-![image](https://github.com/user-attachments/assets/ada3e13a-58d7-4363-a458-e7a67c3bce4d)
 
 Now, enter the following commands for exploring post-CTS OpenROAD timing analysis by removing 'sky130_fd_sc_hd__clkbuf_1' cell from clock buffer list variable 'CTS_CLK_BUFFER_LIST':
 
@@ -4988,11 +4990,14 @@ set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_
 echo $::env(CTS_CLK_BUFFER_LIST)
 ```
 
-![image](https://github.com/user-attachments/assets/3fcd48ab-1c5e-4c46-815b-87ce2cb3480b)
+<img width="1006" alt="Screenshot 2024-11-14 at 1 29 45 AM" src="https://github.com/user-attachments/assets/09395e8f-3e6e-4f9c-87b4-4eaaf364fdac">
 
-![image](https://github.com/user-attachments/assets/317f453b-8b56-4a3d-a4be-1d3609d70c85)
 
-![image](https://github.com/user-attachments/assets/865ebf67-40b8-4c1e-9b4b-e9edf394b114)
+<img width="1001" alt="Screenshot 2024-11-14 at 1 29 53 AM" src="https://github.com/user-attachments/assets/c2cef32e-9b70-4340-843e-91f1e8b53c75">
+
+
+<img width="1006" alt="Screenshot 2024-11-14 at 1 30 03 AM" src="https://github.com/user-attachments/assets/7b002f8d-34ac-4235-979c-a8575977653f">
+
 
 </details>
 
