@@ -4563,44 +4563,43 @@ cd Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign
 cd ../../pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/
 less tracks.info
 ```
-![image](https://github.com/user-attachments/assets/13cb8a9b-0c9e-40f1-a020-c62cd0515980)
 
-Commands for tkcon window to set grid as tracks of locali layer
+![Screenshot from 2024-11-13 02-35-59](https://github.com/user-attachments/assets/82177838-476c-4471-a17f-a665dcdba1b3)
+
+Commands to set grid for tkcon window as tracks of locali layer use the following command
 
 ```
 grid 0.46um 0.34um 0.23um 0.17um
 ```
 
-![image](https://github.com/user-attachments/assets/cd02da90-4a0a-4006-97ee-213bd7811734)
+![Screenshot from 2024-11-13 02-40-45](https://github.com/user-attachments/assets/5e6843f4-b3d1-413e-97d6-9665e544d4ea)
 
-The grids show where the routing for the local-interconnet layer can only happen, the distance of the grid lines are the required pitch of the wire. Below, we can see that the guidelines are satisfied:
-
-![image](https://github.com/user-attachments/assets/28a95f97-0330-4835-b762-4bd1c09167b0)
 
 Now, save it by giving a custon mae
 
 ```
-save sky130_akainv.mag
+save sky130_karinv.mag
 ```
+![Screenshot from 2024-11-13 02-43-18](https://github.com/user-attachments/assets/8621a99d-51fc-409e-acd6-4e62a53b6a1f)
 
-![image](https://github.com/user-attachments/assets/3cc23fcf-d81e-4538-b5c2-b21e3e063bbc)
 
 Now, open it by using the following commands:
 
 ```
-magic -T sky130A.tech sky130_akainv.mag &
+magic -T sky130A.tech sky130_karinv.mag &
 ```
 
-![image](https://github.com/user-attachments/assets/4f03c1dc-753c-4ad0-bb15-62d31d4c71a1)
+![Screenshot from 2024-11-13 02-44-19](https://github.com/user-attachments/assets/d5e8ab1e-bbb7-4c0b-a52a-ae19ae96a1e1)
+
+
 
 Now, type the following command in tkcon window:
 
 ```
 lef write
 ```
-![image](https://github.com/user-attachments/assets/dfb03866-4a7f-42b1-b4ba-cb6ac847ed6f)
+![Screenshot from 2024-11-13 02-46-07](https://github.com/user-attachments/assets/7fefb973-a988-4dc3-a1ca-a70c8d878b2c)
 
-![image](https://github.com/user-attachments/assets/44adaa57-013d-4552-99fa-5034075df52f)
 
 Modify config.tcl:
 
@@ -4647,15 +4646,13 @@ add_lefs -src $lefs
 run_synthesis
 ```
 
-![image](https://github.com/user-attachments/assets/497ae8ad-bf3c-4567-a578-c6ac20eb47bc)
+![Screenshot from 2024-11-13 14-27-23](https://github.com/user-attachments/assets/402eb305-8293-4338-a155-7c885827d838)
 
-![image](https://github.com/user-attachments/assets/dd7ada16-e796-4672-b27b-67236f8aca74)
+![Screenshot from 2024-11-13 14-30-18](https://github.com/user-attachments/assets/850bbff6-a9d2-455d-9a0c-8ccc18dd41a4)
 
-![image](https://github.com/user-attachments/assets/318360ea-bb6b-4d6e-967f-298a4f70e779)
+![Screenshot from 2024-11-13 14-30-25](https://github.com/user-attachments/assets/88af10ad-cf03-4bf1-bd59-a35499618daf)
 
-![image](https://github.com/user-attachments/assets/0d081b77-6f6e-46d7-bedb-1cd78c1d0fd8)
-
-![image](https://github.com/user-attachments/assets/2c862a4f-d992-4710-804a-cdbe5e1a85c1)
+![Screenshot from 2024-11-13 14-30-29](https://github.com/user-attachments/assets/0c18335a-ea7b-4df5-be53-e5d7e9e2d96b)
 
 **Delay Tables**
 
@@ -4668,7 +4665,7 @@ Fixing slack:
 ```
 ./flow.tcl -interactive
 package require openlane 0.9
-prep -design picorv32a -tag 24-03_10-03 -overwrite
+prep -design picorv32a -tag 13-11_08-51 -overwrite
 set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 echo $::env(SYNTH_STRATEGY)
@@ -4680,11 +4677,11 @@ echo $::env(SYNTH_DRIVING_CELL)
 run_synthesis
 ```
 
-![image](https://github.com/user-attachments/assets/f79fb04d-3753-493d-a765-aea3791fd471)
+![Screenshot from 2024-11-13 14-38-01](https://github.com/user-attachments/assets/1eec47f5-27d0-4e46-8a18-01d0d51ecbb3)
 
-![image](https://github.com/user-attachments/assets/fe99a71a-9aba-400f-a9ce-5d42276e4a78)
+![Screenshot from 2024-11-13 14-38-03](https://github.com/user-attachments/assets/beedf1e2-0762-466a-bd22-6aa1bedc3321)
 
-![image](https://github.com/user-attachments/assets/05bf09d2-a00c-44f3-8db9-11717c81bb79)
+![Screenshot from 2024-11-13 14-38-06](https://github.com/user-attachments/assets/7424c8c9-9877-47f5-b0da-b92ecc738855)
 
 Now, run floorplan
 
@@ -4692,9 +4689,9 @@ Now, run floorplan
 run_floorplan
 ```
 
-![image](https://github.com/user-attachments/assets/474b7966-7f1f-4354-aa29-648b2a365e93)
+![Screenshot from 2024-11-13 14-38-58](https://github.com/user-attachments/assets/7ac7a413-fe91-460b-8534-af9f4e24fcc9)
 
-![image](https://github.com/user-attachments/assets/03c178fe-d327-4242-a9c0-070ed48d0763)
+
 
 Since we are facing unexpected un-explainable error while using run_floorplan command, we can instead use the following set of commands available based on information from `Desktop/work/tools/openlane_working_dir/openlane/scripts/tcl_commands/floorplan.tcl` and also based on Floorplan Commands section in `Desktop/work/tools/openlane_working_dir/openlane/docs/source/OpenLANE_commands.md`
 
@@ -4710,9 +4707,10 @@ Now, do placement
 run_placement
 ```
 
-![image](https://github.com/user-attachments/assets/b4e4d29e-f445-47ce-acb3-86c51661f16f)
+![Screenshot from 2024-11-13 14-39-27](https://github.com/user-attachments/assets/53ccc542-286a-43b7-9edf-3975b17facf8)
 
-![image](https://github.com/user-attachments/assets/292c8d10-aa72-4542-a0e7-e77f5a33dc7e)
+![Screenshot from 2024-11-13 14-40-26](https://github.com/user-attachments/assets/2d4f855a-2b01-40e4-ad3d-32bb74447023)
+
 
 Now, open a new terminal and run the below commands to load placement def in magic
 
@@ -4722,15 +4720,13 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 
 ```
 
-![image](https://github.com/user-attachments/assets/22efb80d-96ca-414b-9197-1e2e89ed2a78)
-
 Custom inverter inserted in placement def
 
-![image](https://github.com/user-attachments/assets/c339ff22-4e62-4b10-a2b0-98d711501db7)
+![Screenshot from 2024-11-13 18-26-44](https://github.com/user-attachments/assets/ea1394be-06a7-4127-b365-e3b2104eee2e)
 
 Now, select the cell and type `expand` in tkcon window to view internal layers of cells
 
-![image](https://github.com/user-attachments/assets/8682e469-2cb8-42af-b63e-fbad8182b285)
+![Screenshot from 2024-11-13 18-29-17](https://github.com/user-attachments/assets/f142cf04-95f6-4fe8-8441-f4a50f06de07)
 
 **Timing analysis with ideal clocks using openSTA**
 
@@ -4809,10 +4805,9 @@ Commands to run STA:
 cd Desktop/work/tools/openlane_working_dir/openlane
 sta pre_sta.conf
 ```
+![Screenshot from 2024-11-13 18-36-30](https://github.com/user-attachments/assets/f8c6ead2-098a-4922-bead-6c07a11ec03e)
 
-![image](https://github.com/user-attachments/assets/23bce842-bdd3-449c-ba66-da6b51c62a1e)
-
-![image](https://github.com/user-attachments/assets/9a7c6501-475c-4361-b1f6-2d5c94e4b3d0)
+![Screenshot from 2024-11-13 18-36-35](https://github.com/user-attachments/assets/5e5a72ee-60fd-4c71-afed-8abeec4d8f37)
 
 We now try to optimise synthesis.
 
@@ -4830,7 +4825,8 @@ set ::env(SYNTH_MAX_FANOUT) 4
 echo $::env(SYNTH_DRIVING_CELL)
 run_synthesis
 ```
-![image](https://github.com/user-attachments/assets/21ea0cdb-e7a0-411c-981b-33ca528fbcc7)
+
+![Screenshot from 2024-11-13 18-38-35](https://github.com/user-attachments/assets/357af09d-5a63-4952-b4dd-ea02c970761e)
 
 Commands to run STA:
 
@@ -4905,7 +4901,7 @@ exit
 ```
 Verified that the netlist is overwritten
 
-![image](https://github.com/user-attachments/assets/02b43f95-e067-425a-be03-3d81cbefed28)
+![Screenshot from 2024-11-13 18-46-39](https://github.com/user-attachments/assets/6114fd42-47e6-4d90-9f10-ac0392e303b4)
 
 Now, run the following commands:
 
@@ -4925,15 +4921,12 @@ tap_decap_or
 run_placement
 run_cts
 ```
-![image](https://github.com/user-attachments/assets/7e329a64-2b8c-4006-a2b6-32d3b66ab790)
 
-![image](https://github.com/user-attachments/assets/ec16844c-3c39-48b6-be93-a979503df7e7)
+![Screenshot from 2024-11-13 18-50-47](https://github.com/user-attachments/assets/3fbf78f4-9140-4fd1-a085-8b70a0bd55e5)
 
-The cts is succesfull as shown below:
+![Screenshot from 2024-11-13 18-51-32](https://github.com/user-attachments/assets/8629c0a7-5a50-43b5-815a-ef73bc43b40b)
 
-![image](https://github.com/user-attachments/assets/588fb2e5-917e-4a93-a3f4-38306f13b2fa)
-
-![image](https://github.com/user-attachments/assets/f6b18d3a-a6a9-478e-9adb-521f2dc46fb5)
+![Screenshot from 2024-11-13 18-53-13](https://github.com/user-attachments/assets/bd5f9144-6886-45fa-b3e2-169e3972d893)
 
 **Setup timing analysis using real clocks**
 
