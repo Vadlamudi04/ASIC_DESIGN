@@ -5033,9 +5033,10 @@ Screenshots of power distribution network run
 ![Screenshot from 2024-11-14 00-03-02](https://github.com/user-attachments/assets/4226b564-44c6-47a1-b71e-ca6825614578)
 ![Screenshot from 2024-11-14 00-03-07](https://github.com/user-attachments/assets/5cf49287-29af-4aea-81bc-03c0b3bdd3e1)
 
+<img width="993" alt="Screenshot 2024-11-14 at 1 14 54 AM" src="https://github.com/user-attachments/assets/9a2e38bd-9cae-47d2-9415-49884658d545">
 
-![Screenshot from 2024-11-13 19-35-39](https://github.com/user-attachments/assets/fbcc9019-d8ef-45a6-a8c1-8c453868f52f)
-![Screenshot from 2024-11-13 19-41-30](https://github.com/user-attachments/assets/3b0992d8-6b43-4339-bdf0-45dd94a5d980)
+<img width="1010" alt="Screenshot 2024-11-14 at 1 15 02 AM" src="https://github.com/user-attachments/assets/df16bfeb-33a4-488d-96b6-d9d9d33e9077">
+
 
 ## 2. Perfrom detailed routing using TritonRoute and explore the routed layout.
 Command to perform routing
@@ -5051,8 +5052,9 @@ Screenshots of routing run
 ![Screenshot from 2024-11-14 00-34-32](https://github.com/user-attachments/assets/57eabce7-2021-4977-8df9-2b2a5eeb7d9b)
 ![Screenshot from 2024-11-14 00-34-39](https://github.com/user-attachments/assets/83684a88-d6be-471a-8b78-4a76bf2a2322)
 
-![Screenshot from 2024-11-13 20-16-10](https://github.com/user-attachments/assets/2fe29bd5-6f60-490b-a11c-b566768adf2e)
+<img width="1007" alt="Screenshot 2024-11-14 at 1 15 24 AM" src="https://github.com/user-attachments/assets/507ba59e-e8ce-4c0d-8d42-3f5d6b26c857">
 
+<img width="623" alt="Screenshot 2024-11-14 at 1 18 40 AM" src="https://github.com/user-attachments/assets/975f23b9-3129-40d0-915d-2a12fde2df7d">
 
 Screenshot of fast route guide present in openlane/designs/picorv32a/runs/13-11_18-24/tmp/routing directory
 
