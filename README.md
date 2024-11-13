@@ -4832,10 +4832,12 @@ Commands to run STA:
 cd Desktop/work/tools/openlane_working_dir/openlane
 sta pre_sta.conf
 ```
+![Screenshot from 2024-11-13 22-52-48](https://github.com/user-attachments/assets/3fa6dd43-ea1c-4578-8b1f-15741313173b)
 
-![image](https://github.com/user-attachments/assets/760b99e9-f70b-4bbb-b71e-a838abb52a3f)
+![Screenshot from 2024-11-13 22-52-52](https://github.com/user-attachments/assets/b58d256e-fd53-4365-9ea8-811a196adbd4)
 
-![image](https://github.com/user-attachments/assets/3cd8817a-4764-411c-b665-ea526cc450dc)
+![Screenshot from 2024-11-13 22-52-57](https://github.com/user-attachments/assets/0599bfaa-fb55-4a51-beda-1c843c3a151a)
+
 
 **Basic timing ECO**
 
@@ -5009,7 +5011,7 @@ gen_pdn
 Then, open a new terminal and navigate to the floorplan directory:
 
 ```bash
-cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/25-03_18-52/tmp/floorplan/
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/13-11_08-51/tmp/floorplan/
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read 18-pdn.def &
 ```
 
