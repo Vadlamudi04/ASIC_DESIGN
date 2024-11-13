@@ -4514,9 +4514,9 @@ Using transient response:
 
 Example calculations:
 ```
-Rise Transition : 2.24638 - 2.18242 =  0.06396 ns = 63.96 ps
+Rise Transition : 2.2424 - 2.1819 = 0.0605 = 60.6 ps
 Fall Transition : 4.0955 - 4.05536 =  0.0419 ns = 41.9 ps
-Cell Rise Delay : 2.21144 - 2.15008 = 0.06136 ns = 61.36 ps
+Rise Cell Delay =  2.20722 - 2.1501 = 0.05712 = 57.12 ps
 Cell Fall Delay : 4.07807 - 4.05 =0.02 ns = 20 ps
 ```
 
