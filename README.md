@@ -5094,12 +5094,96 @@ report_checks -path_delay min_max -fields {slew trans net cap input_pins} -forma
 exit
 
 ```
-
+</details>
 </details>
 
+<details>
+<summary><strong>Lab Session 14:</strong>OpenRoad Physical Design.</summary>
+
+## Tool Installation
+
+Installing and setting up ORFS:-
+
+```
+
+git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
+
+cd OpenROAD-flow-scripts
+
+sudo ./setup.sh
+
+```
+
+Build tool on local machine command:
+
+```
+
+./build_openroad.sh --local
+
+```
+
+To verify Installation:
+
+```
+
+source ./env.sh
+
+yosys -help
+
+openroad -help
+
+cd flow
+
+make
+
+make gui_final
+
+```
+
+
+Automated RTL2GDS Flow for VSDBabySoC:
+
+- Create a directory named `vsdbabysoc` inside `OpenROAD-flow-scripts/flow/designs/sky130hd`.  
+- Copy the folders `gds`, `include`, `lef`, and `lib` from the `VSDBabySoC` folder on your system into this new directory.  
+
+- Ensure the following files are present in each folder:  
+  - **gds folder**: `avsddac.gds`, `avsdpll.gds`  
+  - **include folder**: `sandpiper.vh`, `sandpiper_gen.vh`, `sp_default.vh`, `sp_verilog.vh`  
+  - **lef folder**: `avsddac.lef`, `avsdpll.lef`  
+  - **lib folder**: `avsddac.lib`, `avsdpll.lib`  
+
+- Copy the constraints file `vsdbabysoc_synthesis.sdc` from the `VSDBabySoC` folder into the `vsdbabysoc` directory.  
+- Copy the files `macro.cfg` and `pin_order.cfg` from the `VSDBabySoC` folder into the same directory.  
+
+
+Now run the following commands in terminal:
+
+```
+
+cd OpenROAD-flow-scripts
+
+source env.sh
+
+cd flow
+
+```
+
+### Commands for synthesis:
+
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk synth
+```
+
+
+### Commands for floorplan:
+
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk floorplan
+```
 
 
 
+</details>
 
 
 
