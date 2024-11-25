@@ -5148,6 +5148,13 @@ make gui_final
 
 ![PHOTO-2024-11-26-01-29-15](https://github.com/user-attachments/assets/7f3fc339-4848-4c68-8cb3-e834a5e0a62b)
 
+**Understanding the directory structure:**
+
+<img width="860" alt="Screenshot 2024-11-26 at 4 41 25 AM" src="https://github.com/user-attachments/assets/47eadc36-3f74-47c0-b6ac-69c5fcca9d3c">
+
+<img width="776" alt="Screenshot 2024-11-26 at 4 41 54 AM" src="https://github.com/user-attachments/assets/bb0261ed-ba0e-47b6-9b0d-668314d14602">
+
+
 Automated RTL2GDS Flow for VSDBabySoC:
 
 - Create a directory named `vsdbabysoc` inside `OpenROAD-flow-scripts/flow/designs/sky130hd`.  
