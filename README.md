@@ -5122,6 +5122,8 @@ Build tool on local machine command:
 
 ```
 
+![PHOTO-2024-11-26-01-40-31](https://github.com/user-attachments/assets/3af18399-3888-4067-a4b3-13ca90ff6920)
+
 To verify Installation:
 
 ```
@@ -5140,6 +5142,11 @@ make gui_final
 
 ```
 
+![PHOTO-2024-11-26-01-27-37](https://github.com/user-attachments/assets/f9ca414e-e440-41cb-abfb-b82d52f00db1)
+
+![PHOTO-2024-11-26-01-27-25](https://github.com/user-attachments/assets/34ac0227-590a-4922-b1a3-8133dd3b9fc4)
+
+![PHOTO-2024-11-26-01-29-15](https://github.com/user-attachments/assets/7f3fc339-4848-4c68-8cb3-e834a5e0a62b)
 
 Automated RTL2GDS Flow for VSDBabySoC:
 
@@ -5174,12 +5181,28 @@ cd flow
 make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk synth
 ```
 
+![PHOTO-2024-11-26-01-29-23](https://github.com/user-attachments/assets/f8c8ad90-faab-444c-9170-bcc2db535a89)
+
+Synthesis Reports:
+
+![PHOTO-2024-11-26-01-29-35](https://github.com/user-attachments/assets/5ef30758-e8b4-4471-a190-58f7ca838a33)
+
+![PHOTO-2024-11-26-01-30-07](https://github.com/user-attachments/assets/20836088-539f-4030-b81a-08e4b626e32d)
+
+![PHOTO-2024-11-26-01-30-14](https://github.com/user-attachments/assets/8cd70e91-663f-470d-968d-56c954372111)
+
+![PHOTO-2024-11-26-01-29-47](https://github.com/user-attachments/assets/eccac695-bdef-46a9-a7df-ca66360824f7)
+
+![PHOTO-2024-11-26-01-39-04](https://github.com/user-attachments/assets/493abbdc-b6f8-4af2-930e-97f9d89fb2e2)
+
+![PHOTO-2024-11-26-01-29-58](https://github.com/user-attachments/assets/aa8ca43e-16e9-439b-97b0-f0ad2ec129d6)
 
 ### Commands for floorplan:
 
 ```
 make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk floorplan
 ```
+
 
 
 
